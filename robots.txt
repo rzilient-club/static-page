@@ -1,0 +1,3 @@
+# If you want to block a single page (example):
+User-agent: *
+Disallow: /tech-documentation.html

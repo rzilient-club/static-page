@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>_rzilient.tech — Infrastructure & API Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="rzilient.tech hosts secure backend services, APIs, and developer documentation for the _rzilient IT management platform.">
+  <link rel="icon" type="image/x-icon" href="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Google Identity Services for SSO gate -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- Auth Modal -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-modal">
+    <button class="auth-modal-close" onclick="closeAuthModal()">&times;</button>
+    <div class="auth-icon">🔬</div>
+    <h3>R&D Documentation</h3>
+    <p>
+      This section is restricted to _rzilient team members.<br>
+      Sign in with your <span class="domain-badge">@rzilient.club</span> account to continue.
+    </p>
+    <button class="google-signin-btn" id="googleBtn" onclick="initiateGoogleSignIn()">
+      <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.02 10.02 0 0 0 2 12c0 1.61.39 3.14 1.07 4.49l3.77-2.4z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Sign in with Google
+    </button>
+    <div class="auth-error" id="authError"></div>
+    <div class="auth-user" id="authUser">
+      <img id="authUserPic" src="" alt="">
+      <span id="authUserName"></span>
+    </div>
+    <div id="fallbackForm" style="display:none; margin-top: 24px;">
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px; font-family: var(--mono); text-align: center;">
+        Google SSO not configured — password fallback
+      </p>
+      <label class="fb-label">Username</label>
+      <input type="text" id="fbUser" class="fb-input" autocomplete="username" placeholder="your.name">
+      <label class="fb-label">Password</label>
+      <input type="password" id="fbPass" class="fb-input" autocomplete="current-password" placeholder="••••••••">
+      <button class="fb-submit" onclick="checkFallbackAuth()">Sign In</button>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="/">
+      <img src="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg" alt="_rzilient">
+      <span>_rzilient<span class="tech">.tech</span></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/docs/">API Docs</a>
+      <a class="nav-link" href="https://developers.rzilient.tech" target="_blank">Developers</a>
+      <a class="nav-link" href="https://vpn.rzilient.tech">VPN</a>
+      <a class="nav-link" href="https://rzilient.club/en" target="_blank">Website</a>
+      <a class="nav-link primary" href="https://join.rzilient.club" target="_blank">Platform →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <a class="hero-badge" href="status.html" rel="noopener noreferrer">
+      <span class="dot"></span>
+      All systems operational
+    </a>
+    <h1>_secure <span class="accent">infrastructure</span><br>for IT management</h1>
+    <p class="hero-sub">
+      This domain hosts the backend services, APIs, and developer tooling that power the _rzilient IT automation platform.
+    </p>
+    <div class="endpoint-bar">
+      <span class="method">GET</span>
+      <span><span class="url">api.rzilient.tech</span><span class="path">/v1/devices</span></span>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services reveal">
+    <p class="section-label">What runs here</p>
+    <h2 class="section-title">_core_services</h2>
+    <p class="section-desc">The _rzilient.tech domain powers authentication, device management, and real-time telemetry across the platform.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>Identity & Auth</h3>
+        <p>SSO, OAuth 2.0, and SAML-based authentication for enterprise identity providers. Secure token management and session handling.</p>
+        <span class="tag">auth.rzilient.tech</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h3>Device Management</h3>
+        <p>MDM agent communication, zero-touch enrollment, automated provisioning, and real-time device state synchronization.</p>
+        <span class="tag">mdm.rzilient.tech</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📡</div>
+        <h3>Telemetry & Events</h3>
+        <p>Real-time device health monitoring, performance metrics collection, predictive alerts, and anomaly detection pipelines.</p>
+        <span class="tag">telemetry.rzilient.tech</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Automation Engine</h3>
+        <p>Workflow orchestration for onboarding, offboarding, device rotation, and compliance enforcement across distributed fleets.</p>
+        <span class="tag">workflows.rzilient.tech</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>AI/ML Services</h3>
+        <p>Intelligent asset lifecycle predictions, anomaly scoring, proactive maintenance scheduling, and natural language IT support.</p>
+        <span class="tag">ml.rzilient.tech</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔗</div>
+        <h3>Integrations Hub</h3>
+        <p>Connectors for Google Workspace, Microsoft 365, Slack, Jamf, and third-party ITSM platforms via webhooks and REST APIs.</p>
+        <span class="tag">integrations.rzilient.tech</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="quick-links reveal">
+    <p class="section-label">Quick access</p>
+    <h2 class="section-title">_resources</h2>
+    <p class="section-desc">Everything you need to work with the _rzilient platform.</p>
+    <div class="links-grid">
+      <a class="link-card" href="https://developers.rzilient.tech" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">📖</div>
+        <div class="link-text">
+          <h4>API Documentation</h4>
+          <p>REST API reference, SDKs, and guides</p>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+      <a class="link-card" href="https://join.rzilient.club" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🚀</div>
+        <div class="link-text">
+          <h4>Platform Login</h4>
+          <p>Access your IT management dashboard</p>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+      <a class="link-card" href="https://rzilient.club/en" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🌐</div>
+        <div class="link-text">
+          <h4>rzilient.club</h4>
+          <p>Product info, pricing, and demos</p>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+      <!-- R&D — auth gated -->
+      <div class="link-card locked" id="rndCard" onclick="handleRndClick(event)">
+        <div class="link-icon">🔬</div>
+        <div class="link-text">
+          <h4>R&D Documentation</h4>
+          <p>Technical research and innovation projects</p>
+        </div>
+        <span class="lock-icon" id="rndLockLabel">🔒 Internal</span>
+      </div>
+      <a class="link-card" href="https://www.rzilient.club/en/demo" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🎯</div>
+        <div class="link-text">
+          <h4>Book a Demo</h4>
+          <p>See the platform in action</p>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+      <a class="link-card" href="status.html" rel="noopener noreferrer">
+        <div class="link-icon">📊</div>
+        <div class="link-text">
+          <h4>System Status</h4>
+          <p>Uptime and incident reports</p>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Tech Stack with logos -->
+  <section class="stack reveal">
+    <p class="section-label">Built with</p>
+    <h2 class="section-title">_tech_stack</h2>
+    <p class="section-desc">The technologies powering our platform and infrastructure.</p>
+    <div class="stack-grid">
+      <a class="stack-item" href="https://www.ruby-lang.org" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original.svg" alt="Ruby"> Ruby
+      </a>
+      <a class="stack-item" href="https://rubyonrails.org" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rails/rails-plain.svg" alt="Rails"> Rails
+      </a>
+      <a class="stack-item" href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript"> TypeScript
+      </a>
+      <a class="stack-item" href="https://react.dev" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"> React
+      </a>
+      <a class="stack-item" href="https://go.dev" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" alt="Go"> Go
+      </a>
+      <a class="stack-item" href="https://ziglang.org" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/zig/zig-original.svg" alt="Zig"> Zig
+      </a>
+      <a class="stack-item" href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"> PostgreSQL
+      </a>
+      <a class="stack-item" href="https://redis.io" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" alt="Redis"> Redis
+      </a>
+      <a class="stack-item" href="https://www.docker.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker"> Docker
+      </a>
+      <a class="stack-item" href="https://kubernetes.io" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" alt="Kubernetes"> Kubernetes
+      </a>
+      <a class="stack-item" href="https://www.terraform.io" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" alt="Terraform"> Terraform
+      </a>
+      <a class="stack-item" href="https://www.digitalocean.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/digitalocean/digitalocean-original.svg" alt="DigitalOcean"> DigitalOcean
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      &copy; _rzilient | <span id="year"></span> &middot; _rzilient group — Paris, France
+    </div>
+    <div class="footer-links">
+      <a href="/terms-of-service-en.html">Terms of Service</a>
+      <a href="/privacy-policy-en.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ============================================================
+  // R&D Auth Gate — Google SSO restricted to @rzilient.club
+  // ============================================================
+  //
+  // SETUP (Google Cloud Console):
+  //   1. Go to console.cloud.google.com → APIs & Services → Credentials
+  //   2. Create an OAuth 2.0 Client ID (type: Web application)
+  //   3. Add https://rzilient.tech to Authorized JavaScript origins
+  //   4. Replace the placeholder below with the real Client ID
+  //   5. Remove or change the fallback credentials
+  //
+  const GOOGLE_CLIENT_ID = '545154399333-b57hjrurd1mmrvuv0r91cavuh7imq67a.apps.googleusercontent.com';
+  const ALLOWED_DOMAIN   = 'rzilient.club';
+  const RND_URL          = '/tech-documentation.html';
+  const AUTH_KEY          = 'rzilient_rnd_auth';
+
+  // ---- Fallback credentials (used until Google SSO is configured) ----
+  const FALLBACK_USER = 'rzilient';
+  const FALLBACK_PASS = 'rnd2025!';
+
+  function isAuthenticated() {
+    try {
+      const d = JSON.parse(sessionStorage.getItem(AUTH_KEY));
+      if (d && d.domain === ALLOWED_DOMAIN && d.ts && (Date.now() - d.ts < 8 * 3600000)) return d;
+    } catch (e) {}
+    return null;
+  }
+
+  function updateRndCard() {
+    const card  = document.getElementById('rndCard');
+    const label = document.getElementById('rndLockLabel');
+    if (isAuthenticated()) {
+      card.classList.add('authenticated');
+      label.textContent = '✓ Authenticated';
+    }
+  }
+
+  function handleRndClick(e) {
+    e.preventDefault();
+    if (isAuthenticated()) {
+      window.location.href = RND_URL;
+    } else {
+      openAuthModal();
+    }
+  }
+
+  function openAuthModal() {
+    document.getElementById('authOverlay').classList.add('active');
+    document.getElementById('authError').classList.remove('visible');
+    document.getElementById('authUser').classList.remove('visible');
+  }
+
+  function closeAuthModal() {
+    document.getElementById('authOverlay').classList.remove('active');
+  }
+
+  document.getElementById('authOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeAuthModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeAuthModal();
+  });
+
+  function initiateGoogleSignIn() {
+    if (GOOGLE_CLIENT_ID.startsWith('YOUR_')) {
+      // Show fallback password form
+      document.getElementById('googleBtn').style.display = 'none';
+      document.getElementById('fallbackForm').style.display = 'block';
+      document.getElementById('fbUser').focus();
+      return;
+    }
+
+    google.accounts.id.initialize({
+      client_id: GOOGLE_CLIENT_ID,
+      callback: handleGoogleResponse,
+      hd: ALLOWED_DOMAIN
+    });
+
+    google.accounts.id.prompt((notification) => {
+      if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+        google.accounts.id.renderButton(
+          document.querySelector('.google-signin-btn'),
+          { theme: 'outline', size: 'large', width: 300 }
+        );
+      }
+    });
+  }
+
+  function handleGoogleResponse(response) {
+    try {
+      const payload = JSON.parse(atob(response.credential.split('.')[1]));
+      const email   = payload.email || '';
+      const domain  = email.split('@')[1];
+
+      if (domain !== ALLOWED_DOMAIN) {
+        showAuthError('Access restricted to @' + ALLOWED_DOMAIN + '. Signed in as ' + email);
+        return;
+      }
+
+      sessionStorage.setItem(AUTH_KEY, JSON.stringify({
+        email: email, name: payload.name, picture: payload.picture,
+        domain: domain, ts: Date.now()
+      }));
+
+      document.getElementById('authUserPic').src = payload.picture || '';
+      document.getElementById('authUserName').textContent = payload.name + ' (' + email + ')';
+      document.getElementById('authUser').classList.add('visible');
+      document.getElementById('authError').classList.remove('visible');
+      updateRndCard();
+
+      setTimeout(() => { closeAuthModal(); window.location.href = RND_URL; }, 1200);
+    } catch (e) {
+      showAuthError('Authentication failed. Please try again.');
+    }
+  }
+
+  function showAuthError(msg) {
+    const el = document.getElementById('authError');
+    el.textContent = msg;
+    el.classList.add('visible');
+  }
+
+  function checkFallbackAuth() {
+    const user = document.getElementById('fbUser').value.trim();
+    const pass = document.getElementById('fbPass').value;
+    if (user === FALLBACK_USER && pass === FALLBACK_PASS) {
+      sessionStorage.setItem(AUTH_KEY, JSON.stringify({
+        email: user + '@rzilient.club', name: user,
+        domain: ALLOWED_DOMAIN, ts: Date.now()
+      }));
+      updateRndCard();
+      closeAuthModal();
+      window.location.href = RND_URL;
+    } else {
+      showAuthError('Invalid credentials.');
+    }
+  }
+
+  // Enter key for fallback form
+  document.getElementById('fallbackForm').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkFallbackAuth();
+  });
+
+  // Init
+  updateRndCard();
+</script>
+
+</body>
+</html>

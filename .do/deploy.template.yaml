@@ -1,0 +1,8 @@
+spec:
+  name: static-page
+  static_sites:
+  - environment_slug: html
+    git:
+      branch: main
+      repo_clone_url: https://github.com/rzilient-club/static-page.git
+    name: static-page

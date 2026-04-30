@@ -1,0 +1,8 @@
+name: static-page
+static_sites:
+- environment_slug: html
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: rzilient-club/static-page
+  name: static-page

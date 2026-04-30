@@ -1,0 +1,1479 @@
+openapi: 3.1.0
+info:
+  title: rzilient External API
+  version: 1.1.0
+  description: |
+    External API for rzilient platform — manages employees, fleet devices,
+    orders, inventory, notifications and webhooks for third-party integrations.
+
+    ## Authentication
+
+    All endpoints (unless noted) require a **Bearer token** in the `Authorization` header.
+
+    **Token hierarchy:**
+    1. Obtain a **root token** via `POST /token` using HTTP Basic Auth (provider email + password).
+    2. Create a **company-scoped token** via `POST /enroll` using the root token.
+    3. Use the company-scoped token for all other endpoints.
+
+    ## Pagination
+
+    All list endpoints support pagination via query parameters:
+
+    | Parameter | Type | Default | Description |
+    |---|---|---|---|
+    | `page` | integer | 1 | Page number (1-indexed) |
+    | `per` | integer | 50 | Records per page (max 100) |
+    | `limit` | integer | — | Shorthand: returns first N records (overrides `per`) |
+
+    Paginated responses include a `meta` object:
+
+    ```json
+    {
+      "meta": { "page": 1, "per": 50, "total": 342, "pages": 7 },
+      "items": [...]
+    }
+    ```
+
+    Pagination info is also returned in response headers:
+    `X-Total-Count`, `X-Total-Pages`, `X-Current-Page`, `X-Per-Page`.
+
+    ## Rate Limits
+
+    | Scope | Limit |
+    |---|---|
+    | Global (all external endpoints) | 5 000 req/min per IP |
+    | Devices GET | 100 req/min per IP |
+    | Devices PUT | 100 req/min per IP |
+
+    Exceeding limits returns `429 Too Many Requests` with a `Retry-After: 86400` header
+    and blocks the IP for 24 hours.
+
+  license:
+    name: Proprietary
+    identifier: LicenseRef-rzilient
+  contact:
+    name: rzilient Engineering
+    url: https://rzilient.club
+    email: support@rzilient.club
+
+servers:
+  - url: https://api.rzilient.tech/api/external/v1
+    description: Production
+  - url: https://staging.rzilient.tech/api/external/v1
+    description: Staging
+
+security:
+  - bearerToken: []
+
+components:
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      description: Company-scoped API token obtained via the `/enroll` endpoint.
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Provider email and password. Used only for the `/token` endpoint.
+
+  schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: string
+          example: system.standard.error
+        error:
+          type: string
+          example: Record not found
+
+    PaginationMeta:
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Current page number.
+          example: 1
+        per:
+          type: integer
+          description: Records per page.
+          example: 50
+        total:
+          type: integer
+          description: Total number of records.
+          example: 342
+        pages:
+          type: integer
+          description: Total number of pages.
+          example: 7
+
+    ApiKey:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        bearer_type:
+          type: string
+          enum: [Provider]
+        bearer_id:
+          type: string
+          format: uuid
+        referable_type:
+          type: string
+          enum: [Provider, Company]
+        referable_id:
+          type: string
+          format: uuid
+        token:
+          type: string
+          description: The raw token value. Store securely — it cannot be retrieved again.
+
+    ClientSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: ['string', 'null']
+        role:
+          type: string
+          enum: [employee, manager, admin]
+        position:
+          type: string
+          description: Human-readable area/position label.
+        site:
+          type: ['string', 'null']
+        address_street:
+          type: ['string', 'null']
+        onboarding_date:
+          type: ['string', 'null']
+          format: date
+        offboarding_date:
+          type: ['string', 'null']
+          format: date
+        active:
+          type: boolean
+
+    ClientCreateRequest:
+      type: object
+      required: [client]
+      properties:
+        client:
+          type: object
+          required: [email]
+          properties:
+            email:
+              type: string
+              format: email
+            first_name:
+              type: string
+            last_name:
+              type: string
+            role:
+              type: string
+              enum: [employee, manager, admin]
+              default: employee
+            area:
+              type: integer
+              default: 0
+            address_street:
+              type: string
+            phone_number:
+              type: string
+            onboarding_date:
+              type: string
+              format: date
+            offboarding_date:
+              type: string
+              format: date
+            active:
+              type: boolean
+            userId:
+              type: string
+              description: External system user ID to store in `mdm_ids`.
+
+    ClientUpdateRequest:
+      type: object
+      properties:
+        client:
+          type: object
+          properties:
+            first_name:
+              type: string
+            last_name:
+              type: string
+            role:
+              type: string
+              enum: [employee, manager, admin]
+            area:
+              type: integer
+            address_street:
+              type: string
+            phone_number:
+              type: string
+            onboarding_date:
+              type: string
+              format: date
+            offboarding_date:
+              type: string
+              format: date
+            active:
+              type: boolean
+            userId:
+              type: string
+
+    FleetDevice:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        brand:
+          type: string
+        model:
+          type: string
+        category:
+          type: string
+        serial_number:
+          type: string
+        imei:
+          type: ['string', 'null']
+        telemetry:
+          type: ['string', 'null']
+        device_name:
+          type: ['string', 'null']
+        hardware:
+          type: object
+          properties:
+            keyboard_layout:
+              type: ['string', 'null']
+            processor:
+              type: ['string', 'null']
+            memory:
+              type: integer
+              description: RAM in GB
+            storage:
+              type: integer
+              description: Storage in GB
+            capacity:
+              type: ['object', 'null']
+            graphics:
+              type: ['object', 'null']
+        os:
+          type: ['object', 'null']
+          properties:
+            system:
+              type: string
+            version:
+              type: string
+            name:
+              type: string
+        mdm:
+          type: object
+          properties:
+            id:
+              type: ['string', 'null']
+            status:
+              type: string
+            online:
+              type: boolean
+            provider:
+              type: string
+        security:
+          type: object
+          properties:
+            encryption:
+              type: ['object', 'null']
+            recovery_information:
+              type: ['object', 'null']
+        enrollment:
+          type: object
+          properties:
+            device_enrollment_program:
+              type: ['object', 'null']
+        tags:
+          type: array
+          items:
+            type: string
+        suggestions:
+          type: ['object', 'null']
+        last_updated_at:
+          type: string
+          format: date-time
+        assigned_to:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: Client UUID or `0` if unassigned.
+
+    FleetCreateRequest:
+      type: object
+      required: [device]
+      properties:
+        device:
+          type: object
+          required: [serial_number, brand, model]
+          properties:
+            serial_number:
+              type: string
+            brand:
+              type: string
+            model:
+              type: string
+            category:
+              type: string
+              default: Laptops
+            imei:
+              type: string
+            description:
+              type: string
+            device_name:
+              type: string
+            release_year:
+              type: integer
+            tags:
+              type: array
+              items:
+                type: string
+            hardware:
+              type: object
+              properties:
+                memory:
+                  type: integer
+                capacity:
+                  type: integer
+                keyboard_layout:
+                  type: string
+                storage:
+                  type: integer
+                processor:
+                  type: string
+                architecture:
+                  type: string
+                cores:
+                  type: integer
+                graphics:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      vendor:
+                        type: string
+                      product:
+                        type: string
+            os:
+              type: object
+              properties:
+                system:
+                  type: string
+                version:
+                  type: string
+                name:
+                  type: string
+            security:
+              type: object
+              properties:
+                encryption:
+                  type: object
+                  properties:
+                    method:
+                      type: string
+                    encrypted:
+                      type: boolean
+            mdm:
+              type: object
+              properties:
+                provider:
+                  type: string
+                id:
+                  type: string
+                online:
+                  type: boolean
+                status:
+                  type: string
+            assigned_to:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+
+    FleetCreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        assigned_to:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+
+    OrderSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        order_type:
+          type: string
+        step:
+          type: integer
+        label:
+          type: string
+        total_amount:
+          type: number
+          format: float
+        status:
+          type: string
+          enum: [draft, confirmed, waiting, approved, in_progress, in_preparation, shipped, completed, cancelled]
+        requested_delivery_date:
+          type: ['string', 'null']
+          format: date
+        scheduled_order_date:
+          type: ['string', 'null']
+          format: date
+        notification:
+          type: ['object', 'null']
+        remove_account:
+          type: ['boolean', 'null']
+        remove_profile:
+          type: ['boolean', 'null']
+        contact_phone:
+          type: ['string', 'null']
+        contact_email:
+          type: ['string', 'null']
+          format: email
+        billing_type:
+          type: string
+        installation_needed:
+          type: ['boolean', 'null']
+        comment:
+          type: ['string', 'null']
+        created_at:
+          type: string
+          format: date-time
+        parcel:
+          type: ['array', 'null']
+          items:
+            type: object
+        delivery_address:
+          type: ['string', 'null']
+        pickup_address_attributes:
+          type: ['object', 'null']
+        recipient:
+          type: ['object', 'null']
+        client:
+          type: ['object', 'null']
+        order_items_attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+
+    OrderItem:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        label:
+          type: string
+        subscription:
+          type: ['object', 'null']
+        unit_price:
+          type: number
+          format: float
+        quantity:
+          type: integer
+        orderable:
+          type: ['object', 'null']
+
+    TrackingRequest:
+      type: object
+      required: [tracking]
+      properties:
+        tracking:
+          type: object
+          required: [status, number, url]
+          properties:
+            status:
+              type: string
+              example: Shipped
+            number:
+              type: string
+              example: "232323232"
+            url:
+              type: string
+              format: uri
+              example: http://www.carrier.text
+            carrier:
+              type: string
+              example: DHL
+
+    InventoryIndex:
+      type: object
+      properties:
+        computers:
+          type: array
+          items:
+            type: object
+        products:
+          type: array
+          items:
+            type: object
+
+    InventoryCreateRequest:
+      type: object
+      required: [inventory]
+      properties:
+        inventory:
+          type: array
+          items:
+            type: object
+            required: [type, category, brand, model, sku]
+            properties:
+              type:
+                type: string
+                enum: [Product, Computer, Service]
+              category:
+                type: string
+              brand:
+                type: string
+              model:
+                type: string
+              description:
+                type: string
+              sku:
+                type: string
+              price:
+                type: number
+                format: float
+              stock:
+                type: integer
+              release_year:
+                type: integer
+              screen:
+                type: string
+              graphics:
+                type: string
+              webcam:
+                type: boolean
+              keyboard_layout:
+                type: string
+              processor:
+                type: string
+              storage:
+                type: integer
+              storage_type:
+                type: string
+                enum: [SSD, HDD, SHDD, M2SSD]
+              memory:
+                type: integer
+              picture_url:
+                type: string
+                format: uri
+
+    NotificationIndex:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+        notifications:
+          type: array
+          items:
+            type: object
+            description: Notification object (varies by event type).
+
+    CallbackRequest:
+      type: object
+      required: [event, element, data]
+      properties:
+        event:
+          type: string
+          enum: [create, update, change]
+        element:
+          type: string
+          enum: [order, referral]
+        data:
+          type: object
+          description: Payload depends on element type.
+          additionalProperties: true
+
+    EnrollRequest:
+      type: object
+      required: [company]
+      properties:
+        company:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+              format: email
+
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    PageParam:
+      name: page
+      in: query
+      description: Page number (1-indexed).
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    PerParam:
+      name: per
+      in: query
+      description: Records per page (max 100).
+      schema:
+        type: integer
+        default: 50
+        maximum: 100
+    LimitParam:
+      name: limit
+      in: query
+      description: Shorthand — returns first N records (overrides `per`).
+      schema:
+        type: integer
+        maximum: 100
+
+  headers:
+    X-Total-Count:
+      description: Total number of records.
+      schema:
+        type: integer
+    X-Total-Pages:
+      description: Total number of pages.
+      schema:
+        type: integer
+    X-Current-Page:
+      description: Current page number.
+      schema:
+        type: integer
+    X-Per-Page:
+      description: Records per page.
+      schema:
+        type: integer
+
+paths:
+  /ping:
+    get:
+      operationId: ping
+      summary: Health check
+      description: Returns `200 OK` if the API is reachable. Requires a valid Bearer token.
+      tags: [Authentication]
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+
+  /token:
+    post:
+      operationId: createRootToken
+      summary: Create root token
+      description: |
+        Authenticates a **Provider** using HTTP Basic Auth and returns a root API key.
+        The root token is used to create company-scoped tokens via `/enroll`.
+        Any previous root token for this provider is revoked.
+      tags: [Authentication]
+      security:
+        - basicAuth: []
+      responses:
+        '201':
+          description: Root token created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+        '401':
+          description: Invalid credentials.
+
+  /enroll:
+    post:
+      operationId: enrollCompany
+      summary: Create company-scoped token
+      description: |
+        Creates a token scoped to a specific company. Requires a **root token**.
+        The returned token should be used for all subsequent API calls.
+      tags: [Authentication]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnrollRequest'
+      responses:
+        '201':
+          description: Company token created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+        '401':
+          description: Not a root token.
+
+  /tokens:
+    get:
+      operationId: listTokens
+      summary: List API keys
+      description: Returns all API keys belonging to the current bearer.
+      tags: [Authentication]
+      responses:
+        '200':
+          description: List of API keys.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiKey'
+        '401':
+          description: Unauthorized.
+
+  /tokens/{id}:
+    delete:
+      operationId: revokeToken
+      summary: Revoke an API key
+      tags: [Authentication]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Token revoked.
+        '404':
+          description: Token not found.
+
+  /clients:
+    get:
+      operationId: listClients
+      summary: List employees
+      description: Returns all employees (clients) for the company linked to the API token.
+      tags: [Employees]
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/PerParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: Paginated list of employees.
+          headers:
+            X-Total-Count:
+              $ref: '#/components/headers/X-Total-Count'
+            X-Total-Pages:
+              $ref: '#/components/headers/X-Total-Pages'
+            X-Current-Page:
+              $ref: '#/components/headers/X-Current-Page'
+            X-Per-Page:
+              $ref: '#/components/headers/X-Per-Page'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+                  clients:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ClientSummary'
+        '401':
+          description: Unauthorized.
+    post:
+      operationId: createClient
+      summary: Create / invite an employee
+      description: |
+        Creates a new client (employee) and sends an invitation email.
+        The `userId` field is stored in `mdm_ids` under the bearer's integration name.
+      tags: [Employees]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientCreateRequest'
+      responses:
+        '200':
+          description: Employee created.
+        '400':
+          description: Missing required parameter (email).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /clients/{id}:
+    get:
+      operationId: showClient
+      summary: Get employee details
+      tags: [Employees]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Employee details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientSummary'
+        '404':
+          description: Not found.
+    put:
+      operationId: updateClient
+      summary: Update employee
+      tags: [Employees]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientUpdateRequest'
+      responses:
+        '200':
+          description: Employee updated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: client.updated
+        '422':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /clients/{id}/deactivate:
+    put:
+      operationId: deactivateClient
+      summary: Archive (deactivate) an employee
+      description: Archives the employee, preventing platform access.
+      tags: [Employees]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Employee archived.
+        '404':
+          description: Not found.
+
+  /clients/{id}/activate:
+    put:
+      operationId: activateClient
+      summary: Unarchive (activate) an employee
+      description: Restores a previously archived employee.
+      tags: [Employees]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Employee activated.
+        '404':
+          description: Not found.
+
+  /clients/upload:
+    post:
+      operationId: uploadClients
+      summary: Bulk upload employees via CSV
+      description: |
+        Accepts a CSV file to bulk-create employees. Requires the bearer to be an
+        Integration with a matching `UploadClientJob` importer.
+      tags: [Employees]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [clients]
+              properties:
+                clients:
+                  type: string
+                  format: binary
+                  description: CSV file with employee data.
+      responses:
+        '200':
+          description: Upload job enqueued.
+        '422':
+          description: Bearer is not a valid integration.
+
+  /fleet:
+    get:
+      operationId: listFleet
+      summary: List fleet devices
+      description: Returns all company articles (devices) for the current tenant.
+      tags: [Fleet]
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/PerParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: Paginated fleet listing.
+          headers:
+            X-Total-Count:
+              $ref: '#/components/headers/X-Total-Count'
+            X-Total-Pages:
+              $ref: '#/components/headers/X-Total-Pages'
+            X-Current-Page:
+              $ref: '#/components/headers/X-Current-Page'
+            X-Per-Page:
+              $ref: '#/components/headers/X-Per-Page'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+                  devices:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FleetDevice'
+        '401':
+          description: Unauthorized.
+    post:
+      operationId: createFleetDevice
+      summary: Create a fleet device
+      description: Creates a new company article (device) in the fleet.
+      tags: [Fleet]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FleetCreateRequest'
+      responses:
+        '200':
+          description: Device created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FleetCreateResponse'
+        '422':
+          description: Validation error.
+
+  /fleet/{id}:
+    get:
+      operationId: showFleetDevice
+      summary: Get fleet device details
+      tags: [Fleet]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Device details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FleetDevice'
+        '404':
+          description: Not found.
+    put:
+      operationId: updateFleetDevice
+      summary: Update a fleet device
+      tags: [Fleet]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FleetCreateRequest'
+      responses:
+        '200':
+          description: Device updated.
+        '422':
+          description: Validation error.
+
+  /fleet/sync:
+    get:
+      operationId: forceSync
+      summary: Force MDM device sync
+      description: |
+        Triggers an asynchronous MDM device synchronisation for the company.
+        Enqueues `SyncClientsJob` and `SyncArticlesJob`.
+      tags: [Fleet]
+      responses:
+        '200':
+          description: Sync jobs enqueued.
+        '422':
+          description: Sync failed.
+
+  /devices/{id}:
+    get:
+      operationId: checkDevice
+      summary: Check if device is active
+      description: |
+        Returns `true`/`false` indicating whether the device exists and is enabled.
+        Used by the SIoT-Telemetry agent. The `id` parameter is the device serial number
+        (must contain both letters and digits).
+      tags: [Devices]
+      security: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9]+'
+          description: Device serial number (alphanumeric, must contain both letters and digits).
+      responses:
+        '200':
+          description: Device status.
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '404':
+          description: Device not found.
+    put:
+      operationId: updateDevice
+      summary: Update device telemetry data
+      description: |
+        Updates hardware specs, OS info, security, and installed applications
+        for a device. Used by the SIoT-Telemetry agent. Throttled to once per 5 minutes
+        in production.
+      tags: [Devices]
+      security: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9]+'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serial_number:
+                  type: string
+                platform:
+                  type: object
+                  properties:
+                    os:
+                      type: string
+                      enum: [darwin, windows]
+                    name:
+                      type: string
+                    version:
+                      type: string
+                    family:
+                      type: string
+                    architecture:
+                      type: string
+                memory:
+                  type: number
+                  description: Memory in bytes.
+                storage:
+                  type: number
+                  description: Storage in bytes.
+                processor:
+                  type: string
+                graphics:
+                  type: object
+                encryption:
+                  type: boolean
+                manufacturing_date:
+                  type: string
+                  description: Format `MM/DD/YYYY`.
+                programs:
+                  type: array
+                  items:
+                    type: object
+      responses:
+        '200':
+          description: Device updated.
+        '404':
+          description: Device not found.
+
+  /devices/callback:
+    post:
+      operationId: deviceCallback
+      summary: MDM webhook callback
+      description: |
+        Receives callbacks from MDMs (Workspace ONE, Jamf, etc.) using HTTP Basic Auth.
+        The webhook must be configured in the backoffice.
+      tags: [Devices]
+      security:
+        - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Callback processed.
+        '401':
+          description: Unauthorized.
+        '422':
+          description: Processing error.
+
+  /order:
+    get:
+      operationId: listOrders
+      summary: List orders
+      description: |
+        Returns orders for the current tenant. For Providers, returns orders
+        across all linked companies. For Companies, returns the company's orders.
+      tags: [Orders]
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/PerParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: Paginated order list.
+          headers:
+            X-Total-Count:
+              $ref: '#/components/headers/X-Total-Count'
+            X-Total-Pages:
+              $ref: '#/components/headers/X-Total-Pages'
+            X-Current-Page:
+              $ref: '#/components/headers/X-Current-Page'
+            X-Per-Page:
+              $ref: '#/components/headers/X-Per-Page'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meta:
+                    $ref: '#/components/schemas/PaginationMeta'
+                  orders:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/OrderSummary'
+        '401':
+          description: Unauthorized.
+
+  /order/{id}:
+    get:
+      operationId: showOrder
+      summary: Get order details
+      tags: [Orders]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Order details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderSummary'
+        '404':
+          description: Not found.
+
+  /order/{id}/tracking:
+    put:
+      operationId: updateOrderTracking
+      summary: Update order tracking
+      description: Appends tracking information (carrier, tracking number, URL) to the order's parcel array.
+      tags: [Orders]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackingRequest'
+      responses:
+        '200':
+          description: Tracking updated.
+        '422':
+          description: Processing error.
+
+  /order/{id}/approve:
+    put:
+      operationId: approveOrder
+      summary: Approve an order
+      description: |
+        Approves an order. For employee orders in `confirmed` status, transitions to `waiting`.
+        For orders in `waiting` status, runs the full approval flow.
+        **Note:** This endpoint uses internal request validation, not Bearer auth.
+      tags: [Orders]
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Order approved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderSummary'
+        '422':
+          description: Invalid order state.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /order/{id}/cancel:
+    delete:
+      operationId: cancelOrder
+      summary: Cancel an order
+      description: |
+        Cancels an order. Draft orders are destroyed; others are set to `cancelled` status.
+        **Note:** This endpoint uses internal request validation, not Bearer auth.
+      tags: [Orders]
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Order cancelled.
+        '422':
+          description: Processing error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /order/callback:
+    post:
+      operationId: orderCallback
+      summary: Order webhook callback (e.g. Inflow)
+      description: |
+        Receives webhook callbacks for order status updates (e.g. from Inflow).
+        Authenticated via HMAC.
+      tags: [Orders]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Callback processed.
+        '422':
+          description: Processing error.
+
+  /inventory:
+    get:
+      operationId: listInventory
+      summary: List provider inventory
+      description: Returns computers and products for the authenticated provider.
+      tags: [Inventory]
+      responses:
+        '200':
+          description: Inventory listing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventoryIndex'
+        '401':
+          description: Unauthorized.
+    post:
+      operationId: createInventory
+      summary: Create inventory items
+      description: |
+        Creates one or more inventory items (Computer, Product, or Service).
+        Optionally attaches product images via `picture_url`.
+        Requires Provider authentication.
+      tags: [Inventory]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InventoryCreateRequest'
+      responses:
+        '200':
+          description: Items created.
+        '422':
+          description: Validation error.
+
+  /inventory/{id}:
+    get:
+      operationId: showInventoryItem
+      summary: Get inventory item details
+      tags: [Inventory]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Inventory item.
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Not found.
+    put:
+      operationId: updateInventoryItem
+      summary: Update inventory item
+      description: |
+        Updates non-technical attributes of an inventory item (price, stock, description).
+        Technical specs (processor, memory) cannot be modified after creation.
+      tags: [Inventory]
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                inventory:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum: [Product, Computer, Service]
+                    price:
+                      type: number
+                      format: float
+                    stock:
+                      type: integer
+                    description:
+                      type: string
+                    sku:
+                      type: string
+      responses:
+        '200':
+          description: Item updated.
+        '422':
+          description: Validation error.
+
+  /notifications:
+    get:
+      operationId: listNotifications
+      summary: List recent notifications
+      description: Returns recent notifications for the company linked to the API token.
+      tags: [Notifications]
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/PerParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: Paginated notifications.
+          headers:
+            X-Total-Count:
+              $ref: '#/components/headers/X-Total-Count'
+            X-Total-Pages:
+              $ref: '#/components/headers/X-Total-Pages'
+            X-Current-Page:
+              $ref: '#/components/headers/X-Current-Page'
+            X-Per-Page:
+              $ref: '#/components/headers/X-Per-Page'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationIndex'
+        '401':
+          description: Unauthorized.
+
+  /callbacks:
+    post:
+      operationId: webhookCallback
+      summary: Receive external webhook
+      description: |
+        Processes incoming webhook notifications from external services.
+        Authenticated via HMAC. Supports `order` and `referral` element types.
+
+        **Webhook setup:**
+        1. Access Connectors in the backoffice
+        2. Configure webhook with auth type, header tag, shared secret, and event types
+      tags: [Webhooks]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallbackRequest'
+            examples:
+              orderUpdate:
+                summary: Order status change
+                value:
+                  event: change
+                  element: order
+                  data:
+                    element_id: "12321321-2SDFS-123123-123123"
+                    order:
+                      status: shipped
+              referralCreate:
+                summary: New referral
+                value:
+                  event: create
+                  element: referral
+                  data:
+                    client_id: "7dd7a8d5-2b51-4d75-82a6-7f235b081a05"
+                    email: "referred@example.com"
+      responses:
+        '200':
+          description: Webhook processed.
+        '401':
+          description: HMAC validation failed.
+        '422':
+          description: Processing error.
+
+tags:
+  - name: Authentication
+    description: Token management — root tokens, company tokens, and key lifecycle.
+  - name: Employees
+    description: CRUD operations on employees (clients) within a company.
+  - name: Fleet
+    description: Fleet device management — list, create, update, and sync company articles.
+  - name: Devices
+    description: Telemetry agent endpoints — device check-in, hardware updates, MDM callbacks.
+  - name: Orders
+    description: Order lifecycle — list, view, track, approve, cancel.
+  - name: Inventory
+    description: Provider inventory management — computers, products, and services.
+  - name: Notifications
+    description: Recent platform notifications for the company.
+  - name: Webhooks
+    description: Inbound webhook callbacks from external services.

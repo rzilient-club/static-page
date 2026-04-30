@@ -1,0 +1,1326 @@
+/* Rzilient - Documentación Técnica I+D+i
+   Estilo minimalista y profesional basado en privacy-policy.css
+*/
+
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e5e7eb;
+  --link: #2563eb;
+  --link-hover: #1d4ed8;
+  --code-bg: #f8fafc;
+  --code-border: #e2e8f0;
+
+  --radius: 16px;
+  --maxw: 1100px;
+
+  --h1: 40px;
+  --h2: 28px;
+  --h3: 22px;
+  --h4: 18px;
+  --body: 16px;
+  --small: 14px;
+  --code: 14px;
+
+  --lh: 1.7;
+}
+
+/* ==================== RESET ==================== */
+* { 
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+
+html, body { 
+  height: 100%; 
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: var(--lh);
+}
+
+/* ==================== LAYOUT ==================== */
+.doc-page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 60px 20px 80px 20px;
+}
+
+/* ==================== HEADER ==================== */
+.doc-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid var(--border);
+}
+
+.doc-header h1 {
+  font-size: var(--h1);
+  line-height: 1.15;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.doc-subtitle {
+  font-size: 20px;
+  color: var(--muted);
+  margin: 0 0 16px 0;
+  font-weight: 400;
+}
+
+.doc-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--surface);
+  font-weight: 500;
+}
+
+.badge.primary {
+  background: #eff6ff;
+  color: var(--link);
+  border-color: #bfdbfe;
+}
+
+/* ==================== TOC ==================== */
+#TOC {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 32px 0 48px 0;
+}
+
+#TOC::before {
+  content: "📋 Índice de Contenidos";
+  display: block;
+  font-size: 18px;
+  font-weight: 650;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+#TOC ul {
+  list-style: none;
+  padding: 0;
+}
+
+#TOC > ul > li {
+  margin: 12px 0;
+}
+
+#TOC > ul > li > a {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+#TOC ul ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+#TOC ul ul li {
+  margin: 8px 0;
+}
+
+#TOC ul ul li a {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#TOC a {
+  color: var(--link);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+#TOC a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ==================== HEADINGS ==================== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+h1 {
+  font-size: var(--h1);
+  margin: 64px 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: var(--h2);
+  margin: 48px 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: var(--h3);
+  margin: 36px 0 16px 0;
+  color: var(--text);
+}
+
+h4 {
+  font-size: var(--h4);
+  margin: 28px 0 12px 0;
+  color: var(--muted);
+}
+
+/* ==================== TEXT ==================== */
+p {
+  font-size: var(--body);
+  line-height: var(--lh);
+  margin: 0 0 16px 0;
+  color: var(--text);
+}
+
+strong, b {
+  font-weight: 600;
+  color: var(--text);
+}
+
+em, i {
+  font-style: italic;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* ==================== BLOCKQUOTE ==================== */
+blockquote {
+  border-left: 4px solid var(--link);
+  padding: 16px 20px;
+  margin: 24px 0;
+  background: var(--code-bg);
+  border-radius: 0 8px 8px 0;
+  color: var(--text);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote strong {
+  color: var(--link);
+}
+
+/* ==================== CODE BLOCKS ==================== */
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 24px 0;
+  overflow-x: auto;
+  font-size: var(--code);
+  line-height: 1.6;
+}
+
+code {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, 
+               'Monaco', 'Consolas', monospace;
+  font-size: var(--code);
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text);
+  white-space: pre;
+  word-wrap: normal;
+  display: block;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* Código inline */
+:not(pre) > code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #dc2626;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* CRÍTICO: Preservar ASCII diagrams */
+pre code {
+  letter-spacing: 0;
+  word-spacing: 0;
+  tab-size: 4;
+  -moz-tab-size: 4;
+}
+
+/* ==================== LISTS ==================== */
+ul, ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+li {
+  margin: 8px 0;
+  line-height: var(--lh);
+  font-size: var(--body);
+}
+
+ul ul, ol ol, ul ol, ol ul {
+  margin: 8px 0;
+}
+
+/* ==================== TABLES ==================== */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  font-size: var(--small);
+}
+
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  vertical-align: top;
+  text-align: left;
+  line-height: 1.55;
+}
+
+th {
+  background: var(--code-bg);
+  font-weight: 650;
+  color: var(--text);
+  font-size: var(--small);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #fafafa;
+}
+
+/* ==================== DIVIDER ==================== */
+hr, .hr {
+  height: 1px;
+  background: var(--border);
+  border: none;
+  margin: 40px 0;
+}
+
+/* ==================== SECTIONS ==================== */
+section {
+  margin: 40px 0;
+}
+
+.kicker {
+  font-size: var(--small);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ==================== PROJECT CARDS ==================== */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.project-title {
+  font-size: 20px;
+  font-weight: 650;
+  margin: 0;
+}
+
+.project-status {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.status-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-ongoing {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* ==================== FOOTER ==================== */
+.doc-footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: var(--small);
+  text-align: center;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  :root {
+    --h1: 32px;
+    --h2: 24px;
+    --h3: 20px;
+    --h4: 16px;
+  }
+
+  .doc-page {
+    padding: 40px 16px 60px 16px;
+  }
+
+  .doc-header {
+    margin-bottom: 32px;
+  }
+
+  #TOC {
+    padding: 20px;
+  }
+
+  pre {
+    padding: 16px;
+    font-size: 12px;
+  }
+
+  .table-wrapper {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 10px 12px;
+  }
+}
+
+/* ==================== PRINT ==================== */
+@media print {
+  .doc-page {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  pre, blockquote, table {
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text);
+  }
+}
+
+/* ==================== SYNTAX HIGHLIGHTING (opcional) ==================== */
+.sourceCode .kw { color: #0550ae; font-weight: 600; } /* keywords */
+.sourceCode .dt { color: #116329; } /* data types */
+.sourceCode .dv { color: #0a3069; } /* decimal values */
+.sourceCode .st { color: #0a3069; } /* strings */
+.sourceCode .co { color: #6e7781; font-style: italic; } /* comments */
+.sourceCode .fu { color: #6639ba; } /* functions */
+.sourceCode .op { color: #24292f; } /* operators */
+
+/* ==================== CODE COLLAPSE ==================== */
+.code-block-wrapper {
+  margin: 24px 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--code-bg);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+
+.code-block-wrapper[data-collapsed="false"] .code-block-header {
+  background: #f1f5f9;
+}
+
+.code-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.code-language {
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--link);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.code-lines {
+  font-size: 12px;
+  color: var(--muted);
+  padding: 2px 8px;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.code-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.code-toggle:hover {
+  background: var(--link);
+  color: white;
+  border-color: var(--link);
+}
+
+.code-toggle svg {
+  transition: transform 0.2s ease;
+}
+
+.code-block-wrapper[data-collapsed="false"] .code-toggle svg {
+  transform: rotate(180deg);
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  position: relative;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  z-index: 10;
+}
+
+.code-copy-btn:hover {
+  background: var(--link);
+  color: white;
+  border-color: var(--link);
+}
+
+.code-copy-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Animación suave para collapse */
+.code-block-wrapper pre {
+  transition: all 0.3s ease;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.code-block-wrapper[data-collapsed="true"] pre {
+  max-height: 0;
+  padding: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .code-block-header {
+    padding: 10px 12px;
+  }
+  
+  .code-info {
+    gap: 8px;
+  }
+  
+  .code-language {
+    font-size: 11px;
+  }
+  
+  .code-lines {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+  
+  .code-toggle {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  .toggle-text {
+    display: none;
+  }
+}
+
+/* ==================== DIAGRAM BADGES ==================== */
+.diagram-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 10px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 10;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Diagramas no tienen wrapper, son <pre> directos */
+pre:has(.diagram-badge) {
+  position: relative;
+  margin: 24px 0;
+}
+
+/* Estilos especiales para diagramas visibles */
+pre:has(.diagram-badge) code {
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: pre;
+}
+
+/* ==================== LISTAS MEJORADAS ==================== */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  position: relative;
+  padding-left: 28px;
+  margin: 10px 0;
+  line-height: 1.7;
+}
+
+ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--link);
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+/* Listas dentro de blockquotes */
+blockquote ul {
+  margin: 12px 0;
+}
+
+blockquote ul li {
+  margin: 8px 0;
+}
+
+/* ==================== LISTAS DE DEFINICIONES ==================== */
+.tech-specs {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.tech-specs dt {
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 12px;
+  font-size: 15px;
+}
+
+.tech-specs dt:first-child {
+  margin-top: 0;
+}
+
+.tech-specs dd {
+  margin: 4px 0 0 20px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ==================== MÉTRICAS COMPARATIVAS ==================== */
+.metric-comparison {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.metric-comparison.improvement {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.metric-comparison.increase {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.metric-comparison .before {
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.metric-comparison .arrow {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.metric-comparison .after {
+  font-weight: 700;
+}
+
+/* ==================== MEJORAS VISUALES ==================== */
+
+/* Checkmarks en listas */
+ul li:has(.checkmark)::before {
+  content: "✓";
+  color: #16a34a;
+}
+
+/* Headers de sección mejorados */
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 28px;
+  background: var(--link);
+  border-radius: 2px;
+}
+
+/* Tablas responsive mejoradas */
+@media (max-width: 768px) {
+  .tech-specs {
+    padding: 16px;
+  }
+  
+  .tech-specs dd {
+    margin-left: 0;
+  }
+  
+  .metric-comparison {
+    font-size: 0.85em;
+    padding: 3px 8px;
+  }
+}
+
+/* ==================== BADGES Y ETIQUETAS MEJORADAS ==================== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.status-production {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.status-development {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+/* ==================== MÉTRICAS DESTACADAS ==================== */
+.percentage-excellent {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+.percentage-good {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #dbeafe;
+  color: #1e40af;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.roi-highlight {
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+/* ==================== SECCIONES DE PROYECTO ==================== */
+.project-section {
+  border-left: 4px solid var(--link);
+  padding-left: 20px;
+  margin: 40px 0;
+}
+
+/* ==================== MEJORAS TIPOGRÁFICAS ==================== */
+strong {
+  font-weight: 650;
+  color: var(--text);
+}
+
+/* Emojis y símbolos en contenido */
+.emoji {
+  font-style: normal;
+  font-size: 1.2em;
+  line-height: 1;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+
+/* ==================== HIGHLIGHTS DE CÓDIGO INLINE ==================== */
+:not(pre) > code {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+}
+
+/* ==================== MEJORAS DE LECTURA ==================== */
+p {
+  max-width: 75ch;
+  orphans: 3;
+  widows: 3;
+}
+
+/* Párrafos importantes (con checkmarks) */
+p:has(.checkmark) {
+  background: #f8fafc;
+  padding: 12px 16px;
+  border-left: 3px solid #22c55e;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+/* ==================== RESPONSIVE TYPOGRAPHY ==================== */
+@media (max-width: 1200px) {
+  p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .status-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+  
+  .percentage-excellent,
+  .percentage-good {
+    font-size: 0.85em;
+  }
+}
+
+/* ==================== IMPRESIÓN MEJORADA ==================== */
+@media print {
+  .code-block-wrapper {
+    page-break-inside: avoid;
+  }
+  
+  .diagram-badge {
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+  }
+  
+  .status-badge,
+  .percentage-excellent,
+  .percentage-good {
+    border: 1px solid #000;
+    background: #fff !important;
+  }
+}
+
+/* ==================== SECCIÓN DE STACK TECNOLÓGICO ==================== */
+
+/* Tablas de tecnologías con badges */
+.tech-table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tech-table thead {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+}
+
+.tech-table th {
+  padding: 14px 16px;
+  font-weight: 650;
+  text-align: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tech-table tbody tr {
+  background: white;
+  transition: background-color 0.15s ease;
+}
+
+.tech-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.tech-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.tech-table tbody tr:nth-child(even):hover {
+  background: #f1f5f9;
+}
+
+.tech-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tech-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Primera columna (tecnología) destacada */
+.tech-table td:first-child {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Segunda columna (versión) */
+.tech-table td:nth-child(2) {
+  color: #64748b;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+}
+
+/* Tercera columna (uso) */
+.tech-table td:nth-child(3) {
+  color: #475569;
+}
+
+/* ==================== SECCIÓN DE DIFERENCIADORES ==================== */
+
+.differentiator-section {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 2px solid #93c5fd;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.differentiator-section h4 {
+  color: #1e40af;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.differentiator-section h4::before {
+  content: "🚀";
+  font-size: 1.3em;
+}
+
+/* ==================== TABLA COMPARATIVA ==================== */
+
+.comparison-table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.comparison-table thead th {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 14px 16px;
+  font-weight: 650;
+  text-align: left;
+  font-size: 13px;
+  border-bottom: 2px solid #cbd5e1;
+}
+
+.comparison-table thead th:first-child {
+  width: 30%;
+}
+
+.comparison-table thead th:nth-child(2) {
+  width: 35%;
+  color: #dc2626;
+}
+
+.comparison-table thead th:nth-child(3) {
+  width: 35%;
+  color: #16a34a;
+}
+
+.comparison-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody td:first-child {
+  font-weight: 600;
+  color: #475569;
+  background: #fafafa;
+}
+
+.comparison-table tbody td:nth-child(2) {
+  color: #991b1b;
+  background: #fef2f2;
+}
+
+.comparison-table tbody td:nth-child(3) {
+  color: #166534;
+  background: #f0fdf4;
+}
+
+/* ==================== ARQUITECTURA VISUAL ==================== */
+
+.architecture-section {
+  background: #fafafa;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.architecture-section h3 {
+  margin-top: 0;
+  color: #0f172a;
+}
+
+/* ==================== MÉTRICAS DE ESCALA ==================== */
+
+.scale-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.scale-metric {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.scale-metric .metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2563eb;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.scale-metric .metric-label {
+  font-size: 13px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==================== BADGES DE LENGUAJES ==================== */
+
+.language-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 4px;
+}
+
+.language-badge .percentage {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* ==================== RESPONSIVE PARA STACK ==================== */
+
+@media (max-width: 768px) {
+  .tech-table,
+  .comparison-table {
+    font-size: 13px;
+  }
+  
+  .tech-table th,
+  .tech-table td,
+  .comparison-table th,
+  .comparison-table td {
+    padding: 10px 12px;
+  }
+  
+  .scale-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .scale-metric .metric-value {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scale-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== CAPTURAS DE PLATAFORMA ==================== */
+
+.platform-screenshot {
+  margin: 32px 0;
+  padding: 24px;
+  background: #fafafa;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.platform-screenshot img.screenshot {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid #d1d5db;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.platform-screenshot img.screenshot:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.screenshot-caption {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.screenshot-caption strong {
+  color: #1e40af;
+  font-weight: 600;
+}
+
+/* Placeholder cuando no hay imagen */
+.platform-screenshot img[src*="placeholder"] {
+  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mensaje de imagen faltante */
+.platform-screenshot::before {
+  content: "";
+  display: block;
+}
+
+.platform-screenshot:has(img[src*="images/"]):not(:has(img[src*="http"]))::after {
+  content: "⚠️ Imagen pendiente de añadir";
+  display: block;
+  margin-top: -40px;
+  padding: 12px;
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 6px;
+  color: #92400e;
+  font-size: 13px;
+  font-weight: 600;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==================== MODAL LIGHTBOX (opcional) ==================== */
+
+.screenshot-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.screenshot-lightbox.active {
+  display: flex;
+}
+
+.screenshot-lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.screenshot-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .platform-screenshot {
+    padding: 16px;
+    margin: 24px 0;
+  }
+  
+  .screenshot-caption {
+    font-size: 13px;
+  }
+}
+
+/* ==================== PRINT ==================== */
+
+@media print {
+  .platform-screenshot {
+    page-break-inside: avoid;
+    background: white;
+    border: 1px solid #000;
+  }
+  
+  .platform-screenshot::after {
+    display: none;
+  }
+}

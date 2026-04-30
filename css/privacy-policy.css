@@ -1,0 +1,163 @@
+/* Rzilient – Privacy Policy pages
+   Note: Figma token extraction failed (no node selection available via tool),
+   so this CSS is a clean, marketing-style baseline you can easily map to your design tokens.
+*/
+
+:root{
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e5e7eb;
+  --link: #2563eb;
+  --link-hover: #1d4ed8;
+
+  --radius: 16px;
+  --maxw: 980px;
+
+  --h1: 40px;
+  --h2: 24px;
+  --h3: 18px;
+  --body: 16px;
+  --small: 14px;
+
+  --lh: 1.7;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Inter, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+               "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+a{ color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+a:hover{ color: var(--link-hover); }
+
+.legal-page{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 72px 20px;
+}
+
+.legal-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.legal-header{
+  margin-bottom: 36px;
+}
+.legal-header h1{
+  font-size: var(--h1);
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+.updated-at{
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--small);
+}
+
+.toc{
+  margin: 18px 0 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+.toc strong{ display:block; margin-bottom: 8px; }
+.toc ol{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.toc li{ margin: 6px 0; }
+
+section{
+  margin: 34px 0;
+}
+h2{
+  font-size: var(--h2);
+  margin: 0 0 14px 0;
+  letter-spacing: -0.01em;
+}
+h3{
+  font-size: var(--h3);
+  margin: 22px 0 10px 0;
+}
+p, li{
+  font-size: var(--body);
+  line-height: var(--lh);
+}
+p{ margin: 0 0 12px 0; }
+ul{ margin: 0; padding-left: 20px; }
+li{ margin: 6px 0; }
+
+.hr{
+  height: 1px;
+  background: var(--border);
+  margin: 28px 0;
+}
+
+.kicker{
+  font-size: var(--small);
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.table-wrapper{
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+  background: white;
+}
+th, td{
+  border-bottom: 1px solid var(--border);
+  padding: 12px 14px;
+  vertical-align: top;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.55;
+}
+th{
+  background: #f8fafc;
+  font-weight: 650;
+  color: #0b1220;
+}
+tbody tr:last-child td{ border-bottom: none; }
+
+.badge{
+  display: inline-block;
+  padding: 2px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+  background: #ffffff;
+}
+
+.footer{
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: var(--small);
+}
+
+@media (max-width: 560px){
+  :root{ --h1: 32px; --h2: 22px; }
+  .legal-card{ padding: 20px; }
+  .legal-page{ padding: 54px 16px; }
+}
