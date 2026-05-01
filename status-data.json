@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-01T20:35:45Z",
+  "fetched_at": "2026-05-01T20:59:37Z",
   "sites": [
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
@@ -7,8 +7,8 @@
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-01T20:33:28.904577Z",
-      "response_ms": 393
+      "last_checked_at": "2026-05-01T20:59:11.631435Z",
+      "response_ms": 427
     },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
@@ -16,17 +16,8 @@
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-05-01T20:32:47.115566Z",
-      "response_ms": 73
-    },
-    {
-      "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
-      "projectId": 79525,
-      "name": "Telemetry",
-      "url": "http://telemetry.rzilient.tech:8086/health",
-      "state": "down",
-      "last_checked_at": "2026-05-01T20:31:57.953184Z",
-      "response_ms": 10002
+      "last_checked_at": "2026-05-01T20:58:10.404922Z",
+      "response_ms": 96
     },
     {
       "id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
@@ -34,8 +25,8 @@
       "name": "Rzilient backoffice",
       "url": "https://admin.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-01T20:30:32.753034Z",
-      "response_ms": 476
+      "last_checked_at": "2026-05-01T20:56:17.661410Z",
+      "response_ms": 435
     },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -43,8 +34,17 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-01T20:30:24.522844Z",
-      "response_ms": 372
+      "last_checked_at": "2026-05-01T20:56:07.549659Z",
+      "response_ms": 341
+    },
+    {
+      "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
+      "projectId": 79525,
+      "name": "Telemetry",
+      "url": "http://telemetry.rzilient.tech:8086/health",
+      "state": "down",
+      "last_checked_at": "2026-05-01T20:54:28.906759Z",
+      "response_ms": 10002
     },
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -52,8 +52,8 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-05-01T20:22:13.481850Z",
-      "response_ms": 1704
+      "last_checked_at": "2026-05-01T20:52:30.326020Z",
+      "response_ms": 1696
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -61,8 +61,8 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-05-01T20:22:06.158740Z",
-      "response_ms": 351
+      "last_checked_at": "2026-05-01T20:52:16.618852Z",
+      "response_ms": 353
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -70,8 +70,8 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-05-01T20:35:21.271561Z",
-      "response_ms": 160
+      "last_checked_at": "2026-05-01T20:50:30.614028Z",
+      "response_ms": 527
     }
   ],
   "outages": [
@@ -90,14 +90,6 @@
       "up_at": null,
       "status": null,
       "reason": "Unknown"
-    },
-    {
-      "site_id": "5714c087-c190-4d18-855d-9a0beadd3cee",
-      "site_name": "Telemetry",
-      "down_at": "2026-05-01T15:34:24.138106Z",
-      "up_at": "2026-05-01T15:34:24.138106Z",
-      "status": null,
-      "reason": "error making http request: Get \"http://telemetry.rzilient.tech:8086/health\": dial tcp 63.32.202.202:8086: i/o timeout"
     },
     {
       "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
@@ -306,6 +298,14 @@
       "up_at": null,
       "status": null,
       "reason": "Unknown"
+    },
+    {
+      "site_id": "5714c087-c190-4d18-855d-9a0beadd3cee",
+      "site_name": "Telemetry",
+      "down_at": "2026-05-01T15:34:24.138106Z",
+      "up_at": "2026-05-01T15:34:24.138106Z",
+      "status": null,
+      "reason": "error making http request: Get \"http://telemetry.rzilient.tech:8086/health\": dial tcp 63.32.202.202:8086: i/o timeout"
     },
     {
       "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
