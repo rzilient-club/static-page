@@ -86,14 +86,14 @@
     .metric-value.slow { color: var(--orange); }
     .metric-unit { font-size: 11px; font-weight: 500; color: var(--text-dim); margin-left: 2px; }
 
-    .uptime-bar-container { display: flex; align-items: center; gap: 12px; }
-    .uptime-bars { display: flex; gap: 1px; height: 28px; align-items: flex-end; }
-    .uptime-day { width: 3px; border-radius: 1px; cursor: default; }
+    .uptime-bar-container { display: flex; align-items: center; gap: 12px; min-width: 0; overflow: hidden; }
+    .uptime-bars { display: flex; gap: 1px; height: 28px; align-items: flex-end; min-width: 0; }
+    .uptime-day { width: 3px; border-radius: 1px; cursor: default; flex-shrink: 0; }
     .uptime-day.up { background: var(--lime); height: 28px; }
     .uptime-day.partial { background: var(--orange); height: 28px; }
     .uptime-day.down { background: var(--red); height: 28px; }
     .uptime-day.nodata { background: var(--border); height: 28px; opacity: 0.5; }
-    .uptime-pct { font-family: var(--mono); font-size: 14px; font-weight: 600; min-width: 64px; text-align: right; }
+    .uptime-pct { font-family: var(--mono); font-size: 14px; font-weight: 600; min-width: 64px; text-align: right; flex-shrink: 0; }
     .uptime-pct.excellent { color: var(--lime); }
     .uptime-pct.good { color: var(--orange); }
     .uptime-pct.poor { color: var(--red); }
@@ -108,11 +108,11 @@
     .no-incidents { font-size: 14px; color: var(--text-muted); padding: 8px 0; }
     .incident-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 8px; transition: border-color 0.2s ease; }
     .incident-item:hover { border-color: var(--border-hover); }
-    .incident-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .incident-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
     .incident-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
     .incident-site { font-size: 14px; font-weight: 600; }
     .incident-status-code { font-family: var(--mono); font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; color: var(--red); background: rgba(239, 68, 68, 0.12); }
-    .incident-reason { font-size: 13px; color: var(--text-dim); margin-bottom: 6px; line-height: 1.5; }
+    .incident-reason { font-size: 13px; color: var(--text-dim); margin-bottom: 6px; line-height: 1.5; word-break: break-word; }
     .incident-time { font-family: var(--mono); font-size: 11px; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap; }
     .incident-duration { color: var(--orange); }
 
@@ -138,18 +138,103 @@
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
+    /* ===================== Tablet ===================== */
     @media (max-width: 768px) {
-      nav { flex-direction: column; gap: 16px; }
-      .nav-links { flex-wrap: wrap; justify-content: center; }
-      .status-hero { padding: 60px 0 40px; }
+      .page { padding: 0 16px; }
+
+      nav { flex-direction: column; gap: 12px; padding: 16px 0; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 6px; }
+      .nav-link { font-size: 12px; padding: 6px 10px; }
+
+      .status-hero { padding: 48px 0 32px; }
       .status-hero h1 { font-size: 32px; }
-      .site-row { grid-template-columns: 1fr; gap: 14px; }
-      .site-metrics { justify-content: flex-start; }
-      .metric { text-align: left; }
-      .uptime-bar-container { width: 100%; }
+      .global-indicator { font-size: 12px; padding: 6px 14px; }
+
+      .section-title { font-size: 24px; }
+      .section-desc { font-size: 14px; margin-bottom: 24px; }
+
+      /* Site rows: stack all elements vertically */
+      .site-row {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 12px 16px;
+        padding: 16px;
+      }
+
+      /* Row 1: info + badge */
+      .site-info { grid-column: 1; grid-row: 1; }
+      .site-state-badge { grid-column: 2; grid-row: 1; align-self: center; }
+
+      /* Row 2: metrics + uptime bar span full width */
+      .site-metrics { grid-column: 1; grid-row: 2; justify-content: flex-start; }
+      .metric { text-align: left; min-width: auto; }
+      .metric-value { font-size: 16px; }
+
+      .uptime-bar-container { grid-column: 2; grid-row: 2; width: auto; gap: 8px; }
       .uptime-bars { flex: 1; }
-      .site-state-badge { justify-self: flex-start; }
-      footer { flex-direction: column; text-align: center; }
+      .uptime-day { width: 2px; }
+      .uptime-pct { font-size: 12px; min-width: 50px; }
+
+      .site-name { font-size: 14px; }
+      .site-url { font-size: 10px; }
+
+      /* Incidents */
+      .incidents-section { padding: 32px 0 60px; }
+      .incident-item { padding: 12px 16px; }
+      .incident-site { font-size: 13px; }
+      .incident-reason { font-size: 12px; }
+      .incident-time { font-size: 10px; gap: 10px; }
+
+      footer { flex-direction: column; text-align: center; padding: 32px 0; gap: 12px; }
+      .footer-links { gap: 16px; }
+    }
+
+    /* ===================== Small phone ===================== */
+    @media (max-width: 480px) {
+      .page { padding: 0 12px; }
+
+      .status-hero { padding: 36px 0 24px; }
+      .status-hero h1 { font-size: 26px; }
+      .global-indicator { font-size: 11px; padding: 5px 12px; margin-bottom: 20px; }
+
+      .nav-links { gap: 4px; }
+      .nav-link { font-size: 11px; padding: 5px 8px; }
+
+      .section-title { font-size: 22px; }
+      .section-desc { font-size: 13px; margin-bottom: 20px; }
+      .section-label { font-size: 10px; margin-bottom: 10px; }
+
+      /* Site rows: full single-column stack */
+      .site-row {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 10px;
+        padding: 14px 12px;
+      }
+
+      .site-info { grid-column: 1; grid-row: 1; }
+      .site-name { font-size: 13px; }
+      .site-url { font-size: 9px; }
+
+      /* Metrics + badge on one row */
+      .site-metrics { grid-column: 1; grid-row: 2; }
+      .site-state-badge { grid-column: 1; grid-row: 2; justify-self: end; }
+
+      /* Uptime bar full width */
+      .uptime-bar-container { grid-column: 1; grid-row: 3; width: 100%; }
+      .uptime-bars { flex: 1; }
+      .uptime-day { width: 2px; }
+      .uptime-pct { font-size: 12px; min-width: 48px; }
+
+      .incidents-section { padding: 24px 0 48px; }
+      .incident-item { padding: 10px 12px; }
+      .month-header { font-size: 12px; }
+      .incident-reason { font-size: 11px; }
+      .incident-time { font-size: 9px; }
+
+      footer { padding: 24px 0; }
+      .footer-left { font-size: 12px; }
+      .footer-links a { font-size: 12px; }
     }
   </style>
 </head>
@@ -219,22 +304,13 @@
 </div>
 
 <script>
-  // ===========================================================================
-  //  Reads from status-data.json (generated server-side by fetch-status.sh)
-  //  No API tokens, no CORS — just a local JSON file.
-  // ===========================================================================
   var DISPLAY_NAMES = {
     'Rzilient Platform':   '_rzilient platform',
     'Rzilient backoffice': 'Backoffice'
   };
 
-  // ===========================================================================
-  //  Uptime computation from outage windows
-  // ===========================================================================
-  // Resolve up_at: if null/missing, fall back to down_at (treat as instant blip)
   function resolveUpAt(outage) {
     if (outage.up_at) return new Date(outage.up_at).getTime();
-    // No recovery recorded — use down_at so duration is 0 (not "still down since then")
     return new Date(outage.down_at).getTime();
   }
 
@@ -268,9 +344,6 @@
     return bars;
   }
 
-  // ===========================================================================
-  //  Helpers
-  // ===========================================================================
   function uptimeClass(pct) { return pct >= 99.5 ? 'excellent' : pct >= 95 ? 'good' : 'poor'; }
 
   function durationStr(ms) {
@@ -292,9 +365,6 @@
     return Math.floor(hrs / 24) + 'd ago';
   }
 
-  // ===========================================================================
-  //  Rendering
-  // ===========================================================================
   function renderSites(sites, outages) {
     var container = document.getElementById('sitesContainer');
     var skel = document.getElementById('sitesSkeleton');
@@ -317,7 +387,6 @@
         barsHtml += '<div class="uptime-day ' + dayBars[d] + '" title="' + label + '"></div>';
       }
 
-      // Format response time
       var respMs = site.response_ms || 0;
       var respVal, respUnit;
       if (respMs >= 1000) { respVal = (respMs / 1000).toFixed(1); respUnit = 's'; }
@@ -349,7 +418,6 @@
       container.appendChild(row);
     }
 
-    // Global indicator
     var anyDown = sites.some(function(s) { return s.state === 'down'; });
     var allUp = sites.every(function(s) { return s.state === 'up'; });
     var el = document.getElementById('globalIndicator');
@@ -370,7 +438,6 @@
             .filter(function(o) { return new Date(o.down_at) >= cutoff; })
             .sort(function(a, b) { return new Date(b.down_at) - new Date(a.down_at); });
 
-    // Month buckets
     var monthKeys = [], monthMap = {};
     for (var offset = 0; offset < 3; offset++) {
       var d = new Date(now); d.setMonth(d.getMonth() - offset);
@@ -425,20 +492,15 @@
     }
   }
 
-  // ===========================================================================
-  //  Init — fetch local status-data.json
-  // ===========================================================================
   async function init() {
     try {
       var resp = await fetch('status-data.json?t=' + Date.now());
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       var data = await resp.json();
 
-      // Show data age
       var fetchedAt = data.fetched_at;
       document.getElementById('lastUpdated').textContent = relativeTime(fetchedAt);
 
-      // Warn if data is stale (>15 min)
       var ageMs = Date.now() - new Date(fetchedAt).getTime();
       if (ageMs > 15 * 60 * 1000) {
         var ageEl = document.createElement('p');
