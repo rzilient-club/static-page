@@ -1,23 +1,14 @@
 {
-  "fetched_at": "2026-05-01T19:27:23Z",
+  "fetched_at": "2026-05-01T20:01:19Z",
   "sites": [
     {
-      "id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
       "projectId": 79525,
-      "name": "Global API v2",
-      "url": "https://global.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-05-01T19:26:56.541275Z",
-      "response_ms": 544
-    },
-    {
-      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "projectId": 79525,
-      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
-      "state": "up",
-      "last_checked_at": "2026-05-01T19:26:08.479622Z",
-      "response_ms": 163
+      "name": "Telemetry",
+      "url": "http://telemetry.rzilient.tech:8086/health",
+      "state": "down",
+      "last_checked_at": "2026-05-01T19:59:52.652886Z",
+      "response_ms": 10002
     },
     {
       "id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
@@ -25,8 +16,8 @@
       "name": "Rzilient backoffice",
       "url": "https://admin.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-01T19:23:36.851748Z",
-      "response_ms": 543
+      "last_checked_at": "2026-05-01T19:59:50.100603Z",
+      "response_ms": 461
     },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -34,17 +25,26 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-01T19:23:32.095319Z",
-      "response_ms": 463
+      "last_checked_at": "2026-05-01T19:59:32.562799Z",
+      "response_ms": 376
     },
     {
-      "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
+      "id": "c9fe2637-441b-499d-82d7-957cba183943",
       "projectId": 79525,
-      "name": "Telemetry",
-      "url": "http://telemetry.rzilient.tech:8086/health",
-      "state": "down",
-      "last_checked_at": "2026-05-01T19:22:57.721209Z",
-      "response_ms": 10001
+      "name": "Global API v2",
+      "url": "https://global.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-05-01T19:57:26.078176Z",
+      "response_ms": 398
+    },
+    {
+      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "projectId": 79525,
+      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
+      "state": "up",
+      "last_checked_at": "2026-05-01T19:56:58.538695Z",
+      "response_ms": 90
     },
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -52,8 +52,8 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-05-01T19:21:32.094546Z",
-      "response_ms": 588
+      "last_checked_at": "2026-05-01T19:51:52.415526Z",
+      "response_ms": 506
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -61,8 +61,8 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-05-01T19:21:28.134257Z",
-      "response_ms": 716
+      "last_checked_at": "2026-05-01T19:51:52.357402Z",
+      "response_ms": 372
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -70,26 +70,18 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-05-01T19:19:45.729609Z",
-      "response_ms": 889
+      "last_checked_at": "2026-05-01T19:50:00.780024Z",
+      "response_ms": 464
     }
   ],
   "outages": [
     {
-      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "site_name": "Global API v2",
-      "down_at": null,
-      "up_at": null,
+      "site_id": "5714c087-c190-4d18-855d-9a0beadd3cee",
+      "site_name": "Telemetry",
+      "down_at": "2026-05-01T15:34:24.138106Z",
+      "up_at": "2026-05-01T15:34:24.138106Z",
       "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
+      "reason": "error making http request: Get \"http://telemetry.rzilient.tech:8086/health\": dial tcp 63.32.202.202:8086: i/o timeout"
     },
     {
       "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
@@ -300,12 +292,20 @@
       "reason": "Unknown"
     },
     {
-      "site_id": "5714c087-c190-4d18-855d-9a0beadd3cee",
-      "site_name": "Telemetry",
-      "down_at": "2026-05-01T15:34:24.138106Z",
-      "up_at": "2026-05-01T15:34:24.138106Z",
+      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "site_name": "Global API v2",
+      "down_at": null,
+      "up_at": null,
       "status": null,
-      "reason": "error making http request: Get \"http://telemetry.rzilient.tech:8086/health\": dial tcp 63.32.202.202:8086: i/o timeout"
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
     },
     {
       "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
