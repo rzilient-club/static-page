@@ -1,41 +1,14 @@
 {
-  "fetched_at": "2026-05-01T23:24:42Z",
+  "fetched_at": "2026-05-01T23:58:18Z",
   "sites": [
     {
-      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
       "projectId": 79525,
-      "name": "Inventory",
-      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
-      "state": "up",
-      "last_checked_at": "2026-05-01T23:23:38.573649Z",
-      "response_ms": 645
-    },
-    {
-      "id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "projectId": 79525,
-      "name": "Global API v2",
-      "url": "https://global.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-05-01T23:23:25.069097Z",
-      "response_ms": 360
-    },
-    {
-      "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "projectId": 79525,
-      "name": "SAML SSO",
-      "url": "https://global.api.rzilient.tech/auth/saml/login",
-      "state": "up",
-      "last_checked_at": "2026-05-01T23:23:24.114197Z",
-      "response_ms": 341
-    },
-    {
-      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "projectId": 79525,
-      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
-      "state": "up",
-      "last_checked_at": "2026-05-01T23:22:49.033836Z",
-      "response_ms": 120
+      "name": "Telemetry",
+      "url": "http://telemetry.rzilient.tech:8086/health",
+      "state": "down",
+      "last_checked_at": "2026-05-01T23:56:40.669162Z",
+      "response_ms": 10002
     },
     {
       "id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
@@ -43,8 +16,8 @@
       "name": "Rzilient backoffice",
       "url": "https://admin.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-01T23:20:10.603306Z",
-      "response_ms": 472
+      "last_checked_at": "2026-05-01T23:55:45.846939Z",
+      "response_ms": 430
     },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -52,17 +25,44 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-01T23:20:03.299571Z",
-      "response_ms": 297
+      "last_checked_at": "2026-05-01T23:55:44.082454Z",
+      "response_ms": 343
     },
     {
-      "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
+      "id": "c9fe2637-441b-499d-82d7-957cba183943",
       "projectId": 79525,
-      "name": "Telemetry",
-      "url": "http://telemetry.rzilient.tech:8086/health",
-      "state": "down",
-      "last_checked_at": "2026-05-01T23:16:23.180740Z",
-      "response_ms": 10002
+      "name": "Global API v2",
+      "url": "https://global.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-05-01T23:54:14.109692Z",
+      "response_ms": 397
+    },
+    {
+      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "projectId": 79525,
+      "name": "Inventory",
+      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
+      "state": "up",
+      "last_checked_at": "2026-05-01T23:53:54.885118Z",
+      "response_ms": 552
+    },
+    {
+      "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "projectId": 79525,
+      "name": "SAML SSO",
+      "url": "https://global.api.rzilient.tech/auth/saml/login",
+      "state": "up",
+      "last_checked_at": "2026-05-01T23:53:40.268575Z",
+      "response_ms": 321
+    },
+    {
+      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "projectId": 79525,
+      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
+      "state": "up",
+      "last_checked_at": "2026-05-01T23:53:32.828064Z",
+      "response_ms": 77
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -70,322 +70,18 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-05-01T23:21:56.988490Z",
-      "response_ms": 179
+      "last_checked_at": "2026-05-01T23:52:14.762660Z",
+      "response_ms": 654
     }
   ],
   "outages": [
     {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2026-03-03T08:43:24.564581Z",
-      "up_at": "2026-03-03T08:58:34.754361Z",
+      "site_id": "5714c087-c190-4d18-855d-9a0beadd3cee",
+      "site_name": "Telemetry",
+      "down_at": "2026-05-01T15:34:24.138106Z",
+      "up_at": "2026-05-01T15:34:24.138106Z",
       "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2026-01-09T17:30:22.554318Z",
-      "up_at": "2026-01-09T17:45:44.710646Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-12-16T01:33:34.939312Z",
-      "up_at": "2025-12-16T01:48:51.225050Z",
-      "status": 502,
-      "reason": "Expected 400 status code -- got 502"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-10-05T04:55:06.561487Z",
-      "up_at": "2025-10-05T05:10:21.036877Z",
-      "status": 502,
-      "reason": "Expected 400 status code -- got 502"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-05-10T06:24:16.895724Z",
-      "up_at": "2025-05-10T06:39:27.378500Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-02-14T03:42:39.796239Z",
-      "up_at": "2025-02-14T03:57:48.555820Z",
-      "status": 504,
-      "reason": "Expected 400 status code -- got 504"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-01-26T16:50:34.202259Z",
-      "up_at": "2025-01-26T17:05:49.639155Z",
-      "status": 504,
-      "reason": "Expected 400 status code -- got 504"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-09-17T00:25:58.943043Z",
-      "up_at": "2024-09-17T00:41:17.766461Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-07-12T13:43:42.403134Z",
-      "up_at": "2024-07-12T13:58:45.728720Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-06-11T08:35:49.548171Z",
-      "up_at": "2024-06-11T08:50:56.389813Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-05-06T15:35:11.497982Z",
-      "up_at": "2024-05-06T15:50:19.080670Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-04-22T17:53:07.809666Z",
-      "up_at": "2024-04-22T18:08:10.929103Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-04-13T16:28:52.708930Z",
-      "up_at": "2024-04-13T16:43:55.188500Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-04-02T12:34:07.145295Z",
-      "up_at": "2024-04-02T14:24:10.031571Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-03-21T12:05:37.088844Z",
-      "up_at": "2024-03-23T00:33:33.827229Z",
-      "status": null,
-      "reason": "DNS resolution failure"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-03-15T14:53:15.632484Z",
-      "up_at": "2024-03-15T15:08:19.750693Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2023-12-19T11:46:08.892697Z",
-      "up_at": "2023-12-19T12:01:14.546401Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "site_name": "Global API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2026-03-24T16:19:02.539328Z",
-      "up_at": "2026-03-24T16:34:06.949960Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2026-03-23T14:18:30.526591Z",
-      "up_at": "2026-03-23T14:33:39.907099Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2026-02-25T11:26:13.585875Z",
-      "up_at": "2026-02-25T11:57:50.217845Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-12-30T12:35:39.851654Z",
-      "up_at": "2025-12-30T12:50:49.769030Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-10-31T02:13:25.434069Z",
-      "up_at": "2025-10-31T02:43:41.358815Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-10-28T15:24:01.137378Z",
-      "up_at": "2025-10-28T15:39:11.335536Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-09-01T09:06:32.726399Z",
-      "up_at": "2025-09-01T09:21:39.217303Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-08-21T08:52:39.365370Z",
-      "up_at": "2025-08-22T13:06:57.572725Z",
-      "status": 500,
-      "reason": "Expected 2xx status code -- got 500"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-07-16T12:30:22.543512Z",
-      "up_at": "2025-07-16T12:45:29.732731Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-07-16T07:25:50.476141Z",
-      "up_at": "2025-07-16T07:56:48.512145Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-06-17T09:33:29.009904Z",
-      "up_at": "2025-06-17T09:48:38.772176Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-04-11T13:20:34.514034Z",
-      "up_at": "2025-04-11T13:35:47.368726Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-03-11T15:14:01.258904Z",
-      "up_at": "2025-03-11T15:29:05.713923Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-02-22T15:59:52.548786Z",
-      "up_at": "2025-02-22T16:15:04.239745Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-02-22T14:58:36.737254Z",
-      "up_at": "2025-02-22T15:13:42.935773Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-02-19T11:29:22.997222Z",
-      "up_at": "2025-02-19T11:29:53.169954Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2024-04-23T15:06:11.953351Z",
-      "up_at": "2024-04-23T20:36:08.666921Z",
-      "status": 302,
-      "reason": "Expected 2xx status code -- got 302"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2024-03-21T12:00:07.789109Z",
-      "up_at": "2024-03-23T01:42:25.706222Z",
-      "status": null,
-      "reason": "DNS resolution failure"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2024-03-19T00:27:50.298998Z",
-      "up_at": "2024-03-19T00:42:51.779345Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2024-02-06T23:26:47.806735Z",
-      "up_at": "2024-02-06T23:41:54.033206Z",
-      "status": null,
-      "reason": "Connection attempt timed out"
-    },
-    {
-      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
+      "reason": "error making http request: Get \"http://telemetry.rzilient.tech:8086/health\": dial tcp 63.32.202.202:8086: i/o timeout"
     },
     {
       "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
@@ -596,12 +292,316 @@
       "reason": "Unknown"
     },
     {
-      "site_id": "5714c087-c190-4d18-855d-9a0beadd3cee",
-      "site_name": "Telemetry",
-      "down_at": "2026-05-01T15:34:24.138106Z",
-      "up_at": "2026-05-01T15:34:24.138106Z",
+      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "site_name": "Global API v2",
+      "down_at": null,
+      "up_at": null,
       "status": null,
-      "reason": "error making http request: Get \"http://telemetry.rzilient.tech:8086/health\": dial tcp 63.32.202.202:8086: i/o timeout"
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2026-03-03T08:43:24.564581Z",
+      "up_at": "2026-03-03T08:58:34.754361Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2026-01-09T17:30:22.554318Z",
+      "up_at": "2026-01-09T17:45:44.710646Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-12-16T01:33:34.939312Z",
+      "up_at": "2025-12-16T01:48:51.225050Z",
+      "status": 502,
+      "reason": "Expected 400 status code -- got 502"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-10-05T04:55:06.561487Z",
+      "up_at": "2025-10-05T05:10:21.036877Z",
+      "status": 502,
+      "reason": "Expected 400 status code -- got 502"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-05-10T06:24:16.895724Z",
+      "up_at": "2025-05-10T06:39:27.378500Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-02-14T03:42:39.796239Z",
+      "up_at": "2025-02-14T03:57:48.555820Z",
+      "status": 504,
+      "reason": "Expected 400 status code -- got 504"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-01-26T16:50:34.202259Z",
+      "up_at": "2025-01-26T17:05:49.639155Z",
+      "status": 504,
+      "reason": "Expected 400 status code -- got 504"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-09-17T00:25:58.943043Z",
+      "up_at": "2024-09-17T00:41:17.766461Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-07-12T13:43:42.403134Z",
+      "up_at": "2024-07-12T13:58:45.728720Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-06-11T08:35:49.548171Z",
+      "up_at": "2024-06-11T08:50:56.389813Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-05-06T15:35:11.497982Z",
+      "up_at": "2024-05-06T15:50:19.080670Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-04-22T17:53:07.809666Z",
+      "up_at": "2024-04-22T18:08:10.929103Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-04-13T16:28:52.708930Z",
+      "up_at": "2024-04-13T16:43:55.188500Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-04-02T12:34:07.145295Z",
+      "up_at": "2024-04-02T14:24:10.031571Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-03-21T12:05:37.088844Z",
+      "up_at": "2024-03-23T00:33:33.827229Z",
+      "status": null,
+      "reason": "DNS resolution failure"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-03-15T14:53:15.632484Z",
+      "up_at": "2024-03-15T15:08:19.750693Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2023-12-19T11:46:08.892697Z",
+      "up_at": "2023-12-19T12:01:14.546401Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2026-03-24T16:19:02.539328Z",
+      "up_at": "2026-03-24T16:34:06.949960Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2026-03-23T14:18:30.526591Z",
+      "up_at": "2026-03-23T14:33:39.907099Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2026-02-25T11:26:13.585875Z",
+      "up_at": "2026-02-25T11:57:50.217845Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-12-30T12:35:39.851654Z",
+      "up_at": "2025-12-30T12:50:49.769030Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-10-31T02:13:25.434069Z",
+      "up_at": "2025-10-31T02:43:41.358815Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-10-28T15:24:01.137378Z",
+      "up_at": "2025-10-28T15:39:11.335536Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-09-01T09:06:32.726399Z",
+      "up_at": "2025-09-01T09:21:39.217303Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-08-21T08:52:39.365370Z",
+      "up_at": "2025-08-22T13:06:57.572725Z",
+      "status": 500,
+      "reason": "Expected 2xx status code -- got 500"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-07-16T12:30:22.543512Z",
+      "up_at": "2025-07-16T12:45:29.732731Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-07-16T07:25:50.476141Z",
+      "up_at": "2025-07-16T07:56:48.512145Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-06-17T09:33:29.009904Z",
+      "up_at": "2025-06-17T09:48:38.772176Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-04-11T13:20:34.514034Z",
+      "up_at": "2025-04-11T13:35:47.368726Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-03-11T15:14:01.258904Z",
+      "up_at": "2025-03-11T15:29:05.713923Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-02-22T15:59:52.548786Z",
+      "up_at": "2025-02-22T16:15:04.239745Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-02-22T14:58:36.737254Z",
+      "up_at": "2025-02-22T15:13:42.935773Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-02-19T11:29:22.997222Z",
+      "up_at": "2025-02-19T11:29:53.169954Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2024-04-23T15:06:11.953351Z",
+      "up_at": "2024-04-23T20:36:08.666921Z",
+      "status": 302,
+      "reason": "Expected 2xx status code -- got 302"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2024-03-21T12:00:07.789109Z",
+      "up_at": "2024-03-23T01:42:25.706222Z",
+      "status": null,
+      "reason": "DNS resolution failure"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2024-03-19T00:27:50.298998Z",
+      "up_at": "2024-03-19T00:42:51.779345Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2024-02-06T23:26:47.806735Z",
+      "up_at": "2024-02-06T23:41:54.033206Z",
+      "status": null,
+      "reason": "Connection attempt timed out"
+    },
+    {
+      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
     },
     {
       "site_id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
