@@ -1,41 +1,14 @@
 {
-  "fetched_at": "2026-05-01T06:03:17Z",
+  "fetched_at": "2026-05-01T07:14:11Z",
   "sites": [
-    {
-      "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "projectId": 79525,
-      "name": "EU API v2",
-      "url": "https://eu.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-05-01T06:02:41.005885Z",
-      "response_ms": 470
-    },
-    {
-      "id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "projectId": 79525,
-      "name": "Rzilient backoffice",
-      "url": "https://admin.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-05-01T06:02:36.835115Z",
-      "response_ms": 628
-    },
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
       "projectId": 79525,
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-01T06:00:37.870006Z",
-      "response_ms": 527
-    },
-    {
-      "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "projectId": 79525,
-      "name": "SAML SSO",
-      "url": "https://global.api.rzilient.tech/auth/saml/login",
-      "state": "up",
-      "last_checked_at": "2026-05-01T06:00:13.024976Z",
-      "response_ms": 489
+      "last_checked_at": "2026-05-01T07:12:28.465518Z",
+      "response_ms": 367
     },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
@@ -43,8 +16,35 @@
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-05-01T06:00:00.553042Z",
-      "response_ms": 164
+      "last_checked_at": "2026-05-01T07:11:32.626802Z",
+      "response_ms": 212
+    },
+    {
+      "id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "projectId": 79525,
+      "name": "Rzilient backoffice",
+      "url": "https://admin.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-05-01T07:09:19.192371Z",
+      "response_ms": 473
+    },
+    {
+      "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "projectId": 79525,
+      "name": "EU API v2",
+      "url": "https://eu.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-05-01T07:09:19.037270Z",
+      "response_ms": 356
+    },
+    {
+      "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "projectId": 79525,
+      "name": "SAML SSO",
+      "url": "https://global.api.rzilient.tech/auth/saml/login",
+      "state": "up",
+      "last_checked_at": "2026-05-01T07:00:34.004338Z",
+      "response_ms": 317
     },
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -52,8 +52,8 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-05-01T05:59:43.860112Z",
-      "response_ms": 759
+      "last_checked_at": "2026-05-01T07:00:32.572113Z",
+      "response_ms": 528
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -61,14 +61,22 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-05-01T05:58:50.218056Z",
-      "response_ms": 281
+      "last_checked_at": "2026-05-01T06:59:15.283966Z",
+      "response_ms": 255
     }
   ],
   "outages": [
     {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
+      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "site_name": "Global API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "down_at": null,
       "up_at": null,
       "status": null,
@@ -275,8 +283,8 @@
       "reason": "Expected 2xx status code -- got 404"
     },
     {
-      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "site_name": "Global API v2",
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
       "down_at": null,
       "up_at": null,
       "status": null,
@@ -441,14 +449,6 @@
       "up_at": "2024-02-06T23:41:54.033206Z",
       "status": null,
       "reason": "Connection attempt timed out"
-    },
-    {
-      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
     },
     {
       "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
