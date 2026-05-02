@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-02T02:34:54Z",
+  "fetched_at": "2026-05-02T03:52:03Z",
   "sites": [
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
@@ -7,8 +7,8 @@
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-02T02:33:22.838777Z",
-      "response_ms": 408
+      "last_checked_at": "2026-05-02T03:50:20.228337Z",
+      "response_ms": 418
     },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
@@ -16,17 +16,8 @@
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-05-02T02:32:23.537053Z",
-      "response_ms": 144
-    },
-    {
-      "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "projectId": 79525,
-      "name": "EU API v2",
-      "url": "https://eu.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-05-02T02:29:50.887843Z",
-      "response_ms": 426
+      "last_checked_at": "2026-05-02T03:49:05.375005Z",
+      "response_ms": 159
     },
     {
       "id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
@@ -34,8 +25,17 @@
       "name": "Rzilient backoffice",
       "url": "https://admin.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-02T02:29:50.730782Z",
-      "response_ms": 612
+      "last_checked_at": "2026-05-02T03:47:09.220531Z",
+      "response_ms": 509
+    },
+    {
+      "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "projectId": 79525,
+      "name": "EU API v2",
+      "url": "https://eu.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-05-02T03:46:49.529221Z",
+      "response_ms": 415
     },
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -43,8 +43,8 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-05-02T02:25:35.028127Z",
-      "response_ms": 531
+      "last_checked_at": "2026-05-02T03:41:16.850845Z",
+      "response_ms": 537
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -52,8 +52,8 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-05-02T02:25:09.866551Z",
-      "response_ms": 558
+      "last_checked_at": "2026-05-02T03:40:41.233975Z",
+      "response_ms": 535
     },
     {
       "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
@@ -61,8 +61,8 @@
       "name": "Telemetry",
       "url": "http://telemetry.rzilient.tech:8086/health",
       "state": "down",
-      "last_checked_at": "2026-05-02T02:18:26.442695Z",
-      "response_ms": 10001
+      "last_checked_at": "2026-05-02T03:35:00.287330Z",
+      "response_ms": 10002
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -70,8 +70,8 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-05-02T02:23:28.294876Z",
-      "response_ms": 218
+      "last_checked_at": "2026-05-02T03:39:04.338598Z",
+      "response_ms": 217
     }
   ],
   "outages": [
@@ -86,14 +86,6 @@
     {
       "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
       "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
       "down_at": null,
       "up_at": null,
       "status": null,
@@ -298,6 +290,14 @@
       "up_at": "2024-06-28T18:03:01.800868Z",
       "status": 404,
       "reason": "Expected 2xx status code -- got 404"
+    },
+    {
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
     },
     {
       "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
