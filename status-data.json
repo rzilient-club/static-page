@@ -1,41 +1,14 @@
 {
-  "fetched_at": "2026-05-02T16:36:56Z",
+  "fetched_at": "2026-05-02T17:00:17Z",
   "sites": [
     {
-      "id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
       "projectId": 79525,
-      "name": "Global API v2",
-      "url": "https://global.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-05-02T16:36:12.600851Z",
-      "response_ms": 524
-    },
-    {
-      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "projectId": 79525,
-      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
-      "state": "up",
-      "last_checked_at": "2026-05-02T16:35:07.661343Z",
-      "response_ms": 59
-    },
-    {
-      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "projectId": 79525,
-      "name": "Inventory",
-      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
-      "state": "up",
-      "last_checked_at": "2026-05-02T16:33:51.882297Z",
-      "response_ms": 1864
-    },
-    {
-      "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "projectId": 79525,
-      "name": "SAML SSO",
-      "url": "https://global.api.rzilient.tech/auth/saml/login",
-      "state": "up",
-      "last_checked_at": "2026-05-02T16:33:17.717846Z",
-      "response_ms": 541
+      "name": "Telemetry",
+      "url": "http://telemetry.rzilient.tech:8086/health",
+      "state": "down",
+      "last_checked_at": "2026-05-02T16:59:15.870343Z",
+      "response_ms": 10002
     },
     {
       "id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
@@ -43,8 +16,8 @@
       "name": "Rzilient backoffice",
       "url": "https://admin.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-02T16:32:53.259111Z",
-      "response_ms": 477
+      "last_checked_at": "2026-05-02T16:58:24.957802Z",
+      "response_ms": 420
     },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -52,17 +25,44 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-02T16:32:15.119539Z",
-      "response_ms": 461
+      "last_checked_at": "2026-05-02T16:57:36.963763Z",
+      "response_ms": 331
     },
     {
-      "id": "5714c087-c190-4d18-855d-9a0beadd3cee",
+      "id": "c9fe2637-441b-499d-82d7-957cba183943",
       "projectId": 79525,
-      "name": "Telemetry",
-      "url": "http://telemetry.rzilient.tech:8086/health",
-      "state": "down",
-      "last_checked_at": "2026-05-02T16:30:27.558389Z",
-      "response_ms": 10002
+      "name": "Global API v2",
+      "url": "https://global.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-05-02T16:56:43.166618Z",
+      "response_ms": 444
+    },
+    {
+      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "projectId": 79525,
+      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
+      "state": "up",
+      "last_checked_at": "2026-05-02T16:55:34.834656Z",
+      "response_ms": 138
+    },
+    {
+      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "projectId": 79525,
+      "name": "Inventory",
+      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
+      "state": "up",
+      "last_checked_at": "2026-05-02T16:49:03.157779Z",
+      "response_ms": 511
+    },
+    {
+      "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "projectId": 79525,
+      "name": "SAML SSO",
+      "url": "https://global.api.rzilient.tech/auth/saml/login",
+      "state": "up",
+      "last_checked_at": "2026-05-02T16:48:30.437861Z",
+      "response_ms": 376
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -70,11 +70,227 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-05-02T16:30:14.628739Z",
-      "response_ms": 849
+      "last_checked_at": "2026-05-02T16:45:17.970956Z",
+      "response_ms": 409
     }
   ],
   "outages": [
+    {
+      "site_id": "5714c087-c190-4d18-855d-9a0beadd3cee",
+      "site_name": "Telemetry",
+      "down_at": "2026-05-01T15:34:24.138106Z",
+      "up_at": "2026-05-01T15:34:24.138106Z",
+      "status": null,
+      "reason": "error making http request: Get \"http://telemetry.rzilient.tech:8086/health\": dial tcp 63.32.202.202:8086: i/o timeout"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-04-29T12:24:31.432743Z",
+      "up_at": "2026-04-29T12:34:56.053687Z",
+      "status": 403,
+      "reason": "Expected 2xx status code -- got 403"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-04-29T11:53:29.753145Z",
+      "up_at": "2026-04-29T12:19:20.759977Z",
+      "status": 403,
+      "reason": "Expected 2xx status code -- got 403"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-04-24T18:53:53.388908Z",
+      "up_at": "2026-04-24T18:59:01.336287Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-04-24T18:43:30.276589Z",
+      "up_at": "2026-04-24T18:48:45.474952Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-03-27T14:25:00.406156Z",
+      "up_at": "2026-03-27T14:35:17.977270Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-03-22T23:05:19.773558Z",
+      "up_at": "2026-03-22T23:10:37.427365Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-03-21T15:45:44.617329Z",
+      "up_at": "2026-03-21T15:51:00.537860Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-03-21T15:03:08.408243Z",
+      "up_at": "2026-03-21T15:08:15.540318Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-03-21T14:21:16.218946Z",
+      "up_at": "2026-03-21T14:26:28.561962Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-03-21T11:42:06.863585Z",
+      "up_at": "2026-03-21T11:47:29.848934Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2026-01-31T00:55:05.834477Z",
+      "up_at": "2026-01-31T01:00:36.415052Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": read tcp [2a05:d014:677:7100:fa85:ab0e:135b:c158]:45064->[2a06:98c1:58::60]:443: read: connection reset by peer"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2025-12-19T11:54:32.888319Z",
+      "up_at": "2025-12-19T11:59:41.417235Z",
+      "status": 502,
+      "reason": "Expected 2xx status code -- got 502"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2025-05-28T09:04:36.414723Z",
+      "up_at": "2025-05-28T09:09:42.186094Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2025-01-28T16:21:56.867524Z",
+      "up_at": "2025-01-28T16:27:15.442421Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-11-08T14:02:08.852761Z",
+      "up_at": "2024-11-08T14:07:21.148965Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-10-21T15:00:22.612557Z",
+      "up_at": "2024-10-21T15:05:33.003573Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-09-20T14:42:27.595178Z",
+      "up_at": "2024-09-20T14:47:33.451271Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-07-12T11:12:47.509838Z",
+      "up_at": "2024-07-12T11:18:02.230055Z",
+      "status": null,
+      "reason": "Connection attempt timed out"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-07-10T02:10:50.325979Z",
+      "up_at": "2024-07-10T02:27:08.993617Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-06-29T07:42:19.187736Z",
+      "up_at": "2024-07-05T05:02:18.487905Z",
+      "status": null,
+      "reason": "Request timed out"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-06-29T06:26:16.708603Z",
+      "up_at": "2024-06-29T06:35:16.574267Z",
+      "status": null,
+      "reason": "Request timed out"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-06-28T23:32:45.837210Z",
+      "up_at": "2024-06-28T23:37:48.783890Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-06-28T19:48:35.385351Z",
+      "up_at": "2024-06-28T19:58:26.702408Z",
+      "status": null,
+      "reason": "Request timed out"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-06-28T18:54:43.472859Z",
+      "up_at": "2024-06-28T18:59:45.971652Z",
+      "status": 404,
+      "reason": "Expected 2xx status code -- got 404"
+    },
+    {
+      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
+      "site_name": "Rzilient backoffice",
+      "down_at": "2024-06-28T17:57:59.842125Z",
+      "up_at": "2024-06-28T18:03:01.800868Z",
+      "status": 404,
+      "reason": "Expected 2xx status code -- got 404"
+    },
+    {
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
     {
       "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
       "site_name": "Global API v2",
@@ -386,222 +602,6 @@
       "up_at": "2024-02-06T23:41:54.033206Z",
       "status": null,
       "reason": "Connection attempt timed out"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-04-29T12:24:31.432743Z",
-      "up_at": "2026-04-29T12:34:56.053687Z",
-      "status": 403,
-      "reason": "Expected 2xx status code -- got 403"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-04-29T11:53:29.753145Z",
-      "up_at": "2026-04-29T12:19:20.759977Z",
-      "status": 403,
-      "reason": "Expected 2xx status code -- got 403"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-04-24T18:53:53.388908Z",
-      "up_at": "2026-04-24T18:59:01.336287Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-04-24T18:43:30.276589Z",
-      "up_at": "2026-04-24T18:48:45.474952Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-03-27T14:25:00.406156Z",
-      "up_at": "2026-03-27T14:35:17.977270Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-03-22T23:05:19.773558Z",
-      "up_at": "2026-03-22T23:10:37.427365Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-03-21T15:45:44.617329Z",
-      "up_at": "2026-03-21T15:51:00.537860Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-03-21T15:03:08.408243Z",
-      "up_at": "2026-03-21T15:08:15.540318Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-03-21T14:21:16.218946Z",
-      "up_at": "2026-03-21T14:26:28.561962Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-03-21T11:42:06.863585Z",
-      "up_at": "2026-03-21T11:47:29.848934Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2026-01-31T00:55:05.834477Z",
-      "up_at": "2026-01-31T01:00:36.415052Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": read tcp [2a05:d014:677:7100:fa85:ab0e:135b:c158]:45064->[2a06:98c1:58::60]:443: read: connection reset by peer"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2025-12-19T11:54:32.888319Z",
-      "up_at": "2025-12-19T11:59:41.417235Z",
-      "status": 502,
-      "reason": "Expected 2xx status code -- got 502"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2025-05-28T09:04:36.414723Z",
-      "up_at": "2025-05-28T09:09:42.186094Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2025-01-28T16:21:56.867524Z",
-      "up_at": "2025-01-28T16:27:15.442421Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-11-08T14:02:08.852761Z",
-      "up_at": "2024-11-08T14:07:21.148965Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-10-21T15:00:22.612557Z",
-      "up_at": "2024-10-21T15:05:33.003573Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-09-20T14:42:27.595178Z",
-      "up_at": "2024-09-20T14:47:33.451271Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://admin.rzilient.tech/up\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-07-12T11:12:47.509838Z",
-      "up_at": "2024-07-12T11:18:02.230055Z",
-      "status": null,
-      "reason": "Connection attempt timed out"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-07-10T02:10:50.325979Z",
-      "up_at": "2024-07-10T02:27:08.993617Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-06-29T07:42:19.187736Z",
-      "up_at": "2024-07-05T05:02:18.487905Z",
-      "status": null,
-      "reason": "Request timed out"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-06-29T06:26:16.708603Z",
-      "up_at": "2024-06-29T06:35:16.574267Z",
-      "status": null,
-      "reason": "Request timed out"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-06-28T23:32:45.837210Z",
-      "up_at": "2024-06-28T23:37:48.783890Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-06-28T19:48:35.385351Z",
-      "up_at": "2024-06-28T19:58:26.702408Z",
-      "status": null,
-      "reason": "Request timed out"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-06-28T18:54:43.472859Z",
-      "up_at": "2024-06-28T18:59:45.971652Z",
-      "status": 404,
-      "reason": "Expected 2xx status code -- got 404"
-    },
-    {
-      "site_id": "add8eaa6-a300-4a1e-8d97-46af2c8ff64b",
-      "site_name": "Rzilient backoffice",
-      "down_at": "2024-06-28T17:57:59.842125Z",
-      "up_at": "2024-06-28T18:03:01.800868Z",
-      "status": 404,
-      "reason": "Expected 2xx status code -- got 404"
-    },
-    {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "5714c087-c190-4d18-855d-9a0beadd3cee",
-      "site_name": "Telemetry",
-      "down_at": "2026-05-01T15:34:24.138106Z",
-      "up_at": "2026-05-01T15:34:24.138106Z",
-      "status": null,
-      "reason": "error making http request: Get \"http://telemetry.rzilient.tech:8086/health\": dial tcp 63.32.202.202:8086: i/o timeout"
     },
     {
       "site_id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
