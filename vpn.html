@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>VPN Service — _rzilient.tech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Self-serve WireGuard VPN with Google SSO for secure access to rzilient infrastructure.">
+    <link rel="icon" type="image/x-icon" href="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* VPN page-specific styles */
+        .vpn-hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .vpn-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--lime-dim);
+            border: 1px solid rgba(180, 234, 31, 0.2);
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-family: var(--mono);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--lime);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        .vpn-hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--lime);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--lime-glow);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .vpn-hero h1 {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .vpn-hero h1 .accent {
+            background: linear-gradient(135deg, var(--lime) 0%, #8BC34A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .vpn-hero-sub {
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            font-weight: 400;
+            font-size: 17px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .vpn-hero-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 24px;
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-dim);
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+            transition: border-color 0.2s;
+        }
+
+        .vpn-hero-bar:hover {
+            border-color: var(--border-hover);
+        }
+
+        .vpn-proto {
+            color: var(--lime);
+            font-weight: 600;
+            font-size: 11px;
+            background: var(--lime-dim);
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+        }
+
+        .vpn-endpoint {
+            color: var(--text);
+        }
+
+        .vpn-subnet {
+            color: var(--text-muted);
+        }
+
+        .vpn-features {
+            padding: 60px 0;
+        }
+
+        .vpn-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .vpn-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vpn-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--lime), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .vpn-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .vpn-card:hover::before {
+            opacity: 1;
+        }
+
+        .vpn-card-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--lime-dim);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .vpn-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .vpn-card p {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .vpn-architecture {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .architecture-diagram {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-top: 32px;
+            overflow-x: auto;
+        }
+
+        .architecture-diagram pre {
+            margin: 0;
+            white-space: pre;
+        }
+
+        .arch-line {
+            color: var(--text-muted);
+        }
+
+        .arch-highlight {
+            color: var(--lime);
+            font-weight: 600;
+        }
+
+        .arch-endpoint {
+            color: var(--text);
+        }
+
+        .vpn-cta-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .vpn-cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .vpn-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-family: var(--sans);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .vpn-btn-primary {
+            background: var(--lime);
+            color: #0a0a0a;
+        }
+
+        .vpn-btn-primary:hover {
+            background: #c5f52a;
+            transform: translateY(-1px);
+        }
+
+        .vpn-btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .vpn-btn-secondary:hover {
+            border-color: var(--border-hover);
+            background: var(--surface-2);
+        }
+
+        .vpn-arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .vpn-btn:hover .vpn-arrow {
+            transform: translateX(4px);
+        }
+
+        .vpn-specs {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .spec-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .spec-card h4 {
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--lime);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .spec-list li {
+            font-size: 14px;
+            color: var(--text-dim);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spec-list li:last-child {
+            border-bottom: none;
+        }
+
+        .spec-list li strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .vpn-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vpn-hero-bar {
+                flex-wrap: wrap;
+                gap: 10px;
+                font-size: 12px;
+                padding: 12px 16px;
+            }
+
+            .vpn-cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .architecture-diagram {
+                padding: 20px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="page">
+
+    <!-- Nav -->
+    <nav>
+        <a class="nav-logo" href="/">
+            <img src="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg" alt="_rzilient">
+            <span>_rzilient<span class="tech">.tech</span></span>
+        </a>
+        <div class="nav-links">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/docs/">API Docs</a>
+            <a class="nav-link" href="https://developers.rzilient.tech" target="_blank">Developers</a>
+            <a class="nav-link" href="status.html">Status</a>
+            <a class="nav-link primary" href="https://www.rzilient.club/en/demo" target="_blank">Book a Demo →</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="vpn-hero">
+        <div class="vpn-hero-badge">
+            <span class="dot"></span>
+            For rzilient Clients
+        </div>
+        <h1>_secure <span class="accent">vpn access</span><br>without the hassle</h1>
+        <p class="vpn-hero-sub">
+            Give your team instant, self-service VPN access. No IT tickets, no credential management, no complexity. Just Google login and they're connected.
+        </p>
+        <div class="vpn-hero-bar">
+            <span class="vpn-proto">Self-Service</span>
+            <span class="vpn-endpoint">Google SSO</span>
+            <span class="vpn-subnet">WireGuard</span>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="vpn-features reveal">
+        <p class="section-label">The problem</p>
+        <h2 class="section-title">_traditional_vpns_are</h2>
+        <p class="section-desc">Manual credential distribution. Shared passwords. Constant IT tickets. There's a better way.</p>
+
+        <div class="vpn-grid">
+            <div class="vpn-card">
+                <div class="vpn-card-icon">⏱️</div>
+                <h3>Self-Service Access</h3>
+                <p>Your team logs in with Google. Keys are generated automatically. No waiting for IT, no email exchanges, no credential sharing.</p>
+            </div>
+            <div class="vpn-card">
+                <div class="vpn-card-icon">📱</div>
+                <h3>Mobile-Ready</h3>
+                <p>QR code setup for phones and tablets. Works on iOS, Android, macOS, Windows, and Linux. Your remote team stays connected from anywhere.</p>
+            </div>
+            <div class="vpn-card">
+                <div class="vpn-card-icon">🎯</div>
+                <h3>Full Control</h3>
+                <p>Monitor who's connected, block access instantly, see live traffic stats. Admin dashboard gives you complete visibility without complexity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="vpn-features reveal">
+        <p class="section-label">What you get</p>
+        <h2 class="section-title">_everything_included</h2>
+        <p class="section-desc">A complete VPN solution managed by rzilient. We handle deployment, maintenance, and updates.</p>
+
+        <div class="vpn-grid">
+            <div class="vpn-card">
+                <div class="vpn-card-icon">🔑</div>
+                <h3>Google SSO</h3>
+                <p>Your team uses their existing Google Workspace accounts. Access is automatically restricted to your organization's email domains.</p>
+            </div>
+            <div class="vpn-card">
+                <div class="vpn-card-icon">⚡</div>
+                <h3>Instant Setup</h3>
+                <p>First-time users log in and download their config. Takes 30 seconds. No IT ticket, no manual steps, no training required.</p>
+            </div>
+            <div class="vpn-card">
+                <div class="vpn-card-icon">📱</div>
+                <h3>All Devices</h3>
+                <p>Desktop, mobile, tablet — one solution for everything. QR codes for phones, config files for laptops. Works everywhere.</p>
+            </div>
+            <div class="vpn-card">
+                <div class="vpn-card-icon">📊</div>
+                <h3>Admin Dashboard</h3>
+                <p>See who's connected, when they last connected, and how much traffic they're using. Block or revoke access with one click.</p>
+            </div>
+            <div class="vpn-card">
+                <div class="vpn-card-icon">🛡️</div>
+                <h3>Enterprise Security</h3>
+                <p>WireGuard encryption, individual key pairs per user, automatic SSL certificates. Bank-level security without the complexity.</p>
+            </div>
+            <div class="vpn-card">
+                <div class="vpn-card-icon">🔄</div>
+                <h3>Always Updated</h3>
+                <p>We keep your VPN infrastructure current. Security patches, feature updates, and performance improvements — all handled for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="vpn-architecture reveal">
+        <p class="section-label">User experience</p>
+        <h2 class="section-title">_how_your_team_connects</h2>
+        <p class="section-desc">From Google login to secure access — the complete end-user journey.</p>
+
+        <div class="architecture-diagram">
+<pre><span class="arch-line">┌─────────────────┐</span>
+<span class="arch-line">│  Team member    │</span>
+<span class="arch-line">└────────┬────────┘</span>
+         │
+         │ <span class="arch-highlight">1. Opens your VPN portal</span>
+         ▼
+<span class="arch-line">┌─────────────────────────────┐</span>
+<span class="arch-line">│  </span><span class="arch-endpoint">vpn.yourcompany.com</span><span class="arch-line">      │</span>
+<span class="arch-line">│  Google SSO login           │</span>
+<span class="arch-line">└──────────┬──────────────────┘</span>
+           │
+           │ <span class="arch-highlight">2. Generates WireGuard config</span>
+           │    (QR code or .conf download)
+           ▼
+<span class="arch-line">┌─────────────────────────────┐</span>
+<span class="arch-line">│  WireGuard app              │</span>
+<span class="arch-line">│  Scans QR or imports config │</span>
+<span class="arch-line">└──────────┬──────────────────┘</span>
+           │
+           │ <span class="arch-highlight">3. Connects to VPN tunnel</span>
+           ▼
+<span class="arch-line">┌─────────────────────────────┐</span>
+<span class="arch-line">│  Your private network       │</span>
+<span class="arch-line">│  Internal apps, databases,  │</span>
+<span class="arch-line">│  dashboards — all accessible│</span>
+<span class="arch-line">└─────────────────────────────┘</span></pre>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="vpn-specs reveal">
+        <p class="section-label">Getting started</p>
+        <h2 class="section-title">_how_it_works</h2>
+        <p class="section-desc">We deploy the VPN infrastructure. Your team starts using it immediately.</p>
+
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h4>For IT Admins</h4>
+                <ul class="spec-list">
+                    <li><strong>Step 1:</strong> We deploy the VPN portal to your infrastructure</li>
+                    <li><strong>Step 2:</strong> Configure your Google Workspace domain</li>
+                    <li><strong>Step 3:</strong> Share the portal URL with your team</li>
+                    <li><strong>Done:</strong> Monitor usage from the admin dashboard</li>
+                </ul>
+            </div>
+
+            <div class="spec-card">
+                <h4>For End Users</h4>
+                <ul class="spec-list">
+                    <li><strong>Step 1:</strong> Visit your company's VPN portal</li>
+                    <li><strong>Step 2:</strong> Sign in with Google Workspace</li>
+                    <li><strong>Step 3:</strong> Download config or scan QR code</li>
+                    <li><strong>Done:</strong> Connect to VPN and access internal resources</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="vpn-cta-section reveal">
+        <p class="section-label">Ready to get started?</p>
+        <h2 class="section-title">_talk_to_our_team</h2>
+        <p class="section-desc">See the VPN portal in action. We'll show you how it works and discuss deployment for your organization.</p>
+
+        <div class="vpn-cta-buttons">
+            <a class="vpn-btn vpn-btn-primary" href="https://www.rzilient.club/en/demo" target="_blank" rel="noopener noreferrer">
+                Book a Demo <span class="vpn-arrow">→</span>
+            </a>
+            <a class="vpn-btn vpn-btn-secondary" href="https://vpn.rzilient.tech" target="_blank" rel="noopener noreferrer">
+                See Live Example <span class="vpn-arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            &copy; _rzilient | <span id="year"></span> &middot; _rzilient group — Paris, France
+        </div>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/docs/">API Docs</a>
+            <a href="status.html">Status</a>
+            <a href="/terms-of-service-en.html">Terms</a>
+            <a href="/privacy-policy-en.html">Privacy</a>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

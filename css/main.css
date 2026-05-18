@@ -114,6 +114,25 @@ body {
 
 .site-nav__cta:hover { opacity: 0.75; }
 
+/* Tech Stack - We Love indicator */
+.we-love {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-right: 6px;
+}
+
+.icon-blink {
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+
 /* ---------- Site Footer ---------- */
 .site-footer {
   background: var(--black);
