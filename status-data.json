@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-05-29T19:46:55Z",
+  "fetched_at": "2026-05-29T20:45:27Z",
   "sites": [
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
@@ -7,8 +7,8 @@
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-05-29T19:43:39.883091Z",
-      "response_ms": 95
+      "last_checked_at": "2026-05-29T20:45:05.801870Z",
+      "response_ms": 115
     },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -16,8 +16,8 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-29T19:42:23.842242Z",
-      "response_ms": 368
+      "last_checked_at": "2026-05-29T20:44:15.487661Z",
+      "response_ms": 376
     },
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
@@ -25,8 +25,8 @@
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-05-29T19:42:15.779923Z",
-      "response_ms": 417
+      "last_checked_at": "2026-05-29T20:44:07.456698Z",
+      "response_ms": 349
     },
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -34,8 +34,8 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-05-29T19:37:48.042563Z",
-      "response_ms": 1582
+      "last_checked_at": "2026-05-29T20:38:35.866340Z",
+      "response_ms": 1615
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -43,7 +43,7 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-05-29T19:36:03.513042Z",
+      "last_checked_at": "2026-05-29T20:36:28.580117Z",
       "response_ms": 316
     },
     {
@@ -52,8 +52,8 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-05-29T19:32:53.551906Z",
-      "response_ms": 163
+      "last_checked_at": "2026-05-29T20:33:07.909941Z",
+      "response_ms": 165
     }
   ],
   "outages": [
