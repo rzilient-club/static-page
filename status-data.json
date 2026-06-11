@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-11T13:59:55Z",
+  "fetched_at": "2026-06-11T15:20:26Z",
   "sites": [
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -7,35 +7,8 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-06-11T13:58:03.271591Z",
-      "response_ms": 375
-    },
-    {
-      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "projectId": 79525,
-      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
-      "state": "up",
-      "last_checked_at": "2026-06-11T13:56:00.780349Z",
-      "response_ms": 100
-    },
-    {
-      "id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "projectId": 79525,
-      "name": "Global API v2",
-      "url": "https://global.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-06-11T13:55:59.497918Z",
-      "response_ms": 391
-    },
-    {
-      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "projectId": 79525,
-      "name": "Inventory",
-      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
-      "state": "up",
-      "last_checked_at": "2026-06-11T13:52:07.033080Z",
-      "response_ms": 1522
+      "last_checked_at": "2026-06-11T15:20:15.616422Z",
+      "response_ms": 377
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -43,8 +16,35 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-06-11T13:48:55.714568Z",
-      "response_ms": 319
+      "last_checked_at": "2026-06-11T15:19:31.123085Z",
+      "response_ms": 367
+    },
+    {
+      "id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "projectId": 79525,
+      "name": "Global API v2",
+      "url": "https://global.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-06-11T15:19:03.711192Z",
+      "response_ms": 344
+    },
+    {
+      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "projectId": 79525,
+      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
+      "state": "up",
+      "last_checked_at": "2026-06-11T15:18:39.908387Z",
+      "response_ms": 125
+    },
+    {
+      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "projectId": 79525,
+      "name": "Inventory",
+      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
+      "state": "up",
+      "last_checked_at": "2026-06-11T15:07:53.229769Z",
+      "response_ms": 522
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -52,8 +52,8 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-06-11T13:45:42.660633Z",
-      "response_ms": 504
+      "last_checked_at": "2026-06-11T15:16:37.479712Z",
+      "response_ms": 170
     }
   ],
   "outages": [
@@ -64,158 +64,6 @@
       "up_at": null,
       "status": null,
       "reason": "Unknown"
-    },
-    {
-      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "site_name": "Global API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2026-03-03T08:43:24.564581Z",
-      "up_at": "2026-03-03T08:58:34.754361Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2026-01-09T17:30:22.554318Z",
-      "up_at": "2026-01-09T17:45:44.710646Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-12-16T01:33:34.939312Z",
-      "up_at": "2025-12-16T01:48:51.225050Z",
-      "status": 502,
-      "reason": "Expected 400 status code -- got 502"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-10-05T04:55:06.561487Z",
-      "up_at": "2025-10-05T05:10:21.036877Z",
-      "status": 502,
-      "reason": "Expected 400 status code -- got 502"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-05-10T06:24:16.895724Z",
-      "up_at": "2025-05-10T06:39:27.378500Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-02-14T03:42:39.796239Z",
-      "up_at": "2025-02-14T03:57:48.555820Z",
-      "status": 504,
-      "reason": "Expected 400 status code -- got 504"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2025-01-26T16:50:34.202259Z",
-      "up_at": "2025-01-26T17:05:49.639155Z",
-      "status": 504,
-      "reason": "Expected 400 status code -- got 504"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-09-17T00:25:58.943043Z",
-      "up_at": "2024-09-17T00:41:17.766461Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-07-12T13:43:42.403134Z",
-      "up_at": "2024-07-12T13:58:45.728720Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-06-11T08:35:49.548171Z",
-      "up_at": "2024-06-11T08:50:56.389813Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-05-06T15:35:11.497982Z",
-      "up_at": "2024-05-06T15:50:19.080670Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-04-22T17:53:07.809666Z",
-      "up_at": "2024-04-22T18:08:10.929103Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-04-13T16:28:52.708930Z",
-      "up_at": "2024-04-13T16:43:55.188500Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-04-02T12:34:07.145295Z",
-      "up_at": "2024-04-02T14:24:10.031571Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-03-21T12:05:37.088844Z",
-      "up_at": "2024-03-23T00:33:33.827229Z",
-      "status": null,
-      "reason": "DNS resolution failure"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2024-03-15T14:53:15.632484Z",
-      "up_at": "2024-03-15T15:08:19.750693Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "site_name": "Inventory",
-      "down_at": "2023-12-19T11:46:08.892697Z",
-      "up_at": "2023-12-19T12:01:14.546401Z",
-      "status": null,
-      "reason": "Connection timed out"
     },
     {
       "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -376,6 +224,158 @@
       "up_at": "2024-02-06T23:41:54.033206Z",
       "status": null,
       "reason": "Connection attempt timed out"
+    },
+    {
+      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "site_name": "Global API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2026-03-03T08:43:24.564581Z",
+      "up_at": "2026-03-03T08:58:34.754361Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2026-01-09T17:30:22.554318Z",
+      "up_at": "2026-01-09T17:45:44.710646Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-12-16T01:33:34.939312Z",
+      "up_at": "2025-12-16T01:48:51.225050Z",
+      "status": 502,
+      "reason": "Expected 400 status code -- got 502"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-10-05T04:55:06.561487Z",
+      "up_at": "2025-10-05T05:10:21.036877Z",
+      "status": 502,
+      "reason": "Expected 400 status code -- got 502"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-05-10T06:24:16.895724Z",
+      "up_at": "2025-05-10T06:39:27.378500Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-02-14T03:42:39.796239Z",
+      "up_at": "2025-02-14T03:57:48.555820Z",
+      "status": 504,
+      "reason": "Expected 400 status code -- got 504"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2025-01-26T16:50:34.202259Z",
+      "up_at": "2025-01-26T17:05:49.639155Z",
+      "status": 504,
+      "reason": "Expected 400 status code -- got 504"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-09-17T00:25:58.943043Z",
+      "up_at": "2024-09-17T00:41:17.766461Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/inflow/companies/v1/getCompany\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-07-12T13:43:42.403134Z",
+      "up_at": "2024-07-12T13:58:45.728720Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-06-11T08:35:49.548171Z",
+      "up_at": "2024-06-11T08:50:56.389813Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-05-06T15:35:11.497982Z",
+      "up_at": "2024-05-06T15:50:19.080670Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-04-22T17:53:07.809666Z",
+      "up_at": "2024-04-22T18:08:10.929103Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-04-13T16:28:52.708930Z",
+      "up_at": "2024-04-13T16:43:55.188500Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-04-02T12:34:07.145295Z",
+      "up_at": "2024-04-02T14:24:10.031571Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-03-21T12:05:37.088844Z",
+      "up_at": "2024-03-23T00:33:33.827229Z",
+      "status": null,
+      "reason": "DNS resolution failure"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2024-03-15T14:53:15.632484Z",
+      "up_at": "2024-03-15T15:08:19.750693Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "site_name": "Inventory",
+      "down_at": "2023-12-19T11:46:08.892697Z",
+      "up_at": "2023-12-19T12:01:14.546401Z",
+      "status": null,
+      "reason": "Connection timed out"
     },
     {
       "site_id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
