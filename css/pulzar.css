@@ -1,0 +1,289 @@
+    /* ======================================================================
+       Pulzar page-specific styles — extends css/main.css
+       ====================================================================== */
+
+    /* ---- Hero pulse line (signature element) ---- */
+.pulse-wrap {
+    max-width: 720px;
+    margin: 0 auto 8px;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.pulse-line {
+    width: 100%;
+    height: 90px;
+    display: block;
+}
+
+.pulse-line path {
+    fill: none;
+    stroke: var(--lime);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px var(--lime-glow));
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: pulse-draw 4s linear infinite;
+}
+
+@keyframes pulse-draw {
+    0%   { stroke-dashoffset: 1400; opacity: 0; }
+    8%   { opacity: 1; }
+    55%  { stroke-dashoffset: 0; opacity: 1; }
+    80%  { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pulse-line path {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+}
+
+.hero-sub .pz {
+    color: var(--lime);
+    font-family: var(--mono);
+    font-weight: 600;
+}
+
+/* ---- Metric grid ---- */
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.metric:hover {
+    border-color: rgba(180, 234, 31, 0.35);
+    transform: translateY(-2px);
+}
+
+.metric .metric-key {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--lime);
+    letter-spacing: 0.02em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.metric h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.metric p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+/* ---- Pipeline (how it works) ---- */
+.pipeline {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.pipeline-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px 22px;
+    text-align: center;
+}
+
+.pipeline-step .step-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.pipeline-step h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.pipeline-step p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+.pipeline-arrow {
+    align-self: center;
+    font-family: var(--mono);
+    color: var(--lime);
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+/* ---- Demo video ---- */
+.demo-video {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.demo-video:hover {
+    border-color: rgba(180, 234, 31, 0.35);
+    box-shadow: 0 0 32px var(--lime-glow);
+}
+
+.demo-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.demo-caption {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 14px;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Spec strip ---- */
+.spec-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.spec {
+    border-left: 2px solid var(--lime);
+    padding: 4px 0 4px 18px;
+}
+
+.spec .spec-value {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.spec .spec-label {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+/* ---- Platform badges ---- */
+.platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 10px 18px;
+    border-radius: 100px;
+}
+
+/* ---- CTA band ---- */
+.pz-cta {
+    text-align: center;
+    padding: 64px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    margin-bottom: 80px;
+}
+
+.pz-cta h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.pz-cta p {
+    color: var(--text-dim);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.pz-cta .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-lime,
+.btn-ghost {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-lime {
+    background: var(--lime);
+    color: #0a0a0a;
+}
+
+.btn-lime:hover {
+    background: #c5f52a;
+    box-shadow: 0 0 20px var(--lime-glow);
+}
+
+.btn-ghost {
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+    color: var(--text);
+    border-color: rgba(180, 234, 31, 0.4);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .spec-strip { grid-template-columns: repeat(2, 1fr); }
+    .pipeline { grid-template-columns: 1fr; }
+    .pipeline-arrow { transform: rotate(90deg); justify-self: center; }
+}
+
+@media (max-width: 520px) {
+    .metric-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-strip {
+        grid-template-columns: 1fr;
+    }
+}

@@ -457,6 +457,128 @@ nav {
   max-width: 520px;
 }
 
+/* ==========================================================================
+   Feature spotlight
+   ========================================================================== */
+
+.spotlight {
+  margin-bottom: 100px;
+}
+
+.spotlight-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 32px;
+  padding: 44px 48px;
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(180, 234, 31, 0.04) 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.spotlight-card:hover {
+  border-color: rgba(180, 234, 31, 0.4);
+  box-shadow: 0 0 40px var(--lime-glow);
+  transform: translateY(-2px);
+}
+
+.spotlight-eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.spotlight-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: #0a0a0a;
+  background: var(--lime);
+  padding: 3px 8px;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.spotlight-card h2 {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+.spotlight-card h2 .accent {
+  background: linear-gradient(135deg, var(--lime) 0%, #8BC34A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.spotlight-desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.spotlight-cta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lime);
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.spotlight-card:hover .spotlight-cta {
+  transform: translateX(4px);
+}
+
+.spotlight-pulse {
+  width: 100%;
+  height: 120px;
+}
+
+.spotlight-pulse path {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px var(--lime-glow));
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: spotlight-draw 4s linear infinite;
+}
+
+@keyframes spotlight-draw {
+  0%   { stroke-dashoffset: 900; opacity: 0; }
+  8%   { opacity: 1; }
+  55%  { stroke-dashoffset: 0; opacity: 1; }
+  80%  { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-pulse path { animation: none; stroke-dashoffset: 0; }
+  .spotlight-badge { animation: none; }
+}
+
+@media (max-width: 768px) {
+  .spotlight-card {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+  }
+  .spotlight-visual { order: -1; }
+  .spotlight-pulse { height: 70px; }
+}
 
 /* ==========================================================================
    Services / Card grid
@@ -540,6 +662,28 @@ nav {
   font-weight: 500;
 }
 
+.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-link .link-arrow {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--lime);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateX(-4px);
+}
+
+.card-link:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 /* ==========================================================================
    Quick links

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pulzar — Device Telemetry by _rzilient</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pulzar is the _rzilient telemetry agent: a lightweight, Telegraf-based service that measures the health of every device in your fleet — battery, CPU, disk, RAM, and more.">
+  <link rel="icon" type="image/x-icon" href="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pulzar.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="page">
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="/">
+      <img src="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg" alt="_rzilient">
+      <span>_rzilient<span class="tech">.tech</span></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="https://developers.rzilient.tech" target="_blank">API Docs</a>
+      <a class="nav-link" href="https://rzilient.club/en" target="_blank">Website</a>
+      <a class="nav-link primary" href="https://join.rzilient.club" target="_blank">Platform →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-badge">
+      <span class="dot"></span>
+      SIoT-Telemetry is now Pulzar
+    </span>
+    <h1>_the <span class="accent">pulse</span> of your fleet</h1>
+
+    <div class="pulse-wrap" aria-hidden="true">
+      <svg class="pulse-line" viewBox="0 0 720 90" preserveAspectRatio="none">
+        <path d="M0,45 L120,45 L150,45 L165,20 L180,70 L195,10 L210,80 L225,45 L260,45 L400,45 L430,45 L445,25 L460,65 L475,15 L490,75 L505,45 L560,45 L720,45"/>
+      </svg>
+    </div>
+
+    <p class="hero-sub">
+      <span class="pz">Pulzar</span> is the lightweight telemetry agent that runs on every device
+      you manage with _rzilient. It quietly measures what matters — battery, CPU, disk, memory —
+      and turns it into health scores, trends, and alerts on your dashboard.
+    </p>
+  </section>
+
+  <!-- Demo video -->
+  <section class="services reveal">
+    <p class="section-label">See it in action</p>
+    <h2 class="section-title">_metrics_at_work</h2>
+    <p class="section-desc">How Pulzar's readings become health checks, trends, and alerts inside the _rzilient platform.</p>
+    <div class="demo-video">
+      <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="https://resources.rzilient.tech/assets/videos/pulzar-demo-poster.jpg">
+        <source src="https://resources.rzilient.tech/assets/videos/pulzar-demo.mp4" type="video/mp4">
+        Your browser does not support embedded video.
+        <a href="https://resources.rzilient.tech/assets/videos/pulzar-demo.mp4">Download the demo</a> instead.
+      </video>
+    </div>
+    <p class="demo-caption">// live view — Health Check dashboard on join.rzilient.club</p>
+  </section>
+
+  <!-- What it measures -->
+  <section class="services reveal">
+    <p class="section-label">What it measures</p>
+    <h2 class="section-title">_vital_signs</h2>
+    <p class="section-desc">Every device reports a full picture of its health, identified by its hardware serial number — no manual inventory matching.</p>
+    <div class="metric-grid">
+      <div class="metric">
+        <span class="metric-key">batteries.health</span>
+        <h4>Battery health</h4>
+        <p>Charge level, wear, and power consumption — spot batteries that need replacing before employees complain.</p>
+      </div>
+      <div class="metric">
+        <span class="metric-key">cpu.load</span>
+        <h4>CPU load</h4>
+        <p>1, 5, and 15-minute load averages reveal machines that are constantly maxed out or unusually idle.</p>
+      </div>
+      <div class="metric">
+        <span class="metric-key">disk.used_percent</span>
+        <h4>Disk usage</h4>
+        <p>Free space on every drive, so full disks never surprise you during an OS update rollout.</p>
+      </div>
+      <div class="metric">
+        <span class="metric-key">ram.used_percent</span>
+        <h4>Memory pressure</h4>
+        <p>RAM and swap usage identify devices that are under-provisioned for the work they actually do.</p>
+      </div>
+      <div class="metric">
+        <span class="metric-key">temp</span>
+        <h4>Temperature</h4>
+        <p>Thermal readings flag overheating hardware and failing fans early.</p>
+      </div>
+      <div class="metric">
+        <span class="metric-key">system.uptime</span>
+        <h4>Uptime &amp; activity</h4>
+        <p>Uptime, running processes, connected displays, and network activity show how each device is really used.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="services reveal">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">_from_device_to_dashboard</h2>
+    <p class="section-desc">Built on the battle-tested Telegraf collector, extended by _rzilient for laptop and desktop fleets.</p>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-icon">💻</div>
+        <h4>Collect</h4>
+        <p>A tiny agent samples device vitals every few minutes. It self-registers with the platform and identifies itself by hardware serial.</p>
+      </div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step">
+        <div class="step-icon">📡</div>
+        <h4>Ship</h4>
+        <p>Metrics are batched and sent securely to the _rzilient platform. Offline? Up to 10,000 readings are buffered locally and delivered when the device reconnects.</p>
+      </div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step">
+        <div class="step-icon">📊</div>
+        <h4>Understand</h4>
+        <p>The platform turns raw readings into health checks, sparkline trends, anomaly alerts, and inputs to your fleet's security score.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Built to be invisible -->
+  <section class="services reveal">
+    <p class="section-label">Designed for real fleets</p>
+    <h2 class="section-title">_built_to_be_invisible</h2>
+    <p class="section-desc">Pulzar is engineered to never get in the way of the person using the device.</p>
+    <div class="spec-strip">
+      <div class="spec">
+        <span class="spec-value">~10 min</span>
+        <span class="spec-label">Sampling interval with randomized jitter — no synchronized load spikes across the fleet</span>
+      </div>
+      <div class="spec">
+        <span class="spec-value">10,000</span>
+        <span class="spec-label">Metrics buffered locally when offline, so flaky Wi-Fi never means lost data</span>
+      </div>
+      <div class="spec">
+        <span class="spec-value">0</span>
+        <span class="spec-label">Keystrokes, screenshots, or file contents captured — Pulzar reads hardware vitals, nothing personal</span>
+      </div>
+      <div class="spec">
+        <span class="spec-value">1</span>
+        <span class="spec-label">Small native service per device — no browser extensions, no always-on daemons fighting for resources</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms -->
+  <section class="services reveal">
+    <p class="section-label">Runs everywhere</p>
+    <h2 class="section-title">_platform_support</h2>
+    <p class="section-desc">Deploy silently through your MDM or download installers straight from the platform.</p>
+    <div class="platforms">
+      <span class="platform-badge"> macOS · Apple Silicon &amp; Intel</span>
+      <span class="platform-badge">🪟 Windows 10 / 11</span>
+      <span class="platform-badge">🐧 Linux</span>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="reveal">
+    <div class="pz-cta">
+      <h2>See your fleet's pulse today</h2>
+      <p>Pulzar is included with your _rzilient platform. Open the Health Check page to activate it on your devices, or book a demo to see it live.</p>
+      <div class="cta-buttons">
+        <a class="btn-lime" href="https://join.rzilient.club" target="_blank" rel="noopener noreferrer">Open the platform →</a>
+        <a class="btn-ghost" href="https://www.rzilient.club/en/demo" target="_blank" rel="noopener noreferrer">Book a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      © 2026 <a href="https://rzilient.club/en" target="_blank" rel="noopener noreferrer">_rzilient group</a> — Pulzar device telemetry
+    </div>
+    <div class="footer-links">
+      <a href="/">rzilient.tech</a>
+      <a href="privacy-policy-en.html">Privacy Policy</a>
+      <a href="https://status.rzilient.tech" target="_blank" rel="noopener noreferrer">Status</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Scroll reveal — same behaviour as index.html
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
