@@ -10,340 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <style>
-        /* VPN page-specific styles */
-        .vpn-hero {
-            padding: 80px 0 60px;
-            text-align: center;
-        }
+    <link rel="stylesheet" href="css/vpn-section.css">
+    <link rel="stylesheet" href="css/pulzar.css">
 
-        .vpn-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--lime-dim);
-            border: 1px solid rgba(180, 234, 31, 0.2);
-            border-radius: 20px;
-            padding: 6px 16px;
-            font-family: var(--mono);
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--lime);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-            animation: fadeInDown 0.6s ease-out;
-        }
-
-        .vpn-hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            background: var(--lime);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--lime-glow);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .vpn-hero h1 {
-            font-size: clamp(36px, 5vw, 52px);
-            font-weight: 700;
-            letter-spacing: -0.035em;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.6s ease-out 0.1s both;
-        }
-
-        .vpn-hero h1 .accent {
-            background: linear-gradient(135deg, var(--lime) 0%, #8BC34A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .vpn-hero-sub {
-            color: var(--text-dim);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-            font-weight: 400;
-            font-size: 17px;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
-        }
-
-        .vpn-hero-bar {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 14px 24px;
-            font-family: var(--mono);
-            font-size: 13px;
-            color: var(--text-dim);
-            animation: fadeInUp 0.6s ease-out 0.3s both;
-            transition: border-color 0.2s;
-        }
-
-        .vpn-hero-bar:hover {
-            border-color: var(--border-hover);
-        }
-
-        .vpn-proto {
-            color: var(--lime);
-            font-weight: 600;
-            font-size: 11px;
-            background: var(--lime-dim);
-            padding: 3px 8px;
-            border-radius: 4px;
-            letter-spacing: 0.05em;
-        }
-
-        .vpn-endpoint {
-            color: var(--text);
-        }
-
-        .vpn-subnet {
-            color: var(--text-muted);
-        }
-
-        .vpn-features {
-            padding: 60px 0;
-        }
-
-        .vpn-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .vpn-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px 28px;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .vpn-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--lime), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .vpn-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .vpn-card:hover::before {
-            opacity: 1;
-        }
-
-        .vpn-card-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--lime-dim);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-
-        .vpn-card h3 {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            letter-spacing: -0.02em;
-        }
-
-        .vpn-card p {
-            font-size: 14px;
-            color: var(--text-dim);
-            line-height: 1.6;
-        }
-
-        .vpn-architecture {
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .architecture-diagram {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 40px;
-            font-family: var(--mono);
-            font-size: 13px;
-            color: var(--text-dim);
-            line-height: 1.8;
-            margin-top: 32px;
-            overflow-x: auto;
-        }
-
-        .architecture-diagram pre {
-            margin: 0;
-            white-space: pre;
-        }
-
-        .arch-line {
-            color: var(--text-muted);
-        }
-
-        .arch-highlight {
-            color: var(--lime);
-            font-weight: 600;
-        }
-
-        .arch-endpoint {
-            color: var(--text);
-        }
-
-        .vpn-cta-section {
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .vpn-cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 32px;
-        }
-
-        .vpn-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            border-radius: 10px;
-            font-family: var(--sans);
-            font-size: 15px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .vpn-btn-primary {
-            background: var(--lime);
-            color: #0a0a0a;
-        }
-
-        .vpn-btn-primary:hover {
-            background: #c5f52a;
-            transform: translateY(-1px);
-        }
-
-        .vpn-btn-secondary {
-            background: var(--surface);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .vpn-btn-secondary:hover {
-            border-color: var(--border-hover);
-            background: var(--surface-2);
-        }
-
-        .vpn-arrow {
-            transition: transform 0.2s ease;
-        }
-
-        .vpn-btn:hover .vpn-arrow {
-            transform: translateX(4px);
-        }
-
-        .vpn-specs {
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-top: 32px;
-        }
-
-        .spec-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .spec-card h4 {
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--lime);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .spec-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .spec-list li {
-            font-size: 14px;
-            color: var(--text-dim);
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .spec-list li:last-child {
-            border-bottom: none;
-        }
-
-        .spec-list li strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .vpn-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .specs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .vpn-hero-bar {
-                flex-wrap: wrap;
-                gap: 10px;
-                font-size: 12px;
-                padding: 12px 16px;
-            }
-
-            .vpn-cta-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .architecture-diagram {
-                padding: 20px;
-                font-size: 11px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -381,6 +50,27 @@
             <span class="vpn-endpoint">Google SSO</span>
             <span class="vpn-subnet">WireGuard</span>
         </div>
+    </section>
+
+    <!-- Demo video -->
+    <section class="services reveal">
+        <p class="section-label">See it in action</p>
+        <h2 class="section-title">_vpn_at_work</h2>
+        <p class="section-desc">How Pulzar's readings become health checks, trends, and alerts inside the _rzilient platform.</p>
+        <div class="demo-video">
+            <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    poster="https://resources.rzilient.tech/assets/videos/vpn-demo-poster.jpg">
+                <source src="https://resources.rzilient.tech/assets/videos/vpn-demo.mp4" type="video/mp4">
+                Your browser does not support embedded video.
+                <a href="https://resources.rzilient.tech/assets/videos/vpn-demo.mp4">Download the demo</a> instead.
+            </video>
+        </div>
+        <p class="demo-caption">// live view — VPN Health Check dashboard on join.rzilient.club</p>
     </section>
 
     <!-- Benefits -->
