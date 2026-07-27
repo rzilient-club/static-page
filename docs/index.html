@@ -127,6 +127,7 @@
       transition: all 0.2s ease;
     }
     .nav-link:hover { color: var(--text); background: var(--surface-2); }
+    .nav-link.active { color: var(--lime); background: var(--lime-dim); }
 
     /* ── Version badge ── */
     .version-badge {
@@ -148,6 +149,360 @@
       background: var(--lime);
       border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       Guide section — OAuth2 Partner Authorization
+       Bespoke styling using the same design tokens as the
+       Swagger UI overrides below, so the two sections read
+       as one continuous page rather than a bolted-on widget.
+       ═══════════════════════════════════════════════════════ */
+
+    .guide {
+      padding: 48px 0 24px;
+    }
+
+    .guide-header {
+      margin-bottom: 32px;
+    }
+    .guide-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--lime);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .guide-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .guide-subtitle {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-dim);
+      max-width: 720px;
+    }
+    .guide-subtitle code {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      background: var(--surface-2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--lime);
+    }
+
+    /* ── Flow diagram ── */
+    .flow-diagram {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 24px 0 40px;
+      background: var(--surface);
+    }
+    .flow-step {
+      padding: 20px 20px;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .flow-step:last-child { border-right: none; }
+    .flow-step-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--lime);
+      background: var(--lime-dim);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .flow-step-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .flow-step-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .flow-arrow {
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+      background: var(--bg);
+      z-index: 2;
+      padding: 2px;
+    }
+    @media (max-width: 768px) {
+      .flow-diagram { grid-template-columns: 1fr; }
+      .flow-step { border-right: none; border-bottom: 1px solid var(--border); }
+      .flow-step:last-child { border-bottom: none; }
+      .flow-arrow { display: none; }
+    }
+
+    /* ── Section blocks ── */
+    .guide-section {
+      margin-bottom: 40px;
+    }
+    .guide-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .guide-section-num {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--lime);
+      background: var(--lime-dim);
+      border: 1px solid rgba(180, 234, 31, 0.2);
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .guide-section-body {
+      font-size: 13.5px;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-top: 12px;
+    }
+    .guide-section-body p { margin-bottom: 12px; }
+    .guide-section-body strong { color: var(--text); font-weight: 600; }
+    .guide-section-body ul, .guide-section-body ol {
+      margin: 12px 0 12px 20px;
+    }
+    .guide-section-body li { margin-bottom: 6px; }
+
+    /* ── Info / warning callouts ── */
+    .callout {
+      display: flex;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 16px 0;
+    }
+    .callout-icon { flex-shrink: 0; font-size: 14px; line-height: 1.6; }
+    .callout.info {
+      background: rgba(96, 165, 250, 0.06);
+      border-color: var(--get-border);
+      color: var(--text-dim);
+    }
+    .callout.info .callout-icon { color: var(--get); }
+    .callout.warn {
+      background: rgba(251, 146, 60, 0.06);
+      border-color: var(--put-border);
+      color: var(--text-dim);
+    }
+    .callout.warn .callout-icon { color: var(--put); }
+    .callout code {
+      font-family: var(--mono);
+      font-size: 12px;
+      background: var(--surface-2);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--lime);
+    }
+
+    /* ── Tables (registration items, endpoints, errors) ── */
+    .guide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 16px 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .guide-table th {
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .guide-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dim);
+      vertical-align: top;
+    }
+    .guide-table tr:last-child td { border-bottom: none; }
+    .guide-table td:first-child {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .guide-table code {
+      font-family: var(--mono);
+      font-size: 12px;
+      background: var(--surface-2);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--lime);
+    }
+
+    /* Error code badges */
+    .err-code {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .err-code.client { background: var(--delete-bg); color: var(--delete); }
+    .err-code.rate { background: var(--put-bg); color: var(--put); }
+
+    /* ── Code tabs ── */
+    .code-tabs {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 16px 0;
+      background: var(--surface);
+    }
+    .code-tab-headers {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    .code-tab-btn {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      padding: 10px 16px;
+      cursor: pointer;
+      border-right: 1px solid var(--border);
+      transition: all 0.15s ease;
+    }
+    .code-tab-btn:hover { color: var(--text-dim); }
+    .code-tab-btn.active {
+      color: var(--lime);
+      background: var(--surface);
+      box-shadow: inset 0 -2px 0 var(--lime);
+    }
+    .code-tab-panel { display: none; }
+    .code-tab-panel.active { display: block; }
+
+    pre.code-block {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: var(--text-dim);
+      padding: 16px;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    pre.code-block .c-key { color: var(--get); }       /* keywords / methods */
+    pre.code-block .c-str { color: var(--lime); }      /* strings / URLs */
+    pre.code-block .c-com { color: var(--text-muted); font-style: italic; } /* comments */
+    pre.code-block .c-var { color: var(--put); }       /* placeholders */
+
+    /* Simple non-tabbed code block wrapper (for single-language snippets) */
+    .code-block-wrapper {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      margin: 16px 0;
+      overflow: hidden;
+    }
+    .code-block-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--surface-2);
+      padding: 8px 16px;
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Step markers for the numbered walkthrough ── */
+    .guide-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .guide-step-marker {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--lime-dim);
+      border: 1px solid rgba(180, 234, 31, 0.25);
+      color: var(--lime);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .guide-step-content { flex: 1; min-width: 0; }
+    .guide-step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    /* ── Checklist ── */
+    .checklist { list-style: none; margin: 16px 0 0 0 !important; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-dim);
+      padding: 6px 0;
+    }
+    .checklist li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      margin-top: 2px;
+      border: 1.5px solid var(--border-hover);
+      border-radius: 3px;
     }
 
     /* ═══════════════════════════════════════════════════════
@@ -543,10 +898,357 @@
     </a>
     <div class="nav-links">
       <span class="version-badge"><span class="dot"></span> External API v1.0</span>
+      <a class="nav-link" href="#oauth-guide">OAuth Guide</a>
       <a class="nav-link" href="/">Home</a>
       <a class="nav-link" href="../status.html">Status</a>
     </div>
   </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       GUIDE — OAuth 2.1 Partner Authorization
+       ═══════════════════════════════════════════════════════ -->
+  <section class="guide" id="oauth-guide">
+    <div class="guide-header">
+      <div class="guide-eyebrow">Guide</div>
+      <h1 class="guide-title">Connecting a partner integration via OAuth 2.1</h1>
+      <p class="guide-subtitle">
+        Let your product request access to a mutual customer's rzilient data through
+        a standard authorization-code flow with PKCE. The customer consents once;
+        you receive a bearer token scoped to that customer's company, usable against
+        every endpoint below under <code>/api/external/v1</code>.
+      </p>
+    </div>
+
+    <!-- Flow diagram -->
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <div class="flow-step-num">1</div>
+        <div class="flow-step-title">Redirect to consent</div>
+        <div class="flow-step-desc">Send the customer's browser to rzilient with your <code style="color:var(--lime);font-family:var(--mono);font-size:11px;">client_id</code> and a PKCE challenge.</div>
+        <span class="flow-arrow">→</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">2</div>
+        <div class="flow-step-title">Customer approves</div>
+        <div class="flow-step-desc">Their IT manager sees your app name and requested scope, then authorizes.</div>
+        <span class="flow-arrow">→</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">3</div>
+        <div class="flow-step-title">Exchange for a token</div>
+        <div class="flow-step-desc">Trade the returned code for a long-lived, tenant-scoped bearer token.</div>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">&#9432;</span>
+      <span>
+        The token you receive is <strong>tenant-scoped</strong> — it grants access to exactly
+        one customer company (the one whose manager consented). It does not expire and has
+        no refresh token; the customer can revoke it any time from their rzilient settings,
+        and re-consenting automatically rotates it.
+      </span>
+    </div>
+
+    <!-- §1 Registration -->
+    <div class="guide-section">
+      <div class="guide-section-title">
+        <span class="guide-section-num">1</span>
+        Register your application
+      </div>
+      <div class="guide-section-body">
+        <p>
+          Registration is handled by the rzilient team today. Contact your technical
+          contact with the following, and you'll receive a <code>client_id</code> and
+          <code>client_secret</code> via a 1Password shared vault link.
+        </p>
+        <table class="guide-table">
+          <thead>
+          <tr><th>Item</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+          <tr><td>App name</td><td>Shown to customers on the consent screen — keep it recognizable to your own users.</td></tr>
+          <tr><td>Logo URL</td><td>HTTPS, square, ≥112×112px. Displayed next to your app name at consent time.</td></tr>
+          <tr><td>Redirect URI(s)</td><td>HTTPS only, exact match enforced — no wildcards. Send both staging and production if applicable.</td></tr>
+          <tr><td>Technical contact</td><td>A monitored inbox for security notices, not a personal address.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout warn">
+          <span class="callout-icon">&#9888;</span>
+          <span>
+            <code>client_secret</code> is shown once and stored only as a hash on our side.
+            Keep it in your secret manager — never in client-side code, logs, or version control.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- §2 Endpoints -->
+    <div class="guide-section">
+      <div class="guide-section-title">
+        <span class="guide-section-num">2</span>
+        Endpoints
+      </div>
+      <div class="guide-section-body">
+        <table class="guide-table">
+          <thead>
+          <tr><th>Purpose</th><th>URL</th></tr>
+          </thead>
+          <tbody>
+          <tr><td>Authorize (browser)</td><td><code>https://app.rzilient.club/oauth/authorize</code></td></tr>
+          <tr><td>Token exchange (server)</td><td><code>https://api.rzilient.tech/oauth/token</code></td></tr>
+          <tr><td>Revocation (server)</td><td><code>https://api.rzilient.tech/oauth/revoke</code></td></tr>
+          <tr><td>External API base</td><td><code>https://api.rzilient.tech/api/external/v1</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- §3 Step-by-step -->
+    <div class="guide-section">
+      <div class="guide-section-title">
+        <span class="guide-section-num">3</span>
+        Step-by-step
+      </div>
+
+      <div class="guide-step">
+        <div class="guide-step-marker">0</div>
+        <div class="guide-step-content">
+          <div class="guide-step-title">Generate a PKCE pair — once per authorization attempt</div>
+          <div class="guide-section-body">
+            <p><code>code_challenge_method=S256</code> is mandatory. Never reuse a verifier across customers or retries.</p>
+          </div>
+          <div class="code-tabs">
+            <div class="code-tab-headers">
+              <button class="code-tab-btn active" data-tab="pkce-node">Node.js</button>
+              <button class="code-tab-btn" data-tab="pkce-ruby">Ruby</button>
+              <button class="code-tab-btn" data-tab="pkce-py">Python</button>
+            </div>
+            <div class="code-tab-panel active" data-panel="pkce-node">
+<pre class="code-block"><span class="c-key">import</span> { randomBytes, createHash } <span class="c-key">from</span> <span class="c-str">'node:crypto'</span>;
+
+<span class="c-key">const</span> codeVerifier = randomBytes(<span class="c-var">48</span>).toString(<span class="c-str">'base64url'</span>);
+<span class="c-key">const</span> codeChallenge = createHash(<span class="c-str">'sha256'</span>).update(codeVerifier).digest(<span class="c-str">'base64url'</span>);</pre>
+            </div>
+            <div class="code-tab-panel" data-panel="pkce-ruby">
+<pre class="code-block"><span class="c-key">require</span> <span class="c-str">'securerandom'</span>
+<span class="c-key">require</span> <span class="c-str">'openssl'</span>
+<span class="c-key">require</span> <span class="c-str">'base64'</span>
+
+code_verifier  = SecureRandom.urlsafe_base64(<span class="c-var">48</span>)
+code_challenge = Base64.urlsafe_encode64(
+  OpenSSL::Digest::SHA256.digest(code_verifier), padding: <span class="c-var">false</span>
+)</pre>
+            </div>
+            <div class="code-tab-panel" data-panel="pkce-py">
+<pre class="code-block"><span class="c-key">import</span> secrets, hashlib, base64
+
+code_verifier  = secrets.token_urlsafe(<span class="c-var">48</span>)
+code_challenge = base64.urlsafe_b64encode(
+    hashlib.sha256(code_verifier.encode()).digest()
+).rstrip(<span class="c-str">b'='</span>).decode()</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="guide-step-marker">1</div>
+        <div class="guide-step-content">
+          <div class="guide-step-title">Redirect the customer's browser</div>
+          <div class="code-block-wrapper">
+            <div class="code-block-label">GET</div>
+            <pre class="code-block"><span class="c-str">https://app.rzilient.club/oauth/authorize</span>
+  ?client_id=<span class="c-var">YOUR_CLIENT_ID</span>
+  &amp;response_type=code
+  &amp;redirect_uri=<span class="c-var">https://yourapp.example.com/integrations/rzilient/callback</span>
+  &amp;scope=external_api
+  &amp;state=<span class="c-var">RANDOM_OPAQUE_VALUE</span>
+  &amp;code_challenge=<span class="c-var">CODE_CHALLENGE</span>
+  &amp;code_challenge_method=S256</pre>
+          </div>
+          <div class="guide-section-body">
+            <ul>
+              <li><code>redirect_uri</code> must byte-for-byte match a registered URI.</li>
+              <li><code>state</code> must be unguessable (≥128 bits) and verified on callback — your CSRF defense.</li>
+              <li>Only rzilient company managers/admins can consent.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="guide-step-marker">2</div>
+        <div class="guide-step-content">
+          <div class="guide-step-title">Handle the callback</div>
+          <div class="guide-section-body">
+            <p>Success:</p>
+          </div>
+          <div class="code-block-wrapper">
+            <pre class="code-block"><span class="c-str">https://yourapp.example.com/integrations/rzilient/callback</span>?code=<span class="c-var">AUTH_CODE</span>&amp;state=<span class="c-var">RANDOM_OPAQUE_VALUE</span></pre>
+          </div>
+          <div class="guide-section-body">
+            <p>Denial or error:</p>
+          </div>
+          <div class="code-block-wrapper">
+            <pre class="code-block">...?error=access_denied&amp;error_description=...&amp;state=<span class="c-var">RANDOM_OPAQUE_VALUE</span></pre>
+          </div>
+          <div class="guide-section-body">
+            <p>Verify <code>state</code> on every callback. The code is single-use and expires in <strong>10 minutes</strong> — exchange it immediately.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="guide-step-marker">3</div>
+        <div class="guide-step-content">
+          <div class="guide-step-title">Exchange the code for a token — server to server</div>
+          <div class="code-block-wrapper">
+            <div class="code-block-label">cURL</div>
+            <pre class="code-block"><span class="c-key">curl</span> -s https://api.rzilient.tech/oauth/token \
+  -X POST \
+  -H <span class="c-str">'Content-Type: application/x-www-form-urlencoded'</span> \
+  -d grant_type=authorization_code \
+  -d code=<span class="c-var">AUTH_CODE</span> \
+  -d redirect_uri=<span class="c-var">https://yourapp.example.com/integrations/rzilient/callback</span> \
+  -d client_id=<span class="c-var">YOUR_CLIENT_ID</span> \
+  -d client_secret=<span class="c-var">YOUR_CLIENT_SECRET</span> \
+  -d code_verifier=<span class="c-var">CODE_VERIFIER</span></pre>
+          </div>
+          <div class="code-block-wrapper">
+            <div class="code-block-label">Response</div>
+            <pre class="code-block">{
+  <span class="c-str">"access_token"</span>: <span class="c-str">"9iHIhNKsrBpYQQr6JwjiLu1ZZz2wVNZtI3SCjmyc7Es="</span>,
+  <span class="c-str">"token_type"</span>: <span class="c-str">"Bearer"</span>,
+  <span class="c-str">"scope"</span>: <span class="c-str">"external_api"</span>,
+  <span class="c-str">"created_at"</span>: 1753257600
+}</pre>
+          </div>
+          <div class="guide-section-body">
+            <ul>
+              <li>No <code>expires_in</code>, no <code>refresh_token</code> — the token is long-lived by design.</li>
+              <li>The token contains base64 characters (<code>+</code>, <code>/</code>, <code>=</code>). Use only in the <code>Authorization</code> header, never in a URL.</li>
+              <li>Reusing a consumed code invalidates the token issued for it — make your callback idempotent before exchanging.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="guide-step-marker">4</div>
+        <div class="guide-step-content">
+          <div class="guide-step-title">Call the External API</div>
+          <div class="code-block-wrapper">
+            <div class="code-block-label">cURL</div>
+            <pre class="code-block"><span class="c-key">curl</span> -s https://api.rzilient.tech/api/external/v1/clients \
+  -H <span class="c-str">'Authorization: Bearer 9iHIhNKsrBpYQQr6JwjiLu1ZZz2wVNZtI3SCjmyc7Es='</span></pre>
+          </div>
+          <div class="guide-section-body">
+            <p>
+              Every request is automatically scoped to the customer that consented —
+              there's no tenant parameter, and no way to reach another company with this token.
+              Full endpoint reference below.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- §4 Multiple customers & revocation -->
+    <div class="guide-section">
+      <div class="guide-section-title">
+        <span class="guide-section-num">4</span>
+        Multiple customers &amp; revocation
+      </div>
+      <div class="guide-section-body">
+        <p>One authorization = one token = one customer company. Key stored tokens by your own customer/workspace identifier, and trigger the flow from a per-customer "Connect rzilient" action in your product.</p>
+        <p>To revoke programmatically (e.g. a customer disconnects from your side):</p>
+      </div>
+      <div class="code-block-wrapper">
+        <div class="code-block-label">cURL</div>
+        <pre class="code-block"><span class="c-key">curl</span> -s https://api.rzilient.tech/oauth/revoke \
+  -X POST \
+  -u <span class="c-str">'YOUR_CLIENT_ID:YOUR_CLIENT_SECRET'</span> \
+  -d token=<span class="c-var">ACCESS_TOKEN</span></pre>
+      </div>
+      <div class="guide-section-body">
+        <p>Returns <code>200</code> regardless of whether the token was valid. After revocation from either side, the token stops working immediately.</p>
+      </div>
+    </div>
+
+    <!-- §5 Errors -->
+    <div class="guide-section">
+      <div class="guide-section-title">
+        <span class="guide-section-num">5</span>
+        Error handling
+      </div>
+      <div class="guide-section-body">
+        <table class="guide-table">
+          <thead>
+          <tr><th>Where</th><th>Error</th><th>Meaning</th><th>What to do</th></tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Callback</td>
+            <td><span class="err-code client">access_denied</span></td>
+            <td>User cancelled or lacks manager role</td>
+            <td>Show "connection cancelled"; offer retry</td>
+          </tr>
+          <tr>
+            <td>/oauth/token</td>
+            <td><span class="err-code client">invalid_grant</span></td>
+            <td>Code expired, already used, or verifier mismatch</td>
+            <td>Restart from step 1 with fresh PKCE values</td>
+          </tr>
+          <tr>
+            <td>/oauth/token</td>
+            <td><span class="err-code client">invalid_client</span></td>
+            <td>Bad client_id / client_secret</td>
+            <td>Check credentials; contact us if rotated</td>
+          </tr>
+          <tr>
+            <td>External API</td>
+            <td><span class="err-code client">401</span></td>
+            <td>Token revoked or invalid</td>
+            <td>Mark customer as disconnected; do not retry in a loop</td>
+          </tr>
+          <tr>
+            <td>External API</td>
+            <td><span class="err-code rate">429</span></td>
+            <td>Rate limited</td>
+            <td>Back off with jitter; respect <code>Retry-After</code></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- §6 Security checklist -->
+    <div class="guide-section">
+      <div class="guide-section-title">
+        <span class="guide-section-num">6</span>
+        Security checklist
+      </div>
+      <div class="guide-section-body">
+        <ul class="checklist">
+          <li>Secrets and tokens live in a secret manager — never in code, logs, or frontend bundles</li>
+          <li><code>state</code> generated with a CSPRNG and verified on every callback</li>
+          <li>Fresh PKCE pair per authorization attempt; verifier never leaves your server</li>
+          <li>Token exchange and API calls made only over TLS, server-to-server</li>
+          <li>A "Disconnect rzilient" action that calls <code>/oauth/revoke</code> and deletes the stored token</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">&#9432;</span>
+      <span>
+        Need a sandbox to test against? Ask your rzilient technical contact for a
+        dedicated <code>client_id</code> pointing at your staging redirect URI, plus
+        a demo company with seeded data.
+      </span>
+    </div>
+  </section>
 </div>
 
 <div id="swagger-ui"></div>
@@ -583,6 +1285,21 @@
       operationsSorter: 'method',
     });
   };
+
+  // ── Code tab switching (PKCE snippets) ──
+  document.querySelectorAll('.code-tabs').forEach((group) => {
+    const buttons = group.querySelectorAll('.code-tab-btn');
+    const panels = group.querySelectorAll('.code-tab-panel');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-tab');
+        buttons.forEach((b) => b.classList.remove('active'));
+        panels.forEach((p) => p.classList.remove('active'));
+        btn.classList.add('active');
+        group.querySelector(`[data-panel="${target}"]`).classList.add('active');
+      });
+    });
+  });
 </script>
 </body>
 </html>
