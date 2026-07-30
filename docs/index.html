@@ -958,9 +958,8 @@
       </div>
       <div class="guide-section-body">
         <p>
-          Registration is handled by the rzilient team today. Contact your technical
-          contact with the following, and you'll receive a <code>client_id</code> and
-          <code>client_secret</code> via a 1Password shared vault link.
+          Registration is set up by someone on the rzilient side — typically the person
+          managing your integration with us. Provide them with:
         </p>
         <table class="guide-table">
           <thead>
@@ -970,14 +969,30 @@
           <tr><td>App name</td><td>Shown to customers on the consent screen — keep it recognizable to your own users.</td></tr>
           <tr><td>Logo URL</td><td>HTTPS, square, ≥112×112px. Displayed next to your app name at consent time.</td></tr>
           <tr><td>Redirect URI(s)</td><td>HTTPS only, exact match enforced — no wildcards. Send both staging and production if applicable.</td></tr>
-          <tr><td>Technical contact</td><td>A monitored inbox for security notices, not a personal address.</td></tr>
+          <tr><td>Contact email</td><td>Where we'll send your one-time credential link.</td></tr>
           </tbody>
         </table>
+        <p>
+          You'll receive a link that shows your <code>client_id</code> and <code>client_secret</code>
+          <strong>exactly once</strong>. Copy both into your secret manager immediately — the link
+          cannot be reopened, and we cannot retrieve the secret afterward (we store only a hash, the
+          same way a password manager would).
+        </p>
         <div class="callout warn">
           <span class="callout-icon">&#9888;</span>
           <span>
-            <code>client_secret</code> is shown once and stored only as a hash on our side.
-            Keep it in your secret manager — never in client-side code, logs, or version control.
+            If the link expires or is lost before you retrieve your credentials, contact your
+            rzilient technical contact for a fresh one — this does not require re-registering
+            your application.
+          </span>
+        </div>
+        <div class="callout info">
+          <span class="callout-icon">&#9432;</span>
+          <span>
+            New applications undergo a brief internal review (typically same-day) before they
+            appear on any customer's consent screen. You can retrieve your credentials and start
+            building immediately — ask about a sandbox application to test against while review
+            is in progress.
           </span>
         </div>
       </div>
