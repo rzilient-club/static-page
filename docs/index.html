@@ -958,8 +958,10 @@
       </div>
       <div class="guide-section-body">
         <p>
-          Registration is set up by someone on the rzilient side — typically the person
-          managing your integration with us. Provide them with:
+          Registration is set up directly on the rzilient platform — either by an admin at
+          your organization who already manages mutual customer companies on rzilient
+          (self-service, from their own account), or by the rzilient team on your behalf if
+          your integration has no rzilient login of its own. Either way, we'll need:
         </p>
         <table class="guide-table">
           <thead>
@@ -969,14 +971,15 @@
           <tr><td>App name</td><td>Shown to customers on the consent screen — keep it recognizable to your own users.</td></tr>
           <tr><td>Logo URL</td><td>HTTPS, square, ≥112×112px. Displayed next to your app name at consent time.</td></tr>
           <tr><td>Redirect URI(s)</td><td>HTTPS only, exact match enforced — no wildcards. Send both staging and production if applicable.</td></tr>
-          <tr><td>Contact email</td><td>Where we'll send your one-time credential link.</td></tr>
+          <tr><td>Contact email</td><td>Where your one-time credential link will be sent.</td></tr>
           </tbody>
         </table>
         <p>
-          You'll receive a link that shows your <code>client_id</code> and <code>client_secret</code>
-          <strong>exactly once</strong>. Copy both into your secret manager immediately — the link
-          cannot be reopened, and we cannot retrieve the secret afterward (we store only a hash, the
-          same way a password manager would).
+          You'll receive a secure link — generated on our platform, nothing third-party
+          involved — that shows your <code>client_id</code> and <code>client_secret</code>
+          <strong>exactly once</strong>. Copy both into your secret manager immediately: the
+          link cannot be reopened, and we cannot retrieve the secret afterward (we store only
+          a hash, the same way a password manager would).
         </p>
         <div class="callout warn">
           <span class="callout-icon">&#9888;</span>
@@ -990,9 +993,9 @@
           <span class="callout-icon">&#9432;</span>
           <span>
             New applications undergo a brief internal review (typically same-day) before they
-            appear on any customer's consent screen. You can retrieve your credentials and start
-            building immediately — ask about a sandbox application to test against while review
-            is in progress.
+            appear on any customer's consent screen. You can retrieve your credentials and
+            start building immediately — ask about a sandbox application to test against while
+            review is in progress.
           </span>
         </div>
       </div>
@@ -1010,7 +1013,7 @@
           <tr><th>Purpose</th><th>URL</th></tr>
           </thead>
           <tbody>
-          <tr><td>Authorize (browser)</td><td><code>https://app.rzilient.club/oauth/authorize</code></td></tr>
+          <tr><td>Authorize (browser)</td><td><code>https://join.rzilient.club/oauth/authorize</code></td></tr>
           <tr><td>Token exchange (server)</td><td><code>https://api.rzilient.tech/oauth/token</code></td></tr>
           <tr><td>Revocation (server)</td><td><code>https://api.rzilient.tech/oauth/revoke</code></td></tr>
           <tr><td>External API base</td><td><code>https://api.rzilient.tech/api/external/v1</code></td></tr>
@@ -1073,7 +1076,7 @@ code_challenge = base64.urlsafe_b64encode(
           <div class="guide-step-title">Redirect the customer's browser</div>
           <div class="code-block-wrapper">
             <div class="code-block-label">GET</div>
-            <pre class="code-block"><span class="c-str">https://app.rzilient.club/oauth/authorize</span>
+            <pre class="code-block"><span class="c-str">https://join.rzilient.club/oauth/authorize</span>
   ?client_id=<span class="c-var">YOUR_CLIENT_ID</span>
   &amp;response_type=code
   &amp;redirect_uri=<span class="c-var">https://yourapp.example.com/integrations/rzilient/callback</span>
@@ -1203,6 +1206,12 @@ code_challenge = base64.urlsafe_b64encode(
           <tr><th>Where</th><th>Error</th><th>Meaning</th><th>What to do</th></tr>
           </thead>
           <tbody>
+          <tr>
+            <td>Callback / consent</td>
+            <td><span class="err-code client">application_not_active</span></td>
+            <td>Your application hasn't cleared internal review yet</td>
+            <td>Wait for the confirmation from your rzilient contact; ask about a sandbox app to keep testing meanwhile</td>
+          </tr>
           <tr>
             <td>Callback</td>
             <td><span class="err-code client">access_denied</span></td>
