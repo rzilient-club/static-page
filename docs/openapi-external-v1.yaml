@@ -1,19 +1,37 @@
 openapi: 3.1.0
 info:
   title: rzilient External API
-  version: 1.1.0
+  version: 1.2.0
   description: |
     External API for rzilient platform — manages employees, fleet devices,
     orders, inventory, notifications and webhooks for third-party integrations.
 
     ## Authentication
 
-    All endpoints (unless noted) require a **Bearer token** in the `Authorization` header.
+    The rzilient API supports two authentication methods depending on the integration type:
 
-    **Token hierarchy:**
+    ### OAuth 2.1 — Partner integrations (recommended)
+
+    Partner applications registered via the rzilient platform use the
+    **Authorization Code flow with PKCE** (OAuth 2.1, RFC 9700).
+
+    **Prerequisites:**
+    - Register your application at `join.rzilient.club/settings/oauth-applications/new` (you need a partner account)
+    - Retrieve your `client_id` and `client_secret` from the one-time secure link
+      sent to your registered email address
+
+    ---
+
+    ### Provider API keys — Direct provider integrations (legacy)
+
+    Providers connecting directly (e.g. via n8n, Make.com, or custom scripts)
+    use a two-step token flow:
+
     1. Obtain a **root token** via `POST /token` using HTTP Basic Auth (provider email + password).
     2. Create a **company-scoped token** via `POST /enroll` using the root token.
     3. Use the company-scoped token for all other endpoints.
+
+    ---
 
     ## Pagination
 
@@ -63,20 +81,77 @@ servers:
     description: Staging
 
 security:
+  - oauth2:
+      - read
+      - write
   - bearerToken: []
 
 components:
   securitySchemes:
+    oauth2:
+      type: oauth2
+      description: |
+        OAuth 2.1 Authorization Code flow with PKCE for partner applications.
+        Register your application at https://app.rzilient.club/settings/developer
+        to obtain a `client_id` and `client_secret`.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.rzilient.tech/oauth/authorize
+          tokenUrl: https://api.rzilient.tech/oauth/token
+          refreshUrl: https://api.rzilient.tech/oauth/token
+          scopes:
+            read: Read access to employees, fleet, orders, inventory and notifications.
+            write: Write access — create and update employees, fleet devices and inventory.
+
     bearerToken:
       type: http
       scheme: bearer
-      description: Company-scoped API token obtained via the `/enroll` endpoint.
+      description: |
+        Company-scoped API token obtained via the `/enroll` endpoint.
+        Used by direct provider integrations (n8n, Make.com, custom scripts).
+        For new integrations, prefer OAuth 2.1 (`oauth2` security scheme above).
+
     basicAuth:
       type: http
       scheme: basic
-      description: Provider email and password. Used only for the `/token` endpoint.
+      description: |
+        Provider email and password. Used only for the `/token` endpoint
+        to obtain a root API key for direct provider integrations.
 
   schemas:
+    OAuthTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: Bearer token to use in the `Authorization` header.
+        token_type:
+          type: string
+          example: Bearer
+        expires_in:
+          type: integer
+          description: Token lifetime in seconds.
+          example: 7200
+        refresh_token:
+          type: string
+          description: Token to use when refreshing the access token.
+        scope:
+          type: string
+          example: read write
+        created_at:
+          type: integer
+          description: Unix timestamp of token creation.
+
+    OAuthErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: invalid_grant
+        error_description:
+          type: string
+          example: The provided authorization grant is invalid, expired, revoked, or does not match the redirect URI.
+
     Error:
       type: object
       properties:
@@ -682,6 +757,184 @@ components:
         type: integer
 
 paths:
+  /oauth/authorize:
+    get:
+      operationId: oauthAuthorize
+      summary: Authorization endpoint
+      description: |
+        Redirects the resource owner to the authorization page.
+        Used in the OAuth 2.1 Authorization Code flow with PKCE.
+
+        The user will be prompted to grant or deny access. On approval,
+        the browser is redirected to `redirect_uri` with a `code` parameter.
+        On denial, it redirects with `error=access_denied`.
+      tags: [Authentication]
+      servers:
+        - url: https://api.rzilient.tech
+          description: Production
+        - url: https://staging.rzilient.tech
+          description: Staging
+      security: []
+      parameters:
+        - name: response_type
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [code]
+        - name: client_id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Your application's client ID.
+        - name: redirect_uri
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uri
+          description: Must exactly match one of the registered redirect URIs.
+        - name: scope
+          in: query
+          required: false
+          schema:
+            type: string
+            example: read write
+        - name: code_challenge
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Base64url-encoded SHA-256 hash of the code verifier (PKCE).
+        - name: code_challenge_method
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [S256]
+        - name: state
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Random value to prevent CSRF. Returned unchanged in the redirect.
+      responses:
+        '302':
+          description: Redirect to `redirect_uri` with `code` and `state` on success, or `error` on denial.
+        '400':
+          description: Invalid request parameters.
+
+  /oauth/token:
+    post:
+      operationId: oauthToken
+      summary: Token endpoint
+      description: |
+        Exchanges an authorization code for an access token, or refreshes an existing token.
+
+        **Authorization Code exchange:**
+        ```
+        grant_type=authorization_code
+        &code=AUTHORIZATION_CODE
+        &client_id=YOUR_CLIENT_ID
+        &client_secret=YOUR_CLIENT_SECRET
+        &redirect_uri=YOUR_REDIRECT_URI
+        &code_verifier=CODE_VERIFIER
+        ```
+
+        **Refresh token:**
+        ```
+        grant_type=refresh_token
+        &refresh_token=REFRESH_TOKEN
+        &client_id=YOUR_CLIENT_ID
+        &client_secret=YOUR_CLIENT_SECRET
+        ```
+      tags: [Authentication]
+      servers:
+        - url: https://api.rzilient.tech
+          description: Production
+        - url: https://staging.rzilient.tech
+          description: Staging
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type, client_id, client_secret]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [authorization_code, refresh_token]
+                code:
+                  type: string
+                  description: Required for `authorization_code` grant.
+                refresh_token:
+                  type: string
+                  description: Required for `refresh_token` grant.
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                redirect_uri:
+                  type: string
+                  format: uri
+                  description: Required for `authorization_code` grant. Must match the registered URI.
+                code_verifier:
+                  type: string
+                  description: PKCE code verifier. Required for `authorization_code` grant.
+      responses:
+        '200':
+          description: Token issued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthTokenResponse'
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthErrorResponse'
+        '401':
+          description: Invalid client credentials.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthErrorResponse'
+
+  /oauth/revoke:
+    post:
+      operationId: oauthRevoke
+      summary: Revoke a token
+      description: Revokes an access or refresh token (RFC 7009).
+      tags: [Authentication]
+      servers:
+        - url: https://api.rzilient.tech
+          description: Production
+        - url: https://staging.rzilient.tech
+          description: Staging
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [token, client_id, client_secret]
+              properties:
+                token:
+                  type: string
+                  description: The access or refresh token to revoke.
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+      responses:
+        '200':
+          description: Token revoked (or was already invalid — always returns 200 per RFC 7009).
+
   /ping:
     get:
       operationId: ping
@@ -693,51 +946,6 @@ paths:
           description: OK
         '401':
           description: Unauthorized
-
-  /token:
-    post:
-      operationId: createRootToken
-      summary: Create root token
-      description: |
-        Authenticates a **Provider** using HTTP Basic Auth and returns a root API key.
-        The root token is used to create company-scoped tokens via `/enroll`.
-        Any previous root token for this provider is revoked.
-      tags: [Authentication]
-      security:
-        - basicAuth: []
-      responses:
-        '201':
-          description: Root token created.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiKey'
-        '401':
-          description: Invalid credentials.
-
-  /enroll:
-    post:
-      operationId: enrollCompany
-      summary: Create company-scoped token
-      description: |
-        Creates a token scoped to a specific company. Requires a **root token**.
-        The returned token should be used for all subsequent API calls.
-      tags: [Authentication]
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/EnrollRequest'
-      responses:
-        '201':
-          description: Company token created.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiKey'
-        '401':
-          description: Not a root token.
 
   /tokens:
     get:
@@ -1123,31 +1331,6 @@ paths:
         '404':
           description: Device not found.
 
-  /devices/callback:
-    post:
-      operationId: deviceCallback
-      summary: MDM webhook callback
-      description: |
-        Receives callbacks from MDMs (Workspace ONE, Jamf, etc.) using HTTP Basic Auth.
-        The webhook must be configured in the backoffice.
-      tags: [Devices]
-      security:
-        - basicAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              additionalProperties: true
-      responses:
-        '200':
-          description: Callback processed.
-        '401':
-          description: Unauthorized.
-        '422':
-          description: Processing error.
-
   /order:
     get:
       operationId: listOrders
@@ -1276,28 +1459,6 @@ paths:
                   error:
                     type: string
 
-  /order/callback:
-    post:
-      operationId: orderCallback
-      summary: Order webhook callback (e.g. Inflow)
-      description: |
-        Receives webhook callbacks for order status updates (e.g. from Inflow).
-        Authenticated via HMAC.
-      tags: [Orders]
-      security: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              additionalProperties: true
-      responses:
-        '200':
-          description: Callback processed.
-        '422':
-          description: Processing error.
-
   /inventory:
     get:
       operationId: listInventory
@@ -1415,54 +1576,11 @@ paths:
         '401':
           description: Unauthorized.
 
-  /callbacks:
-    post:
-      operationId: webhookCallback
-      summary: Receive external webhook
-      description: |
-        Processes incoming webhook notifications from external services.
-        Authenticated via HMAC. Supports `order` and `referral` element types.
-
-        **Webhook setup:**
-        1. Access Connectors in the backoffice
-        2. Configure webhook with auth type, header tag, shared secret, and event types
-      tags: [Webhooks]
-      security: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CallbackRequest'
-            examples:
-              orderUpdate:
-                summary: Order status change
-                value:
-                  event: change
-                  element: order
-                  data:
-                    element_id: "12321321-2SDFS-123123-123123"
-                    order:
-                      status: shipped
-              referralCreate:
-                summary: New referral
-                value:
-                  event: create
-                  element: referral
-                  data:
-                    client_id: "7dd7a8d5-2b51-4d75-82a6-7f235b081a05"
-                    email: "referred@example.com"
-      responses:
-        '200':
-          description: Webhook processed.
-        '401':
-          description: HMAC validation failed.
-        '422':
-          description: Processing error.
-
 tags:
   - name: Authentication
-    description: Token management — root tokens, company tokens, and key lifecycle.
+    description: |
+      OAuth 2.1 Authorization Code flow with PKCE — obtain tokens, refresh, and revoke.
+      Also includes API key management (list, revoke) and health check.
   - name: Employees
     description: CRUD operations on employees (clients) within a company.
   - name: Fleet
@@ -1475,5 +1593,3 @@ tags:
     description: Provider inventory management — computers, products, and services.
   - name: Notifications
     description: Recent platform notifications for the company.
-  - name: Webhooks
-    description: Inbound webhook callbacks from external services.
