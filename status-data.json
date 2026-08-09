@@ -1,41 +1,14 @@
 {
-  "fetched_at": "2026-08-09T07:56:54Z",
+  "fetched_at": "2026-08-09T08:15:29Z",
   "sites": [
-    {
-      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "projectId": 79525,
-      "name": "Inventory",
-      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
-      "state": "up",
-      "last_checked_at": "2026-08-09T07:56:43.309288Z",
-      "response_ms": 530
-    },
-    {
-      "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "projectId": 79525,
-      "name": "SAML SSO",
-      "url": "https://global.api.rzilient.tech/auth/saml/login",
-      "state": "up",
-      "last_checked_at": "2026-08-09T07:56:29.995761Z",
-      "response_ms": 412
-    },
-    {
-      "id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "projectId": 79525,
-      "name": "Global API v2",
-      "url": "https://global.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-08-09T07:54:56.242889Z",
-      "response_ms": 353
-    },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
       "projectId": 79525,
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-08-09T07:53:34.621849Z",
-      "response_ms": 2333
+      "last_checked_at": "2026-08-09T08:14:04.461766Z",
+      "response_ms": 2391
     },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
@@ -43,8 +16,35 @@
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-08-09T07:51:49.836098Z",
-      "response_ms": 151
+      "last_checked_at": "2026-08-09T08:12:24.508926Z",
+      "response_ms": 171
+    },
+    {
+      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "projectId": 79525,
+      "name": "Inventory",
+      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
+      "state": "up",
+      "last_checked_at": "2026-08-09T08:11:52.768490Z",
+      "response_ms": 1775
+    },
+    {
+      "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "projectId": 79525,
+      "name": "SAML SSO",
+      "url": "https://global.api.rzilient.tech/auth/saml/login",
+      "state": "up",
+      "last_checked_at": "2026-08-09T08:11:39.173949Z",
+      "response_ms": 404
+    },
+    {
+      "id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "projectId": 79525,
+      "name": "Global API v2",
+      "url": "https://global.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-08-09T08:10:15.969495Z",
+      "response_ms": 360
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -52,11 +52,27 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-08-09T07:55:31.503560Z",
-      "response_ms": 262
+      "last_checked_at": "2026-08-09T08:10:36.343050Z",
+      "response_ms": 176
     }
   ],
   "outages": [
+    {
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
     {
       "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
       "site_name": "Inventory",
@@ -380,22 +396,6 @@
     {
       "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
       "site_name": "Global API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "down_at": null,
       "up_at": null,
       "status": null,
