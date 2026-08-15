@@ -1,41 +1,14 @@
 {
-  "fetched_at": "2026-08-15T19:44:35Z",
+  "fetched_at": "2026-08-15T20:02:26Z",
   "sites": [
-    {
-      "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "projectId": 79525,
-      "name": "EU API v2",
-      "url": "https://eu.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-08-15T19:43:07.532022Z",
-      "response_ms": 464
-    },
-    {
-      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "projectId": 79525,
-      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
-      "state": "up",
-      "last_checked_at": "2026-08-15T19:42:48.385537Z",
-      "response_ms": 149
-    },
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
       "projectId": 79525,
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-08-15T19:41:23.787620Z",
-      "response_ms": 588
-    },
-    {
-      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "projectId": 79525,
-      "name": "Inventory",
-      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
-      "state": "up",
-      "last_checked_at": "2026-08-15T19:41:03.834532Z",
-      "response_ms": 1690
+      "last_checked_at": "2026-08-15T20:01:46.383795Z",
+      "response_ms": 461
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -43,8 +16,35 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-08-15T19:31:01.888835Z",
-      "response_ms": 619
+      "last_checked_at": "2026-08-15T20:01:20.398730Z",
+      "response_ms": 207
+    },
+    {
+      "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "projectId": 79525,
+      "name": "EU API v2",
+      "url": "https://eu.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-08-15T19:58:19.621131Z",
+      "response_ms": 424
+    },
+    {
+      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "projectId": 79525,
+      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
+      "state": "up",
+      "last_checked_at": "2026-08-15T19:58:04.488617Z",
+      "response_ms": 145
+    },
+    {
+      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "projectId": 79525,
+      "name": "Inventory",
+      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
+      "state": "up",
+      "last_checked_at": "2026-08-15T19:56:08.280814Z",
+      "response_ms": 1562
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -52,11 +52,179 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-08-15T19:32:34.436435Z",
-      "response_ms": 363
+      "last_checked_at": "2026-08-15T19:47:44.753804Z",
+      "response_ms": 316
     }
   ],
   "outages": [
+    {
+      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "site_name": "Global API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2026-03-24T16:19:02.539328Z",
+      "up_at": "2026-03-24T16:34:06.949960Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2026-03-23T14:18:30.526591Z",
+      "up_at": "2026-03-23T14:33:39.907099Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2026-02-25T11:26:13.585875Z",
+      "up_at": "2026-02-25T11:57:50.217845Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-12-30T12:35:39.851654Z",
+      "up_at": "2025-12-30T12:50:49.769030Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-10-31T02:13:25.434069Z",
+      "up_at": "2025-10-31T02:43:41.358815Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-10-28T15:24:01.137378Z",
+      "up_at": "2025-10-28T15:39:11.335536Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-09-01T09:06:32.726399Z",
+      "up_at": "2025-09-01T09:21:39.217303Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-08-21T08:52:39.365370Z",
+      "up_at": "2025-08-22T13:06:57.572725Z",
+      "status": 500,
+      "reason": "Expected 2xx status code -- got 500"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-07-16T12:30:22.543512Z",
+      "up_at": "2025-07-16T12:45:29.732731Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-07-16T07:25:50.476141Z",
+      "up_at": "2025-07-16T07:56:48.512145Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-06-17T09:33:29.009904Z",
+      "up_at": "2025-06-17T09:48:38.772176Z",
+      "status": 504,
+      "reason": "Expected 2xx status code -- got 504"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-04-11T13:20:34.514034Z",
+      "up_at": "2025-04-11T13:35:47.368726Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-03-11T15:14:01.258904Z",
+      "up_at": "2025-03-11T15:29:05.713923Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-02-22T15:59:52.548786Z",
+      "up_at": "2025-02-22T16:15:04.239745Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-02-22T14:58:36.737254Z",
+      "up_at": "2025-02-22T15:13:42.935773Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2025-02-19T11:29:22.997222Z",
+      "up_at": "2025-02-19T11:29:53.169954Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2024-04-23T15:06:11.953351Z",
+      "up_at": "2024-04-23T20:36:08.666921Z",
+      "status": 302,
+      "reason": "Expected 2xx status code -- got 302"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2024-03-21T12:00:07.789109Z",
+      "up_at": "2024-03-23T01:42:25.706222Z",
+      "status": null,
+      "reason": "DNS resolution failure"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2024-03-19T00:27:50.298998Z",
+      "up_at": "2024-03-19T00:42:51.779345Z",
+      "status": null,
+      "reason": "Connection timed out"
+    },
+    {
+      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
+      "site_name": "SAML SSO",
+      "down_at": "2024-02-06T23:26:47.806735Z",
+      "up_at": "2024-02-06T23:41:54.033206Z",
+      "status": null,
+      "reason": "Connection attempt timed out"
+    },
     {
       "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
       "site_name": "EU API v2",
@@ -68,14 +236,6 @@
     {
       "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
       "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "site_name": "Global API v2",
       "down_at": null,
       "up_at": null,
       "status": null,
@@ -240,166 +400,6 @@
       "up_at": "2023-12-19T12:01:14.546401Z",
       "status": null,
       "reason": "Connection timed out"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2026-03-24T16:19:02.539328Z",
-      "up_at": "2026-03-24T16:34:06.949960Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2026-03-23T14:18:30.526591Z",
-      "up_at": "2026-03-23T14:33:39.907099Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2026-02-25T11:26:13.585875Z",
-      "up_at": "2026-02-25T11:57:50.217845Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-12-30T12:35:39.851654Z",
-      "up_at": "2025-12-30T12:50:49.769030Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-10-31T02:13:25.434069Z",
-      "up_at": "2025-10-31T02:43:41.358815Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-10-28T15:24:01.137378Z",
-      "up_at": "2025-10-28T15:39:11.335536Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-09-01T09:06:32.726399Z",
-      "up_at": "2025-09-01T09:21:39.217303Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-08-21T08:52:39.365370Z",
-      "up_at": "2025-08-22T13:06:57.572725Z",
-      "status": 500,
-      "reason": "Expected 2xx status code -- got 500"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-07-16T12:30:22.543512Z",
-      "up_at": "2025-07-16T12:45:29.732731Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-07-16T07:25:50.476141Z",
-      "up_at": "2025-07-16T07:56:48.512145Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-06-17T09:33:29.009904Z",
-      "up_at": "2025-06-17T09:48:38.772176Z",
-      "status": 504,
-      "reason": "Expected 2xx status code -- got 504"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-04-11T13:20:34.514034Z",
-      "up_at": "2025-04-11T13:35:47.368726Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-03-11T15:14:01.258904Z",
-      "up_at": "2025-03-11T15:29:05.713923Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-02-22T15:59:52.548786Z",
-      "up_at": "2025-02-22T16:15:04.239745Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-02-22T14:58:36.737254Z",
-      "up_at": "2025-02-22T15:13:42.935773Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2025-02-19T11:29:22.997222Z",
-      "up_at": "2025-02-19T11:29:53.169954Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://api.rzilient.tech/auth/saml/login\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2024-04-23T15:06:11.953351Z",
-      "up_at": "2024-04-23T20:36:08.666921Z",
-      "status": 302,
-      "reason": "Expected 2xx status code -- got 302"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2024-03-21T12:00:07.789109Z",
-      "up_at": "2024-03-23T01:42:25.706222Z",
-      "status": null,
-      "reason": "DNS resolution failure"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2024-03-19T00:27:50.298998Z",
-      "up_at": "2024-03-19T00:42:51.779345Z",
-      "status": null,
-      "reason": "Connection timed out"
-    },
-    {
-      "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
-      "site_name": "SAML SSO",
-      "down_at": "2024-02-06T23:26:47.806735Z",
-      "up_at": "2024-02-06T23:41:54.033206Z",
-      "status": null,
-      "reason": "Connection attempt timed out"
     },
     {
       "site_id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
