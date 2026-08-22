@@ -1,23 +1,14 @@
 {
-  "fetched_at": "2026-08-22T16:45:52Z",
+  "fetched_at": "2026-08-22T17:03:26Z",
   "sites": [
-    {
-      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "projectId": 79525,
-      "name": "Inventory",
-      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
-      "state": "up",
-      "last_checked_at": "2026-08-22T16:42:15.057692Z",
-      "response_ms": 1865
-    },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
       "projectId": 79525,
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-08-22T16:42:14.035098Z",
-      "response_ms": 129
+      "last_checked_at": "2026-08-22T17:02:43.836485Z",
+      "response_ms": 101
     },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -25,8 +16,8 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-08-22T16:41:24.332463Z",
-      "response_ms": 412
+      "last_checked_at": "2026-08-22T17:01:52.489439Z",
+      "response_ms": 461
     },
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
@@ -34,8 +25,17 @@
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-08-22T16:40:51.133013Z",
-      "response_ms": 435
+      "last_checked_at": "2026-08-22T17:01:37.026214Z",
+      "response_ms": 570
+    },
+    {
+      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "projectId": 79525,
+      "name": "Inventory",
+      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
+      "state": "up",
+      "last_checked_at": "2026-08-22T16:57:21.386941Z",
+      "response_ms": 1883
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -43,8 +43,8 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-08-22T16:37:59.144241Z",
-      "response_ms": 393
+      "last_checked_at": "2026-08-22T16:53:04.007702Z",
+      "response_ms": 615
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -52,11 +52,35 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-08-22T16:37:59.109931Z",
-      "response_ms": 167
+      "last_checked_at": "2026-08-22T16:53:03.945071Z",
+      "response_ms": 255
     }
   ],
   "outages": [
+    {
+      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "site_name": "Global API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
     {
       "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
       "site_name": "Inventory",
@@ -224,30 +248,6 @@
       "up_at": "2023-12-19T12:01:14.546401Z",
       "status": null,
       "reason": "Connection timed out"
-    },
-    {
-      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "site_name": "Global API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
     },
     {
       "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
