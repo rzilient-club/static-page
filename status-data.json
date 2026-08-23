@@ -1,23 +1,14 @@
 {
-  "fetched_at": "2026-08-23T09:05:43Z",
+  "fetched_at": "2026-08-23T09:28:47Z",
   "sites": [
-    {
-      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
-      "projectId": 79525,
-      "name": "Inventory",
-      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
-      "state": "up",
-      "last_checked_at": "2026-08-23T09:04:53.744266Z",
-      "response_ms": 1804
-    },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
       "projectId": 79525,
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-08-23T09:02:05.282446Z",
-      "response_ms": 59
+      "last_checked_at": "2026-08-23T09:27:41.277285Z",
+      "response_ms": 75
     },
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
@@ -25,7 +16,7 @@
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-08-23T09:01:46.248650Z",
+      "last_checked_at": "2026-08-23T09:27:08.689297Z",
       "response_ms": 528
     },
     {
@@ -34,8 +25,17 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-08-23T09:00:51.138911Z",
-      "response_ms": 516
+      "last_checked_at": "2026-08-23T09:26:21.792534Z",
+      "response_ms": 495
+    },
+    {
+      "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
+      "projectId": 79525,
+      "name": "Inventory",
+      "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
+      "state": "up",
+      "last_checked_at": "2026-08-23T09:20:08.712164Z",
+      "response_ms": 1870
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -43,8 +43,8 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-08-23T08:58:58.675725Z",
-      "response_ms": 613
+      "last_checked_at": "2026-08-23T09:14:01.317126Z",
+      "response_ms": 542
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -52,11 +52,35 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-08-23T09:00:07.163685Z",
-      "response_ms": 211
+      "last_checked_at": "2026-08-23T09:15:13.308504Z",
+      "response_ms": 207
     }
   ],
   "outages": [
+    {
+      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "site_name": "Global API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
+    {
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
     {
       "site_id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
       "site_name": "Inventory",
@@ -224,30 +248,6 @@
       "up_at": "2023-12-19T12:01:14.546401Z",
       "status": null,
       "reason": "Connection timed out"
-    },
-    {
-      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "site_name": "Global API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
     },
     {
       "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
