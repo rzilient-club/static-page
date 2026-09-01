@@ -1,14 +1,23 @@
 {
-  "fetched_at": "2026-09-01T22:41:06Z",
+  "fetched_at": "2026-09-01T23:03:32Z",
   "sites": [
+    {
+      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "projectId": 79525,
+      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
+      "state": "up",
+      "last_checked_at": "2026-09-01T23:03:06.942760Z",
+      "response_ms": 131
+    },
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
       "projectId": 79525,
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-09-01T22:39:53.402189Z",
-      "response_ms": 421
+      "last_checked_at": "2026-09-01T23:00:36.548702Z",
+      "response_ms": 407
     },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -16,8 +25,8 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-09-01T22:39:51.782174Z",
-      "response_ms": 357
+      "last_checked_at": "2026-09-01T23:00:25.114543Z",
+      "response_ms": 366
     },
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -25,17 +34,8 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-09-01T22:39:15.851918Z",
-      "response_ms": 487
-    },
-    {
-      "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "projectId": 79525,
-      "name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
-      "state": "up",
-      "last_checked_at": "2026-09-01T22:37:28.578231Z",
-      "response_ms": 124
+      "last_checked_at": "2026-09-01T22:54:22.116785Z",
+      "response_ms": 1635
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -43,20 +43,28 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-09-01T22:34:10.224465Z",
-      "response_ms": 383
+      "last_checked_at": "2026-09-01T22:49:18.553987Z",
+      "response_ms": 361
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
       "projectId": 80270,
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
-      "state": "up",
-      "last_checked_at": "2026-09-01T22:39:02.731755Z",
-      "response_ms": 152
+      "state": "down",
+      "last_checked_at": "2026-09-01T22:54:13.038944Z",
+      "response_ms": 214
     }
   ],
   "outages": [
+    {
+      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
+      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
+    },
     {
       "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
       "site_name": "Global API v2",
@@ -242,14 +250,6 @@
       "reason": "Connection timed out"
     },
     {
-      "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
-      "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
-    {
       "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
       "site_name": "SAML SSO",
       "down_at": "2026-03-24T16:19:02.539328Z",
@@ -408,6 +408,14 @@
       "up_at": "2024-02-06T23:41:54.033206Z",
       "status": null,
       "reason": "Connection attempt timed out"
+    },
+    {
+      "site_id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
+      "site_name": "Rzilient Platform",
+      "down_at": "2026-09-01T22:54:13.003378Z",
+      "up_at": "2026-09-01T22:54:13.003378Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://join.rzilient.club\": read tcp [2a05:d01c:40c:801:b0da:4a23:f07e:493a]:46188->[2a06:98c1:58::60]:443: read: connection reset by peer"
     },
     {
       "site_id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
