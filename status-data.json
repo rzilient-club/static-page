@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-05T15:23:26Z",
+  "fetched_at": "2026-09-05T15:41:07Z",
   "sites": [
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -7,8 +7,8 @@
       "name": "EU API v2",
       "url": "https://eu.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-09-05T15:23:18.348818Z",
-      "response_ms": 367
+      "last_checked_at": "2026-09-05T15:38:42.956609Z",
+      "response_ms": 501
     },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
@@ -16,8 +16,8 @@
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-09-05T15:22:17.478927Z",
-      "response_ms": 85
+      "last_checked_at": "2026-09-05T15:37:43.090152Z",
+      "response_ms": 84
     },
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
@@ -25,8 +25,8 @@
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-09-05T15:22:15.274690Z",
-      "response_ms": 460
+      "last_checked_at": "2026-09-05T15:37:42.880184Z",
+      "response_ms": 543
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -34,8 +34,8 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-09-05T15:16:48.115643Z",
-      "response_ms": 502
+      "last_checked_at": "2026-09-05T15:31:54.299184Z",
+      "response_ms": 554
     },
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -43,8 +43,8 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-09-05T15:13:50.123495Z",
-      "response_ms": 1532
+      "last_checked_at": "2026-09-05T15:29:06.801224Z",
+      "response_ms": 1729
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -52,8 +52,8 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-09-05T15:21:39.576893Z",
-      "response_ms": 504
+      "last_checked_at": "2026-09-05T15:36:48.272582Z",
+      "response_ms": 212
     }
   ],
   "outages": [
