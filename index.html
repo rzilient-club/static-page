@@ -26,6 +26,7 @@
     <div class="nav-links">
       <a class="nav-link" href="/docs/">API Docs</a>
       <a class="nav-link" href="https://developers.rzilient.tech" target="_blank">Developers</a>
+      <a class="nav-link" href="mcp.html">MCP</a>
       <a class="nav-link" href="vpn.html">VPN</a>
       <a class="nav-link" href="https://rzilient.club/en" target="_blank">Website</a>
       <a class="nav-link primary" href="https://join.rzilient.club" target="_blank">Platform →</a>
@@ -48,13 +49,48 @@
     </div>
   </section>
 
-  <!-- Latest release spotlight -->
+  <!-- MCP release spotlight -->
   <section class="spotlight reveal">
-    <a class="spotlight-card" href="pulzar.html">
+    <a class="spotlight-card" href="mcp.html">
       <div class="spotlight-text">
         <p class="spotlight-eyebrow">
           <span class="spotlight-badge">NEW</span>
           _latest_release
+        </p>
+        <h2>Your fleet, in <span class="accent">your AI assistant</span></h2>
+        <p class="spotlight-desc">
+          Connect Claude, Cursor, VS Code, ChatGPT or any MCP client to rzilient
+          and ask about devices, employees and orders in plain language. Twelve
+          hand-written tools, scoped to your company, revocable in one click.
+        </p>
+        <span class="spotlight-cta">See how it works →</span>
+      </div>
+      <div class="spotlight-visual" aria-hidden="true">
+        <svg class="spotlight-mcp" viewBox="0 0 420 120" preserveAspectRatio="none">
+          <path class="mcp-wire" d="M82,60 L182,60"/>
+          <path class="mcp-wire" d="M238,60 L338,60"/>
+          <circle class="mcp-node" cx="60" cy="60" r="22"/>
+          <text class="mcp-glyph" x="60" y="65" text-anchor="middle">&gt;_</text>
+          <rect class="mcp-hub" x="186" y="36" width="48" height="48" rx="12"/>
+          <text class="mcp-hub-label" x="210" y="65" text-anchor="middle">mcp</text>
+          <circle class="mcp-node" cx="360" cy="60" r="22"/>
+          <text class="mcp-glyph" x="360" y="65" text-anchor="middle">{ }</text>
+          <circle class="mcp-packet" r="5">
+            <animateMotion dur="4s" repeatCount="indefinite" calcMode="linear"
+                           keyPoints="0;0.5;0.5;1" keyTimes="0;0.4;0.5;0.9"
+                           path="M82,60 L338,60 L82,60"/>
+          </circle>
+        </svg>
+      </div>
+    </a>
+  </section>
+
+  <!-- Pulzar release spotlight -->
+  <section class="spotlight reveal">
+    <a class="spotlight-card" href="pulzar.html">
+      <div class="spotlight-text">
+        <p class="spotlight-eyebrow">
+          _recent_release
         </p>
         <h2>Meet <span class="accent">Pulzar</span></h2>
         <p class="spotlight-desc">
@@ -135,12 +171,13 @@
         <p>Workflow orchestration for onboarding, offboarding, device rotation, and compliance enforcement across distributed fleets.</p>
         <span class="tag">workflows.rzilient.tech</span>
       </div>
-      <div class="card">
+      <a class="card card-link" href="mcp.html">
         <div class="card-icon">🧠</div>
         <h3>AI/ML Services</h3>
-        <p>Intelligent asset lifecycle predictions, anomaly scoring, proactive maintenance scheduling, and natural language IT support.</p>
-        <span class="tag">ml.rzilient.tech</span>
-      </div>
+        <p>Intelligent asset lifecycle predictions, anomaly scoring, proactive maintenance scheduling, and an MCP server for your own AI assistant.</p>
+        <span class="tag">api.rzilient.tech/mcp</span>
+        <span class="link-arrow">→</span>
+      </a>
       <div class="card">
         <div class="card-icon">🔗</div>
         <h3>Integrations Hub</h3>
@@ -185,6 +222,14 @@
         <div class="link-text">
           <h4>VPN Portal</h4>
           <p>WireGuard VPN management for the team</p>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+      <a class="link-card" href="mcp.html" rel="noopener noreferrer">
+        <div class="link-icon">🤖</div>
+        <div class="link-text">
+          <h4>AI Assistants (MCP)</h4>
+          <p>Connect Claude, Cursor or ChatGPT to your data</p>
         </div>
         <span class="link-arrow">→</span>
       </a>

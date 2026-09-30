@@ -641,6 +641,64 @@ nav {
   .spotlight-pipe .pipe-lock { animation: none; opacity: 1; transform: none; }
 }
 
+/* ---- MCP spotlight: assistant → mcp → data ---- */
+.spotlight-mcp {
+  width: 100%;
+  height: 120px;
+  font-family: var(--mono);
+}
+
+.spotlight-mcp .mcp-wire {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.45;
+}
+
+.spotlight-mcp .mcp-node {
+  fill: var(--surface);
+  stroke: var(--lime);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px var(--lime-glow));
+}
+
+.spotlight-mcp .mcp-hub {
+  fill: var(--lime);
+  filter: drop-shadow(0 0 10px var(--lime-glow));
+  animation: hub-breathe 4s ease-in-out infinite;
+  transform-origin: 210px 60px;
+}
+
+.spotlight-mcp .mcp-glyph {
+  fill: var(--lime);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.spotlight-mcp .mcp-hub-label {
+  fill: #0a0a0a;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.spotlight-mcp .mcp-packet {
+  fill: var(--lime);
+  filter: drop-shadow(0 0 6px var(--lime));
+}
+
+@keyframes hub-breathe {
+  0%, 100% { transform: scale(1); }
+  40%      { transform: scale(1.08); }
+  50%      { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-mcp .mcp-hub { animation: none; }
+  .spotlight-mcp .mcp-packet { display: none; }
+}
+
 /* ==========================================================================
    Services / Card grid
    ========================================================================== */

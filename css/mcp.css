@@ -1,0 +1,296 @@
+/* ======================================================================
+   MCP page-specific styles — extends css/main.css, css/vpn-section.css
+   and css/pulzar.css (demo video, CTA buttons)
+   ====================================================================== */
+
+/* ---- Hero prompt line (signature element) ---- */
+.prompt-wrap {
+    max-width: 640px;
+    margin: 0 auto 32px;
+    animation: fadeInUp 0.6s ease-out 0.25s both;
+}
+
+.prompt-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--text);
+    text-align: left;
+    overflow: hidden;
+}
+
+.prompt-line .prompt-chevron {
+    color: var(--lime);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.prompt-line .prompt-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.prompt-line .prompt-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: var(--lime);
+    margin-left: 2px;
+    vertical-align: -2px;
+    animation: pulse 1s steps(2, start) infinite;
+}
+
+/* ---- Demo video with narration: controls stay visible ---- */
+.demo-video video {
+    cursor: pointer;
+}
+
+.demo-note {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--lime);
+    text-align: center;
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Supported clients ---- */
+.clients {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.client:hover {
+    border-color: rgba(180, 234, 31, 0.35);
+    transform: translateY(-1px);
+}
+
+.client-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.client-name small {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 2px;
+}
+
+.client-auth {
+    flex-shrink: 0;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--lime);
+    background: var(--lime-dim);
+    white-space: nowrap;
+}
+
+.client-auth.oauth {
+    color: var(--text-dim);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+}
+
+/* ---- Tool grid ---- */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.tool {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.tool:hover {
+    border-color: rgba(180, 234, 31, 0.35);
+    transform: translateY(-2px);
+}
+
+.tool .tool-key {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--lime);
+    letter-spacing: 0.02em;
+    display: block;
+    margin-bottom: 8px;
+    padding-right: 56px;
+    word-break: break-all;
+}
+
+.tool h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.tool p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+.tool-kind {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--text-muted);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+}
+
+.tool-kind.write {
+    color: var(--lime);
+    background: var(--lime-dim);
+    border-color: rgba(180, 234, 31, 0.25);
+}
+
+.tool-kind.destructive {
+    color: var(--red);
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.25);
+}
+
+/* ---- Example prompts ---- */
+.prompts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.prompt {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text);
+    transition: border-color 0.2s ease;
+}
+
+.prompt:hover {
+    border-color: rgba(180, 234, 31, 0.35);
+}
+
+.prompt .prompt-chevron {
+    color: var(--lime);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.prompt .prompt-tool {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.prompt .prompt-tool code {
+    color: var(--text-dim);
+}
+
+/* ---- Guarantees list ---- */
+.guarantees {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 24px;
+}
+
+.guarantees li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.guarantees li::before {
+    content: '✓';
+    font-family: var(--mono);
+    color: var(--lime);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.guarantees li strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .clients { grid-template-columns: repeat(2, 1fr); }
+    .tool-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .clients,
+    .tool-grid,
+    .prompts,
+    .guarantees {
+        grid-template-columns: 1fr;
+    }
+
+    .prompt-line {
+        font-size: 12px;
+        padding: 12px 14px;
+        align-items: flex-start;
+    }
+
+    .prompt-line .prompt-text {
+        white-space: normal;
+        overflow: visible;
+    }
+}

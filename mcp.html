@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MCP Server — _rzilient.tech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connect Claude, Cursor, VS Code, ChatGPT or any MCP-compatible AI assistant to your rzilient data. Ask about your fleet, employees and orders in plain language.">
+    <link rel="icon" type="image/x-icon" href="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/vpn-section.css">
+    <link rel="stylesheet" href="css/pulzar.css">
+    <link rel="stylesheet" href="css/mcp.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="page">
+
+    <!-- Nav -->
+    <nav>
+        <a class="nav-logo" href="/">
+            <img src="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg" alt="_rzilient">
+            <span>_rzilient<span class="tech">.tech</span></span>
+        </a>
+        <div class="nav-links">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/docs/">API Docs</a>
+            <a class="nav-link" href="https://developers.rzilient.tech" target="_blank">Developers</a>
+            <a class="nav-link" href="status.html">Status</a>
+            <a class="nav-link primary" href="https://www.rzilient.club/en/demo" target="_blank">Book a Demo →</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="vpn-hero">
+        <div class="vpn-hero-badge">
+            <span class="dot"></span>
+            For rzilient Clients &amp; Partners
+        </div>
+        <h1>_talk to your fleet<br><span class="accent">from any ai assistant</span></h1>
+        <p class="vpn-hero-sub">
+            The rzilient MCP server connects Claude, Cursor, VS Code, ChatGPT or any MCP-compatible assistant to your company's devices, employees, orders and activity. Ask in plain language. The assistant picks the right tool and answers with your data.
+        </p>
+        <div class="prompt-wrap" aria-hidden="true">
+            <div class="prompt-line">
+                <span class="prompt-chevron">&gt;</span>
+                <span class="prompt-text">which laptops are not encrypted, and who has them?<span class="prompt-cursor"></span></span>
+            </div>
+        </div>
+        <div class="vpn-hero-bar">
+            <span class="vpn-proto">MCP</span>
+            <span class="vpn-endpoint">api.rzilient.tech/mcp</span>
+            <span class="vpn-subnet">Streamable HTTP · OAuth 2.1</span>
+        </div>
+    </section>
+
+    <!-- Demo video -->
+    <section class="services reveal">
+        <p class="section-label">See it in action</p>
+        <h2 class="section-title">_connect_verify_ask</h2>
+        <p class="section-desc">From the AI assistants page in your dashboard to a plain-language answer about your fleet, in about a minute. This walkthrough is narrated: unmute to listen.</p>
+        <div class="demo-video">
+            <video
+                    controls
+                    autoplay
+                    muted
+                    playsinline
+                    preload="metadata"
+                    poster="https://resources.rzilient.tech/assets/videos/mcp-demo-poster.jpg">
+                <source src="https://resources.rzilient.tech/assets/videos/mcp-demo.mp4" type="video/mp4">
+                Your browser does not support embedded video.
+                <a href="https://resources.rzilient.tech/assets/videos/mcp-demo.mp4">Download the demo</a> instead.
+            </video>
+        </div>
+        <p class="demo-caption">// live view — connecting Claude Code to the rzilient MCP server on join.rzilient.club</p>
+        <p class="demo-note">🔊 narrated walkthrough — click the speaker to unmute</p>
+    </section>
+
+    <!-- Works with -->
+    <section class="vpn-features reveal">
+        <p class="section-label">Works with</p>
+        <h2 class="section-title">_bring_your_own_assistant</h2>
+        <p class="section-desc">One server, every client. The dashboard generates ready-to-paste configuration for each of them, with the server name qualified by your company so partners managing several tenants never collide.</p>
+        <div class="clients">
+            <div class="client">
+                <span class="client-name">Claude Code<small>One command in the terminal</small></span>
+                <span class="client-auth">API token</span>
+            </div>
+            <div class="client">
+                <span class="client-name">Cursor<small>One-click install link</small></span>
+                <span class="client-auth">API token</span>
+            </div>
+            <div class="client">
+                <span class="client-name">VS Code &amp; GitHub Copilot<small>Token prompted once, kept in the secret store</small></span>
+                <span class="client-auth">API token</span>
+            </div>
+            <div class="client">
+                <span class="client-name">Claude.ai &amp; Claude Desktop<small>Custom connector, sign in with rzilient</small></span>
+                <span class="client-auth oauth">OAuth 2.1</span>
+            </div>
+            <div class="client">
+                <span class="client-name">ChatGPT<small>Workspace connector, sign in with rzilient</small></span>
+                <span class="client-auth oauth">OAuth 2.1</span>
+            </div>
+            <div class="client">
+                <span class="client-name">Codex &amp; any MCP client<small>Streamable HTTP with a bearer header</small></span>
+                <span class="client-auth">API token</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- What the assistant can do -->
+    <section class="vpn-features reveal">
+        <p class="section-label">What the assistant can do</p>
+        <h2 class="section-title">_twelve_tools_reviewed_by_hand</h2>
+        <p class="section-desc">Every tool is written and reviewed by rzilient, never generated from the API spec. Reads are broad; writes are deliberately narrow.</p>
+        <div class="tool-grid">
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_list_devices</span>
+                <h4>List devices</h4>
+                <p>Filter by status, category, assignee, online state, encryption or tag. Paginated.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_search_devices</span>
+                <h4>Search devices by meaning</h4>
+                <p>"Old Apple laptops with small disks in sales." Semantic search over the fleet, no exact filters needed.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_get_device</span>
+                <h4>Get device</h4>
+                <p>One device by id or serial number, with hardware, OS, MDM and security details.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_list_employees</span>
+                <h4>List employees</h4>
+                <p>Search by name or email, filter by role, manager or active state.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_get_employee</span>
+                <h4>Get employee</h4>
+                <p>One person by id or email, including the devices assigned to them.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_list_orders</span>
+                <h4>List orders</h4>
+                <p>Filter by status, type, employee or date range.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_get_order</span>
+                <h4>Get order</h4>
+                <p>Line items, addresses and tracking events for one order.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_recent_activity</span>
+                <h4>Recent activity</h4>
+                <p>The activity feed, newest first. Filter by event, unread or since a date.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind write">write</span>
+                <span class="tool-key">rzilient_update_device</span>
+                <h4>Update device</h4>
+                <p>Replace tags, set a description or assign the device to an employee. Same rules as the dashboard.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind write">write</span>
+                <span class="tool-key">rzilient_onboard_employee</span>
+                <h4>Onboard employee</h4>
+                <p>Create an account with role, manager and start date. Optionally send the invitation.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind write">write</span>
+                <span class="tool-key">rzilient_update_employee</span>
+                <h4>Update employee</h4>
+                <p>Name, phone, role, manager, onboarding and offboarding dates.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind destructive">confirm</span>
+                <span class="tool-key">rzilient_offboard_employee</span>
+                <h4>Offboard employee</h4>
+                <p>Deactivate an account. Refused unless the assistant confirms it with you first.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="vpn-architecture reveal">
+        <p class="section-label">How it works</p>
+        <h2 class="section-title">_from_question_to_answer</h2>
+        <p class="section-desc">No middleware, no export. The assistant talks to rzilient directly, and every call runs inside your company only.</p>
+
+        <div class="architecture-diagram">
+<pre><span class="arch-line">┌──────────────────────────────┐</span>
+<span class="arch-line">│  Your AI assistant           │</span>
+<span class="arch-line">│  Claude · Cursor · ChatGPT   │</span>
+<span class="arch-line">└──────────────┬───────────────┘</span>
+               │
+               │ <span class="arch-highlight">1. "Which laptops are not encrypted?"</span>
+               ▼
+<span class="arch-line">┌──────────────────────────────┐</span>
+<span class="arch-line">│  </span><span class="arch-endpoint">api.rzilient.tech/mcp</span><span class="arch-line">       │</span>
+<span class="arch-line">│  Bearer token or OAuth 2.1   │</span>
+<span class="arch-line">│  Scoped to your company      │</span>
+<span class="arch-line">└──────────────┬───────────────┘</span>
+               │
+               │ <span class="arch-highlight">2. rzilient_list_devices { encrypted: false }</span>
+               ▼
+<span class="arch-line">┌──────────────────────────────┐</span>
+<span class="arch-line">│  Your rzilient data          │</span>
+<span class="arch-line">│  Devices · Employees ·       │</span>
+<span class="arch-line">│  Orders · Activity feed      │</span>
+<span class="arch-line">└──────────────┬───────────────┘</span>
+               │
+               │ <span class="arch-highlight">3. Structured result, explained in plain language</span>
+               ▼</pre>
+        </div>
+    </section>
+
+    <!-- Try asking -->
+    <section class="vpn-features reveal">
+        <p class="section-label">Try asking</p>
+        <h2 class="section-title">_plain_language_in</h2>
+        <p class="section-desc">The assistant tells you which tool it used and what it found. A few questions our clients start with:</p>
+        <div class="prompts">
+            <div class="prompt">
+                <span class="prompt-chevron">&gt;</span>
+                <span>Which Apple laptops are more than three years old and report less than 256 GB of storage?
+                    <span class="prompt-tool">→ <code>rzilient_search_devices</code>, <code>rzilient_get_device</code></span>
+                </span>
+            </div>
+            <div class="prompt">
+                <span class="prompt-chevron">&gt;</span>
+                <span>List the devices that are offline and not encrypted, and who they are assigned to.
+                    <span class="prompt-tool">→ <code>rzilient_list_devices</code></span>
+                </span>
+            </div>
+            <div class="prompt">
+                <span class="prompt-chevron">&gt;</span>
+                <span>Onboard a new designer starting next Monday, reporting to the head of product, and send the invitation.
+                    <span class="prompt-tool">→ <code>rzilient_list_employees</code>, <code>rzilient_onboard_employee</code></span>
+                </span>
+            </div>
+            <div class="prompt">
+                <span class="prompt-chevron">&gt;</span>
+                <span>What changed in the fleet since yesterday, and are there orders still waiting for delivery?
+                    <span class="prompt-tool">→ <code>rzilient_recent_activity</code>, <code>rzilient_list_orders</code></span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for trust -->
+    <section class="services reveal">
+        <p class="section-label">Built for trust</p>
+        <h2 class="section-title">_your_data_stays_yours</h2>
+        <p class="section-desc">The assistant sees exactly what the person who connected it can see, and nothing else.</p>
+        <div class="spec-strip">
+            <div class="spec">
+                <span class="spec-value">1</span>
+                <span class="spec-label">Company per connection. The tenant comes from the token, on every single request.</span>
+            </div>
+            <div class="spec">
+                <span class="spec-value">4</span>
+                <span class="spec-label">Write actions, and only the safe ones: tags, descriptions, assignments and employee lifecycle.</span>
+            </div>
+            <div class="spec">
+                <span class="spec-value">0</span>
+                <span class="spec-label">Tool arguments logged. Names, emails and serial numbers never reach the logs.</span>
+            </div>
+            <div class="spec">
+                <span class="spec-value">1 click</span>
+                <span class="spec-label">To revoke access: delete the token in Settings, and every assistant using it stops instantly.</span>
+            </div>
+        </div>
+        <ul class="guarantees" style="margin-top: 40px;">
+            <li><span><strong>Enabled per company.</strong> AI assistant connections are off until rzilient activates them for you.</span></li>
+            <li><span><strong>Same permissions as the dashboard.</strong> Device assignment goes through the same transitions a manager would use.</span></li>
+            <li><span><strong>Offboarding always asks first.</strong> The tool refuses to run unless the assistant confirmed it with you.</span></li>
+            <li><span><strong>Rate limited.</strong> 120 requests per minute per token, so a runaway agent cannot hammer your data.</span></li>
+            <li><span><strong>Standards based.</strong> Streamable HTTP transport, OAuth 2.1 with PKCE, RFC 9728 and RFC 8414 discovery documents.</span></li>
+            <li><span><strong>Visible in the dashboard.</strong> Writes made by an assistant show up as notifications for the manager who connected it.</span></li>
+        </ul>
+    </section>
+
+    <!-- Getting started -->
+    <section class="vpn-specs reveal">
+        <p class="section-label">Getting started</p>
+        <h2 class="section-title">_how_to_connect</h2>
+        <p class="section-desc">Managers connect their own assistant in a minute. Partners register an application once and let their customers sign in.</p>
+
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h4>For Clients</h4>
+                <ul class="spec-list">
+                    <li><strong>Step 1:</strong> Open Settings → AI assistants in the rzilient dashboard</li>
+                    <li><strong>Step 2:</strong> Generate an API token. It is shown once, so copy it</li>
+                    <li><strong>Step 3:</strong> Paste the generated command or JSON into your assistant</li>
+                    <li><strong>Done:</strong> Ask a question. Type /mcp in Claude Code to see the tools</li>
+                </ul>
+            </div>
+
+            <div class="spec-card">
+                <h4>For Partners</h4>
+                <ul class="spec-list">
+                    <li><strong>Step 1:</strong> Register an OAuth application from Settings → OAuth Applications</li>
+                    <li><strong>Step 2:</strong> rzilient reviews it and delivers the client secret once</li>
+                    <li><strong>Step 3:</strong> Your customers add the connector and sign in with rzilient</li>
+                    <li><strong>Done:</strong> Each token is bound to the company that consented</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="vpn-cta-section reveal">
+        <p class="section-label">Ready to get started?</p>
+        <h2 class="section-title">_connect_your_assistant</h2>
+        <p class="section-desc">Already a client? Open the AI assistants page in your dashboard. Otherwise, book a demo and we will show it live on your own fleet.</p>
+
+        <div class="vpn-cta-buttons">
+            <a class="vpn-btn vpn-btn-primary" href="https://join.rzilient.club" target="_blank" rel="noopener noreferrer">
+                Open the platform <span class="vpn-arrow">→</span>
+            </a>
+            <a class="vpn-btn vpn-btn-secondary" href="https://www.rzilient.club/en/demo" target="_blank" rel="noopener noreferrer">
+                Book a Demo <span class="vpn-arrow">→</span>
+            </a>
+            <a class="vpn-btn vpn-btn-secondary" href="/docs/">
+                API Docs <span class="vpn-arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            &copy; _rzilient | <span id="year"></span> &middot; _rzilient group — Paris, France
+        </div>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/docs/">API Docs</a>
+            <a href="status.html">Status</a>
+            <a href="/terms-of-service-en.html">Terms</a>
+            <a href="/privacy-policy-en.html">Privacy</a>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
