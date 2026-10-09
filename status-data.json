@@ -1,32 +1,14 @@
 {
-  "fetched_at": "2026-10-09T01:11:41Z",
+  "fetched_at": "2026-10-09T01:50:57Z",
   "sites": [
-    {
-      "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "projectId": 79525,
-      "name": "EU API v2",
-      "url": "https://eu.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-10-09T01:10:56.718539Z",
-      "response_ms": 532
-    },
-    {
-      "id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "projectId": 79525,
-      "name": "Global API v2",
-      "url": "https://global.api.rzilient.tech/up",
-      "state": "up",
-      "last_checked_at": "2026-10-09T01:10:39.154064Z",
-      "response_ms": 640
-    },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
       "projectId": 79525,
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-10-09T01:09:52.508364Z",
-      "response_ms": 196
+      "last_checked_at": "2026-10-09T01:50:43.749611Z",
+      "response_ms": 124
     },
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -34,8 +16,26 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-10-09T01:02:53.640239Z",
-      "response_ms": 614
+      "last_checked_at": "2026-10-09T01:48:17.897686Z",
+      "response_ms": 550
+    },
+    {
+      "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "projectId": 79525,
+      "name": "EU API v2",
+      "url": "https://eu.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-10-09T01:47:06.823024Z",
+      "response_ms": 447
+    },
+    {
+      "id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "projectId": 79525,
+      "name": "Global API v2",
+      "url": "https://global.api.rzilient.tech/up",
+      "state": "up",
+      "last_checked_at": "2026-10-09T01:46:23.535896Z",
+      "response_ms": 535
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -43,8 +43,8 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-10-09T01:00:23.068528Z",
-      "response_ms": 672
+      "last_checked_at": "2026-10-09T01:45:37.760719Z",
+      "response_ms": 282
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -52,43 +52,11 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-10-09T01:02:10.178235Z",
-      "response_ms": 304
+      "last_checked_at": "2026-10-09T01:47:24.702417Z",
+      "response_ms": 198
     }
   ],
   "outages": [
-    {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
-      "down_at": "2026-10-01T23:12:23.758720Z",
-      "up_at": "2026-10-01T23:17:32.029771Z",
-      "status": null,
-      "reason": "error making http request: Get \"https://eu.api.rzilient.tech/up\": dial tcp 51.159.113.226:443: i/o timeout"
-    },
-    {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
-      "down_at": "2026-09-30T10:25:13.604962Z",
-      "up_at": "2026-09-30T11:11:17.865651Z",
-      "status": 503,
-      "reason": "Expected 2xx status code -- got 503"
-    },
-    {
-      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
-      "site_name": "EU API v2",
-      "down_at": "2026-08-26T10:20:17.989253Z",
-      "up_at": "2026-08-26T15:38:16.940841Z",
-      "status": 503,
-      "reason": "Expected 2xx status code -- got 503"
-    },
-    {
-      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
-      "site_name": "Global API v2",
-      "down_at": null,
-      "up_at": null,
-      "status": null,
-      "reason": "Unknown"
-    },
     {
       "site_id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
       "site_name": "CDN - Static Assets (DigitalOcean Spaces) ",
@@ -272,6 +240,38 @@
       "up_at": "2023-12-19T12:01:14.546401Z",
       "status": null,
       "reason": "Connection timed out"
+    },
+    {
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
+      "down_at": "2026-10-01T23:12:23.758720Z",
+      "up_at": "2026-10-01T23:17:32.029771Z",
+      "status": null,
+      "reason": "error making http request: Get \"https://eu.api.rzilient.tech/up\": dial tcp 51.159.113.226:443: i/o timeout"
+    },
+    {
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
+      "down_at": "2026-09-30T10:25:13.604962Z",
+      "up_at": "2026-09-30T11:11:17.865651Z",
+      "status": 503,
+      "reason": "Expected 2xx status code -- got 503"
+    },
+    {
+      "site_id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
+      "site_name": "EU API v2",
+      "down_at": "2026-08-26T10:20:17.989253Z",
+      "up_at": "2026-08-26T15:38:16.940841Z",
+      "status": 503,
+      "reason": "Expected 2xx status code -- got 503"
+    },
+    {
+      "site_id": "c9fe2637-441b-499d-82d7-957cba183943",
+      "site_name": "Global API v2",
+      "down_at": null,
+      "up_at": null,
+      "status": null,
+      "reason": "Unknown"
     },
     {
       "site_id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
