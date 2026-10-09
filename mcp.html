@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>MCP Server — _rzilient.tech</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Connect Claude, Cursor, VS Code, ChatGPT or any MCP-compatible AI assistant to your rzilient data. Ask about your fleet, employees and orders in plain language.">
+    <meta name="description" content="Connect Claude, Cursor, VS Code, ChatGPT or any MCP-compatible AI assistant to your rzilient data. Ask about your fleet, catalogue, leasing contracts, employees and orders in plain language.">
     <link rel="icon" type="image/x-icon" href="https://resources.rzilient.tech/assets/images/rzilient-sidebar-small-logo-lime.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,7 @@
         </div>
         <h1>_talk to your fleet<br><span class="accent">from any ai assistant</span></h1>
         <p class="vpn-hero-sub">
-            The rzilient MCP server connects Claude, Cursor, VS Code, ChatGPT or any MCP-compatible assistant to your company's devices, employees, orders and activity. Ask in plain language. The assistant picks the right tool and answers with your data.
+            The rzilient MCP server connects Claude, Cursor, VS Code, ChatGPT or any MCP-compatible assistant to your company's devices, employees, orders, hardware catalogue, leasing contracts and device health. Ask in plain language. The assistant picks the right tool and answers with your data.
         </p>
         <div class="prompt-wrap" aria-hidden="true">
             <div class="prompt-line">
@@ -116,8 +116,8 @@
     <!-- What the assistant can do -->
     <section class="vpn-features reveal">
         <p class="section-label">What the assistant can do</p>
-        <h2 class="section-title">_twelve_tools_reviewed_by_hand</h2>
-        <p class="section-desc">Every tool is written and reviewed by rzilient, never generated from the API spec. Reads are broad; writes are deliberately narrow.</p>
+        <h2 class="section-title">_twenty_two_tools_reviewed_by_hand</h2>
+        <p class="section-desc">Every tool is written and reviewed by rzilient, never generated from the API spec. Reads are broad; writes are deliberately narrow. Ten tools are new in this release: the hardware catalogue, leasing contracts and device health telemetry.</p>
         <div class="tool-grid">
             <div class="tool">
                 <span class="tool-kind">read</span>
@@ -136,6 +136,36 @@
                 <span class="tool-key">rzilient_get_device</span>
                 <h4>Get device</h4>
                 <p>One device by id or serial number, with hardware, OS, MDM and security details.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_get_device_health</span>
+                <h4>Get device health</h4>
+                <p>One device's latest readings: battery, CPU, RAM, disk, temperature and network.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_get_device_history</span>
+                <h4>Get device history</h4>
+                <p>The same readings over time, grouped by hour, day or week.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_find_devices_by_health</span>
+                <h4>Find devices by health</h4>
+                <p>Find the machines whose battery, disk, RAM or reporting state matches what you are looking for.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_list_computers</span>
+                <h4>List catalogue computers</h4>
+                <p>Browse the hardware catalogue your company can order from, with prices and stock.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_get_computer</span>
+                <h4>Get catalogue computer</h4>
+                <p>One catalogue machine in full: specification, price and availability.</p>
             </div>
             <div class="tool">
                 <span class="tool-kind">read</span>
@@ -163,6 +193,18 @@
             </div>
             <div class="tool">
                 <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_list_leasing_contracts</span>
+                <h4>List leasing contracts</h4>
+                <p>Every contract, what it finances and when the term ends.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
+                <span class="tool-key">rzilient_get_leasing_contract</span>
+                <h4>Get leasing contract</h4>
+                <p>One contract and every device it finances, with monthly costs.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind">read</span>
                 <span class="tool-key">rzilient_recent_activity</span>
                 <h4>Recent activity</h4>
                 <p>The activity feed, newest first. Filter by event, unread or since a date.</p>
@@ -184,6 +226,24 @@
                 <span class="tool-key">rzilient_update_employee</span>
                 <h4>Update employee</h4>
                 <p>Name, phone, role, manager, onboarding and offboarding dates.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind write">write</span>
+                <span class="tool-key">rzilient_create_leasing_contract</span>
+                <h4>Create leasing contract</h4>
+                <p>Record a new contract and the devices it finances.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind write">write</span>
+                <span class="tool-key">rzilient_update_leasing_contract</span>
+                <h4>Update leasing contract</h4>
+                <p>Change a contract or the devices on it. A device leaves the contract only when you name it.</p>
+            </div>
+            <div class="tool">
+                <span class="tool-kind destructive">confirm</span>
+                <span class="tool-key">rzilient_purchase_from_catalogue</span>
+                <h4>Purchase from catalogue</h4>
+                <p>Place a catalogue order for approval. The assistant confirms with you, and a manager approves before anything is bought.</p>
             </div>
             <div class="tool">
                 <span class="tool-kind destructive">confirm</span>
@@ -219,7 +279,8 @@
 <span class="arch-line">┌──────────────────────────────┐</span>
 <span class="arch-line">│  Your rzilient data          │</span>
 <span class="arch-line">│  Devices · Employees ·       │</span>
-<span class="arch-line">│  Orders · Activity feed      │</span>
+<span class="arch-line">│  Orders · Catalogue ·        │</span>
+<span class="arch-line">│  Leasing · Activity · Health │</span>
 <span class="arch-line">└──────────────┬───────────────┘</span>
                │
                │ <span class="arch-highlight">3. Structured result, explained in plain language</span>
@@ -257,6 +318,18 @@
                     <span class="prompt-tool">→ <code>rzilient_recent_activity</code>, <code>rzilient_list_orders</code></span>
                 </span>
             </div>
+            <div class="prompt">
+                <span class="prompt-chevron">&gt;</span>
+                <span>Which machines have a battery below 80% health, and how has it moved over the last month?
+                    <span class="prompt-tool">→ <code>rzilient_find_devices_by_health</code>, <code>rzilient_get_device_history</code></span>
+                </span>
+            </div>
+            <div class="prompt">
+                <span class="prompt-chevron">&gt;</span>
+                <span>Which leases end this quarter, and what would replacing those machines cost from the catalogue?
+                    <span class="prompt-tool">→ <code>rzilient_list_leasing_contracts</code>, <code>rzilient_list_computers</code></span>
+                </span>
+            </div>
         </div>
     </section>
 
@@ -271,8 +344,8 @@
                 <span class="spec-label">Company per connection. The tenant comes from the token, on every single request.</span>
             </div>
             <div class="spec">
-                <span class="spec-value">4</span>
-                <span class="spec-label">Write actions, and only the safe ones: tags, descriptions, assignments and employee lifecycle.</span>
+                <span class="spec-value">7</span>
+                <span class="spec-label">Write actions out of twenty-two: device tags and assignment, employee lifecycle, leasing contracts and catalogue orders.</span>
             </div>
             <div class="spec">
                 <span class="spec-value">0</span>
@@ -286,7 +359,9 @@
         <ul class="guarantees" style="margin-top: 40px;">
             <li><span><strong>Enabled per company.</strong> AI assistant connections are off until rzilient activates them for you.</span></li>
             <li><span><strong>Same permissions as the dashboard.</strong> Device assignment goes through the same transitions a manager would use.</span></li>
-            <li><span><strong>Offboarding always asks first.</strong> The tool refuses to run unless the assistant confirmed it with you.</span></li>
+            <li><span><strong>Offboarding and purchases always ask first.</strong> Both tools refuse to run unless the assistant confirmed it with you.</span></li>
+            <li><span><strong>Nothing is bought without a human.</strong> A catalogue order from an assistant is placed for approval; a manager approves it in the dashboard before anything is ordered or billed.</span></li>
+            <li><span><strong>Device health where telemetry is on.</strong> The three health tools appear only for companies running the rzilient telemetry agent.</span></li>
             <li><span><strong>Rate limited.</strong> 120 requests per minute per token, so a runaway agent cannot hammer your data.</span></li>
             <li><span><strong>Standards based.</strong> Streamable HTTP transport, OAuth 2.1 with PKCE, RFC 9728 and RFC 8414 discovery documents.</span></li>
             <li><span><strong>Visible in the dashboard.</strong> Writes made by an assistant show up as notifications for the manager who connected it.</span></li>
