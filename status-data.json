@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-08T07:03:17Z",
+  "fetched_at": "2026-11-08T07:21:34Z",
   "sites": [
     {
       "id": "9a54b566-d2c5-4d4a-b78b-002de23b3767",
@@ -7,8 +7,8 @@
       "name": "Inventory",
       "url": "https://api.rzilient.tech/inflow/companies/v1/getCompany",
       "state": "up",
-      "last_checked_at": "2026-11-08T06:50:00.307346Z",
-      "response_ms": 638
+      "last_checked_at": "2026-11-08T07:19:59.811705Z",
+      "response_ms": 458
     },
     {
       "id": "c9fe2637-441b-499d-82d7-957cba183943",
@@ -16,8 +16,8 @@
       "name": "Global API v2",
       "url": "https://global.api.rzilient.tech/up",
       "state": "up",
-      "last_checked_at": "2026-11-08T06:59:50.268738Z",
-      "response_ms": 589
+      "last_checked_at": "2026-11-08T07:19:51.008931Z",
+      "response_ms": 370
     },
     {
       "id": "f451d0d7-7760-4cbc-bcc2-45df00bb9f69",
@@ -25,8 +25,8 @@
       "name": "CDN - Static Assets (DigitalOcean Spaces) ",
       "url": "https://resources.rzilient.tech/assets/images/rzilient_logo_large.png",
       "state": "up",
-      "last_checked_at": "2026-11-08T06:59:30.194910Z",
-      "response_ms": 116
+      "last_checked_at": "2026-11-08T07:19:29.765643Z",
+      "response_ms": 212
     },
     {
       "id": "5bbc2f99-fe6c-4889-9e1b-6744cb20546f",
@@ -34,8 +34,8 @@
       "name": "SAML SSO",
       "url": "https://global.api.rzilient.tech/auth/saml/login",
       "state": "up",
-      "last_checked_at": "2026-11-08T07:00:22.315947Z",
-      "response_ms": 640
+      "last_checked_at": "2026-11-08T07:15:22.020720Z",
+      "response_ms": 410
     },
     {
       "id": "4aa545e7-5515-4821-b15d-c9aeb927f9e3",
@@ -44,7 +44,7 @@
       "url": "https://eu.api.rzilient.tech/up",
       "state": "down",
       "last_checked_at": "2026-11-08T06:28:29.380952Z",
-      "response_ms": 492
+      "response_ms": 317
     },
     {
       "id": "cc8d5904-73f4-4692-8e6d-0fc29dd0f232",
@@ -52,8 +52,8 @@
       "name": "Rzilient Platform",
       "url": "https://join.rzilient.club",
       "state": "up",
-      "last_checked_at": "2026-11-08T07:00:29.496677Z",
-      "response_ms": 243
+      "last_checked_at": "2026-11-08T07:15:29.251334Z",
+      "response_ms": 148
     }
   ],
   "outages": [
